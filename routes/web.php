@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+// ROLE
+Route::get('/role', [RoleController::class, 'index'])->name('role.index');
+Route::post('/role', [RoleController::class, 'post'])->name('register.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

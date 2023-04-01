@@ -52,30 +52,185 @@
                 <div class="bg-[#00518C] my-auto rounded-full">
                     <div class="my-auto p-3 rounded-full">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                        stroke="white" class="w-11 h-11">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                    </svg>
-                </div>
+                            stroke="white" class="w-11 h-11">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
-    </div>
-    <div class="">
-        <div class="">
-            <h1>Ruang Meeting Terbaik</h1>
-            <p>Berikut Rekomendasi Ruang Meeting Daerah Bandung</p>
+    <!-- List Ruang -->
+    <div class="w-full bg-[#DEEBF4] rounded-2xl p-14" style="height: 95vh;">
+        <div class="mb-6">
+            <h1 class="text-3xl font-semibold mb-1">Ruang Meeting Terbaik</h1>
+            <p class="text-xl">Berikut Rekomendasi Ruang Meeting Daerah Bandung</p>
         </div>
-        <div class="">
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
-            <div class=""></div>
+        <!-- #1 -->
+        <div class="grid grid-cols-2 gap-8 w-full">
+            <div class="flex bg-white p-3 rounded-3xl shadow-lg">
+                <!-- IMAGE -->
+                <div class="" id="image">
+                    <img src="assets/poto1.png" alt="" style="width: 12vw;">
+                </div>
+                <div class="flex flex-col justify-between px-5">
+                    <div class="">
+                        <h3 class="font-medium text-[#00518C] text-3xl">Best Wertern Cedar</h3>
+                        <p class="text-base">Jl. Telekomunikasi. 1, Terusan Buahbatu - Bojongsoang</p>
+                    </div>
+                    <div class="w-full flex justify-between">
+                        <div class="flex items-center w-fit">
+                            <img src="assets/svg/people.png" alt="">
+                            <p>120 Orang</p>
+                        </div>
+                        <div class="flex w-fit items-center">
+                            <img src="assets/svg/book.png" alt="">
+                            <p class="ml-2">Menu Makanan</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <!-- RATING -->
+                        <div class="flex items-center" id="rating">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#94EAEA" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="#94EAEA" class="w-10 h-10 mr-1">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                            </svg>
+                            <p class="font-semibold text-2xl">4.8</p>
+                        </div>
+
+                        <div class="border-y-4 border-x-8 rounded-md border-[#00518C] text-[#00518C] p-1" id="price">
+                            Rp. 700,00-
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #2 -->
+            <div class="flex bg-white p-3 rounded-3xl shadow-lg">
+                <!-- IMAGE -->
+                <div class="" id="image">
+                    <img src="assets/poto2.png" alt="" style="width: 12vw;">
+                </div>
+                <div class="flex flex-col justify-between px-5">
+                    <div class="">
+                        <h3 class="font-medium text-[#00518C] text-3xl">Best Wertern Cedar</h3>
+                        <p class="text-base">Jl. Telekomunikasi. 1, Terusan Buahbatu - Bojongsoang</p>
+                    </div>
+                    <div class="w-full flex justify-between">
+                        <div class="flex items-center w-fit">
+                            <img src="assets/svg/people.png" alt="">
+                            <p>120 Orang</p>
+                        </div>
+                        <div class="flex w-fit items-center">
+                            <img src="assets/svg/book.png" alt="">
+                            <p class="ml-2">Menu Makanan</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <!-- RATING -->
+                        <div class="flex items-center" id="rating">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#94EAEA" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="#94EAEA" class="w-10 h-10">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                            </svg>
+                            <p class="font-semibold text-2xl">4.8</p>
+                        </div>
+
+                        <div class="border-y-4 border-x-8 rounded-md border-[#00518C] text-[#00518C] p-1" id="price">
+                            Rp. 700,00-
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #3 -->
+            <div class="flex bg-white p-3 rounded-3xl shadow-lg">
+                <!-- IMAGE -->
+                <div class="" id="image">
+                    <img src="assets/poto3.png" alt="" style="width: 12vw;">
+                </div>
+                <div class="flex flex-col justify-between px-5">
+                    <div class="">
+                        <h3 class="font-medium text-[#00518C] text-3xl">Best Wertern Cedar</h3>
+                        <p class="text-base">Jl. Telekomunikasi. 1, Terusan Buahbatu - Bojongsoang</p>
+                    </div>
+                    <div class="w-full flex justify-between">
+                        <div class="flex items-center w-fit">
+                            <img src="assets/svg/people.png" alt="">
+                            <p>120 Orang</p>
+                        </div>
+                        <div class="flex w-fit items-center">
+                            <img src="assets/svg/book.png" alt="">
+                            <p class="ml-2">Menu Makanan</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <!-- RATING -->
+                        <div class="flex items-center" id="rating">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#94EAEA" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="#94EAEA" class="w-10 h-10">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                            </svg>
+                            <p class="font-semibold text-2xl">4.8</p>
+                        </div>
+
+                        <div class="border-y-4 border-x-8 rounded-md border-[#00518C] text-[#00518C] p-1" id="price">
+                            Rp. 700,00-
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #4 -->
+            <div class="flex bg-white p-3 rounded-3xl shadow-lg">
+                <!-- IMAGE -->
+                <div class="" id="image">
+                    <img src="assets/poto4.png" alt="" style="width: 12vw;">
+                </div>
+                <div class="flex flex-col justify-between px-5">
+                    <div class="">
+                        <h3 class="font-medium text-[#00518C] text-3xl">Best Wertern Cedar</h3>
+                        <p class="text-base">Jl. Telekomunikasi. 1, Terusan Buahbatu - Bojongsoang</p>
+                    </div>
+                    <div class="w-full flex justify-between">
+                        <div class="flex items-center w-fit">
+                            <img src="assets/svg/people.png" alt="">
+                            <p>120 Orang</p>
+                        </div>
+                        <div class="flex w-fit items-center">
+                            <img src="assets/svg/book.png" alt="">
+                            <p class="ml-2">Menu Makanan</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <!-- RATING -->
+                        <div class="flex items-center" id="rating">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#94EAEA" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="#94EAEA" class="w-10 h-10">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                            </svg>
+                            <p class="font-semibold text-2xl">4.8</p>
+                        </div>
+
+                        <div class="border-y-4 border-x-8 rounded-md border-[#00518C] text-[#00518C] p-1" id="price">
+                            Rp. 700,00-
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="" id="story">
-        <h1>Our Story</h1>
-        <p></p>
-    </div>
+    <div class="py-28 px-20" style="height: 98vh">
+        <div class="bg-[#00518C] text-white h-full rounded-[70px] p-20" id="story">
+            <h1 class="text-5xl font-medium mb-8">Our Story</h1>
+            <p class="text-2xl text-justify">Merupakan website untuk membantu sebuah perusahaan atau organisasi untuk melakukan reservasi ruangan. Pada
+                website ini kami menyediakan berbagai macam ruangan dengan harga yang sesuai dengan budget yang disediakan.
+                Website ini hadir dari hasil survei. Menghadirkan room meeting yang beragam dan sangat baik. Hadirnya
+                website ini akan mempermudah pengguna dan penyedia room berkomunikasi dengan mudah dan cepat, sehingga
+                ketgiatan diskusi ataupun rapat menjadi lebih efektif dan efisien. </p>
+            </div>
+        </div>
 </x-app-layout>

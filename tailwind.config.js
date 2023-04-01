@@ -12,6 +12,8 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                'Poppins' : ['Poppins', 'sans-serif'],
+                'PTserif' : ['PT Serif', 'serif']
             },
         },
     },

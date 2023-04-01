@@ -14,10 +14,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=Poppins:wght@500;600;700&display=swap');
-  * {
-            font-family: 'Inter', sans-serif;
-        }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=PT+Serif&family=Poppins:wght@500;600;700&display=swap');
 </style>
     </head>
     <body class="font-sans antialiased">

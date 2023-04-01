@@ -5,14 +5,14 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center text-white font-semibold text-2xl">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="/">
                         R.co
                     </a>
                 </div>
             </div>
             @if (Route::has('login'))
-                <div class="p-6 text-right">
-                <a href="{{ route('login') }}" class="font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+                <div class="flex items-center p-6 text-right">
+                <a href="/" class="font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
                 <a href="{{ route('login') }}" class="ml-4 font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">About Us</a>
                     @auth
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -51,7 +51,7 @@
                         <a href="{{ route('login') }}" class="ml-4 font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
                             <a href="{{ route('register') }}" class="ml-4 font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                     @endauth
-                </  div>
+                </div>
             @endif
             <!-- Settings Dropdown -->
 
@@ -105,9 +105,7 @@
                     @else
                         <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
+                            <a href="/role" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                     @endauth
                 </div>
             @endif
