@@ -1,8 +1,9 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
+        <h2 class="Poppins text-center font-bold text-2xl text-gray-800 leading-tight" style="font-family:'Poppins', sans-serif;">
+            Reversein.CO
         </h2>
+        <p class="PTserif text-xl text-center" style="font-family: 'PT Serif', serif;">Effortless Meeting At Your Finger Tips</p>
     </x-slot>
 
     <div class="py-12">

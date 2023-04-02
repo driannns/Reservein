@@ -13,7 +13,7 @@
             @if (Route::has('login'))
                 <div class="flex items-center p-6 text-right">
                 <a href="/" class="font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
-                <a href="{{ route('login') }}" class="ml-4 font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">About Us</a>
+                <a href="#" class="ml-4 font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">About Us</a>
                     @auth
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
                         <x-dropdown align="right" width="48">
@@ -49,7 +49,7 @@
                     </div>
                     @else
                         <a href="{{ route('login') }}" class="ml-4 font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                            <a href="{{ route('role.index') }}" class="ml-4 font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
                     @endauth
                 </div>
             @endif

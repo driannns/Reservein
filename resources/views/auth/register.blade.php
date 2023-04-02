@@ -1,3 +1,4 @@
+
 <x-guest-layout>
     <div class="py-8 text-white text-center">
 
@@ -7,7 +8,7 @@
     <form method="POST" action="{{ route('register') }}" class="w-7/12 mx-auto">
         @csrf
         <!-- Role -->
-    <input type="text" name="role" value="">
+    <input type="hidden" name="role" value="{{session('data')}}">
         <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" placeholder="Full Name" required autofocus autocomplete="name" />
