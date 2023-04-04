@@ -21,6 +21,20 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function loyalty(Request $request): View
+    {
+        return view('profile.loyalty', [
+            'user' => $request->user(),
+        ]);
+    }
+
+    public function password(Request $request): View
+    {
+        return view('profile.password', [
+            'user' => $request->user(),
+        ]);
+    }
+
     /**
      * Update the user's profile information.
      */
