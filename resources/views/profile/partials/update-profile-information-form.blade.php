@@ -29,8 +29,8 @@
             <x-input-label for="gender" :value="__('Gender')" class="text-black" />
             <select class="w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                 name="gender" id="gender" required autofocus>
-                <option value="">Men</option>
-                <option value="">Women</option>
+                <option value="Men">Men</option>
+                <option value="Women">Women</option>
             </select>
             <x-input-error class="mt-2" :messages="$errors->get('gender')" />
         </div>

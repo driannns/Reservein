@@ -13,7 +13,8 @@ module.exports = {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 'Poppins' : ['Poppins', 'sans-serif'],
-                'PTserif' : ['PT Serif', 'serif']
+                'PTserif' : ['PT Serif', 'serif'],
+            'Jost' : ['Jost', 'sans-serif']
             },
         },
     },

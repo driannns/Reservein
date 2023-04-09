@@ -9,11 +9,12 @@
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
         <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=PT+Serif&family=Poppins:wght@500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=Jost:wght@400;500&family=PT+Serif&family=Poppins:wght@400;500;600;700&display=swap');
 </style>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>

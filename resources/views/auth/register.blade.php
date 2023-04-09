@@ -10,7 +10,7 @@
         <!-- Role -->
     <input type="hidden" name="role" value="{{session('data')}}">
         <div>
-            <x-input-label for="name" :value="__('Name')" />
+            <x-input-label for="name" :value="__('Name')" style="color: white"/>
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" placeholder="Full Name" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
@@ -19,7 +19,7 @@
         <div class="">
 
             <div class="mt-4">
-                <x-input-label for="email" :value="__('Email')" />
+                <x-input-label for="email" :value="__('Email')" style="color: white"/>
                 <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" placeholder="Email" required autocomplete="username" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
@@ -27,14 +27,14 @@
 
         <!-- Nomor Telepon-->
         <div class="mt-4">
-            <x-input-label for="name" :value="__('Phone Number')" />
+            <x-input-label for="name" :value="__('Phone Number')" style="color: white"/>
             <x-text-input id="name" class="block mt-1 w-full" type="text" name="nomor" :value="old('nomor')" placeholder="+62 .." required autofocus autocomplete="nomor" />
             <x-input-error :messages="$errors->get('nomor')" class="mt-2" />
         </div>
         
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('Password')" style="color: white"/>
             
             <x-text-input id="password" class="block mt-1 w-full"
                             type="password"
@@ -47,7 +47,7 @@
 
         <!-- Confirm Password -->
         <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            <x-input-label for="password_confirmation" :value="__('Confirm Password')" style="color: white"/>
 
             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                             type="password"

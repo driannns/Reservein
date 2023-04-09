@@ -1,28 +1,28 @@
-<nav x-data="{ open: false }" class="bg-[#00518C] border-gray-100" style="height:10vh">
+<nav x-data="{ open: false }" class="bg-[#EDEDED] border-gray-100" style="height:10vh">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl h-full mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-full">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex items-center text-white font-semibold text-2xl">
+                <div class="flex items-center font-semibold text-2xl">
                     <a href="/">
-                        R.co
+                        <img src="/assets/logo.png" alt="" />
                     </a>
                 </div>
             </div>
             @if (Route::has('login'))
             <div class="flex items-center p-6 text-right">
                 <a href="/dashboard"
-                    class="font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
+                    class="font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">Home</a>
                 <a href="#"
-                    class="ml-4 font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">About
+                    class="ml-4 font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">About
                     Us</a>
                 @auth
                 <div class="hidden sm:flex sm:items-center sm:ml-2 ">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button
-                                class="inline-flex items-center px-3 py-2 border border-transparent leading-4 font-medium rounded-md text-white hover:text-gray-200 focus:outline-none transition ease-in-out duration-150">
+                                class="inline-flex items-center px-3 py-2 border border-transparent leading-4 font-medium rounded-md text-[#1F2937] hover:text-gray-400 focus:outline-none transition ease-in-out duration-150">
                                 <div>{{ Auth::user()->name }}</div>
 
                                 <div class="ml-1">
@@ -102,10 +102,10 @@
                 </div>
                 @else
                 <a href="{{ route('login') }}"
-                    class="ml-4 font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
+                    class="ml-4 font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">Log
                     in</a>
                 <a href="{{ route('role.index') }}"
-                    class="ml-4 font-semibold dark:text-white dark:hover:text-gray-400 focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                    class="ml-4 font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">Register</a>
                 @endauth
             </div>
             @endif
