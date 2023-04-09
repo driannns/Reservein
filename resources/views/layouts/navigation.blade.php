@@ -5,14 +5,14 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center font-semibold text-2xl">
-                    <a href="/">
+                    <a href="/dashboard">
                         <img src="/assets/logo.png" alt="" />
                     </a>
                 </div>
             </div>
             @if (Route::has('login'))
             <div class="flex items-center p-6 text-right">
-                <a href="/dashboard"
+                <a href=""
                     class="font-semibold dark:text-[#495261] text-sm dark:hover:text-gray-400">Language</a>
                 <a href="#"
                     class="ml-4 font-semibold dark:text-[#495261] text-sm dark:hover:text-gray-400">Contact</a>
