@@ -10,9 +10,4 @@ class RoomController extends Controller
     {
         return view('room.index');
     }
-
-    public function order()
-    {
-        return view('room.order');
-    }
 }

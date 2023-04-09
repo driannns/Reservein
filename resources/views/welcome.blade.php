@@ -763,48 +763,68 @@
             </div>
         </div>
     </div>
-    <div class="flex items-center justify-center w-full px-10" style="height: 90vh;">
-        <div class="w-6/12">
-            <h1 class="text-4xl font-bold">Why Choose Us?</h1>
-            <div class="flex flex-col gap-3 mb-5">
-                <div class="w-fit rounded-full py-1 px-2 font-semibold text-[#1E40AF] bg-[#DBEAFE]">
-                    <p>Advertising</p>
+    <div class="flex items-center justify-center w-full px-10 gap-14" style="height: 90vh;">
+        <div class="w-fit flex justify-end">
+            <div class="w-9/12">
+                <h1 class="text-4xl font-bold">Why Choose Us?</h1>
+                <div class="flex flex-col gap-3 mb-5">
+                    <div class="w-fit rounded-full py-1 px-2 font-semibold text-[#1E40AF] bg-[#DBEAFE]">
+                        <p>Advertising</p>
+                    </div>
+                    <h1 class="font-bold">Cost-effective advertising</h1>
+                    <p>With a free listing, you can advertise your rooms with no upfront costs</p>
                 </div>
-                <h1 class="font-bold">Cost-effective advertising</h1>
-                <p>With a free listing, you can advertise your rooms with no upfront costs</p>
-            </div>
-            <div class="flex flex-col gap-3 mb-5">
-                <div class="w-fit rounded-full py-1 px-2 font-semibold text-[#166534] bg-[#DCFCE7]">
-                    <p>Exporsure</p>
+                <div class="flex flex-col gap-3 mb-5">
+                    <div class="w-fit rounded-full py-1 px-2 font-semibold text-[#166534] bg-[#DCFCE7]">
+                        <p>Exporsure</p>
+                    </div>
+                    <h1 class="font-bold">Reach millions with ReserveIn</h1>
+                    <p>Millions of people are searching for unique places to stay around the world</p>
                 </div>
-                <h1 class="font-bold">Reach millions with ReserveIn</h1>
-                <p>Millions of people are searching for unique places to stay around the world</p>
-            </div>
-            <div class="flex flex-col gap-3">
-                <div class="w-fit rounded-full py-1 px-2 font-semibold text-[#991B1B] bg-[#FEE2E2]">
-                    <p>Advertising</p>
+                <div class="flex flex-col gap-3">
+                    <div class="w-fit rounded-full py-1 px-2 font-semibold text-[#991B1B] bg-[#FEE2E2]">
+                        <p>Advertising</p>
+                    </div>
+                    <h1 class="font-bold">Secure and simple</h1>
+                    <p>A Meeting Lettings listing gives you a secure and easy way to take reserve and payments online
+                    </p>
                 </div>
-                <h1 class="font-bold">Secure and simple</h1>
-                <p>A Meeting Lettings listing gives you a secure and easy way to take reserve and payments online</p>
             </div>
         </div>
-        <div class="w-6/12">
+        <div class="w-fit">
             <img class="w-9/12" src="/assets/wallpaper2.png" alt="">
         </div>
     </div>
     <div class="p-10">
-        <div class="flex bg-white justify-center items-center gap-32 p-5">
-            <div class="w-4/12"
-                style="background-image: url('/assets/learn1.png'); background-repeat: no-repeat; background-size:100%; height: 75vh;">
-                <h1 class="text-white font-bold">PROVIDE F&B WITH
-                    SPECIAL BUDGET</h1>
-                <button class="bg-[#3C6A91] text-white px-3 py-2 rounded-lg">Learn More</button>
+        <div class="flex bg-white justify-center items-center gap-32 px-5 py-16 rounded-3xl shadow-lg">
+            <div class="w-4/12 rounded-xl"
+                style="background-image: url('/assets/learn1.png'); background-repeat: no-repeat; background-size:cover; height: 70vh;font-family: 'Poppins', sans-serif;">
+                <div class="flex justify-end relative top-1/4 -translate-y-1/2">
+                    <h1 class=" text-white font-bold text-3xl pr-5">PROVIDE F&B WITH<br>
+                        SPECIAL BUDGET</h1>
+                </div>
+                <button
+                    class="relative top-1/2 -translate-y-full ml-10 bg-[#3C6A91] text-white px-4 py-3 rounded-lg font-semibold">Learn
+                    More</button>
             </div>
-            <div class="w-4/12"
-                style="background-image: url('/assets/learn2.png'); background-repeat: no-repeat; background-size:100%; height: 75vh;">
-                <h1 class="text-white font-bold">PROVIDE F&B WITH
-                    SPECIAL BUDGET</h1>
-                <button class="bg-[#3C6A91] text-white px-3 py-2 rounded-lg">Learn More</button>
+            <div class="w-4/12 rounded-xl"
+                style="background-image: url('/assets/learn2.png'); background-repeat: no-repeat; background-size:cover; height: 70vh; font-family: 'Poppins', sans-serif;">
+                <div class="flex justify-end relative top-3/4 -translate-y-1/2">
+                    <h1 class="text-white font-bold text-3xl pr-5">OPEN SPACE AREA WITH<br>
+                        COZY PLACE</h1>
+                </div>
+                <button
+                    class="relative top-1/2 -translate-y-full ml-10 bg-[#3C6A91] text-white px-4 py-3 rounded-lg font-semibold">Learn
+                    More</button>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <div class="">
+            <div class="flex flex-col justify-center py-10">
+            <h1 class="font-bold text-3xl text-center">Good news from far away</h1>
+            <p class="text-[#6B7280] text-center">Let's see what people think of ReserveIn</p>
+                <img class="w-7/12 mx-auto py-8"src="assets/quote.png" alt="">
             </div>
         </div>
     </div>

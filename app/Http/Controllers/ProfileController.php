@@ -73,4 +73,9 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    public function history()
+    {
+        return view('profile.history');
+    }
 }

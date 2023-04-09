@@ -57,8 +57,11 @@
 
         <!-- Filter -->
         <div class="w-3/12" style="font-family: 'Poppins', sans-serif;">
-            <div class="w-full h-20 bg-white mb-4" id="maps">
-
+            <div class="w-full h-fit bg-white mb-4" id="maps">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3356.202976389002!2d-117.1954924848635!3d32.73380058098502!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80deab3944f1e6ef%3A0xdc2e46f957550b6b!2sSan%20Diego%20International%20Airport!5e0!3m2!1sen!2sid!4v1681054029095!5m2!1sen!2sid"
+                    class="w-full" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <!-- filter -->
             <div class="w-full h-fit " id="filter">
@@ -69,8 +72,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
-                    <input class="border-none bg-transparent w-full" type="text" name="search"
-                        placeholder="e.g. Brewspace">
+                    <input class="border-none bg-transparent w-full focus:border-transparent focus:ring-0" type="text"
+                        name="search" placeholder="e.g. Brewspace">
                 </div>
                 <hr class="my-5 border-[#dddddd]">
                 <div>
@@ -252,13 +255,13 @@
                     </div>
                     <div>
                         <a href="/room"><button
-                            class="flex bg-[#3C6A91] hover:bg-[#081440] px-5 py-3 text-white font-medium rounded-lg">
-                            See Availability<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                            </svg>
-                        </button></a>
+                                class="flex bg-[#3C6A91] hover:bg-[#081440] px-5 py-3 text-white font-medium rounded-lg">
+                                See Availability<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                                </svg>
+                            </button></a>
                     </div>
                 </div>
             </div>

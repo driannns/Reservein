@@ -13,10 +13,11 @@
             @if (Route::has('login'))
             <div class="flex items-center p-6 text-right">
                 <a href="/dashboard"
-                    class="font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">Home</a>
+                    class="font-semibold dark:text-[#495261] text-sm dark:hover:text-gray-400">Language</a>
                 <a href="#"
-                    class="ml-4 font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">About
-                    Us</a>
+                    class="ml-4 font-semibold dark:text-[#495261] text-sm dark:hover:text-gray-400">Contact</a>
+                <a href="#"
+                    class="ml-4 font-semibold border border-[#d1d5db] py-1 px-2 rounded-full dark:text-[#495261] text-sm dark:hover:text-gray-400">List your property</a>
                 @auth
                 <div class="hidden sm:flex sm:items-center sm:ml-2 ">
                     <x-dropdown align="right" width="48">
@@ -43,7 +44,7 @@
 
                             <hr class="w-10/12 mx-auto">
 
-                            <x-dropdown-link class="flex items-center gap-2">
+                            <x-dropdown-link :href="route('history')" class="flex items-center gap-2">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
