@@ -17,15 +17,14 @@
                 <!-- Username -->
                 <div class="w-1/2">
                     <x-input-label for="username" :value="__('Username')" style="font-weight:700;"/>
-                    <x-text-input id="username" class="block mt-1 w-full" type="text" name="nusername"
-                        :value="old('username')" placeholder="User Name" required autofocus autocomplete="Username" />
+                    <x-text-input id="username" class="block mt-1 w-full" type="text" name="username"
+                        :value="old('username')" placeholder="User Name" required autofocus />
                     <x-input-error :messages="$errors->get('username')" />
                 </div>
             </div>
 
             <!-- Email Address -->
             <div class="">
-
                 <div class="mt-4">
                     <x-input-label for="email" :value="__('Email')" style="font-weight:700;"/>
                     <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')"
@@ -57,7 +56,7 @@
 
             <div class="mt-4">
                 <div class="flex items-center mb-4">
-                    <input id="default-checkbox" type="checkbox" required value=""
+                    <input id="default-checkbox" type="checkbox" required value="Check" name="termsofservice"
                         class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2">
                     <label for="default-checkbox"
                         class="ml-2 text-sm font-medium text-[#6E6D7A]">Creating an account means
