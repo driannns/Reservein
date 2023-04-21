@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/password', [ProfileController::class, 'password'])->name('profile.password');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::put('/profile', [ProfileController::class, 'avatar'])->name('avatar');
     
     // History
     Route::get('/history', [ProfileController::class, 'history'])->name('history');

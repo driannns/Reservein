@@ -39,6 +39,7 @@ class RegisteredUserController extends Controller
             'address' => ['string', 'max:255'],
             'nomor' => ['string', 'max:12'],
             'about' => ['string', 'max:255'],
+            'foto' => ['string', 'max:255'],
             'termsofservice' => ['required','string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],

@@ -5,27 +5,41 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center font-semibold text-2xl">
+                    @auth
                     <a href="/dashboard">
-                        <img src="/assets/logo.png" alt="" />
+                        @else
+                        <a href="/">
+                            @endauth
+                        <img src="/assets/logo.png" alt="Logo og ReserveIn" />
                     </a>
                 </div>
             </div>
             @if (Route::has('login'))
             <div class="flex items-center p-6 text-right">
-                <a href=""
-                    class="font-semibold dark:text-[#495261] text-sm dark:hover:text-gray-400">Language</a>
+                <a href="" class="font-semibold dark:text-[#495261] text-sm dark:hover:text-gray-400">Language</a>
+                <a href="#" class="ml-4 font-semibold dark:text-[#495261] text-sm dark:hover:text-gray-400">Contact</a>
                 <a href="#"
-                    class="ml-4 font-semibold dark:text-[#495261] text-sm dark:hover:text-gray-400">Contact</a>
-                <a href="#"
-                    class="ml-4 font-semibold border border-[#d1d5db] py-1 px-2 rounded-full dark:text-[#495261] text-sm dark:hover:text-gray-400">List your property</a>
+                    class="mx-4 font-semibold border border-[#d1d5db] py-1 px-2 rounded-full dark:text-[#495261] text-sm dark:hover:text-gray-400">List
+                    your property</a>
                 @auth
+                <div class=""><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="#495261" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                    </svg>
+                </div>
                 <div class="hidden sm:flex sm:items-center sm:ml-2 ">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button
                                 class="inline-flex items-center px-3 py-2 border border-transparent leading-4 font-medium rounded-md text-[#1F2937] hover:text-gray-400 focus:outline-none transition ease-in-out duration-150">
-                                <div>{{ Auth::user()->name }}</div>
-
+                                @if(Auth::user()->foto == null)
+                                <img class="w-9 h-9 rounded-full" src="/assets/svg/avatar.png"
+                                    alt="Photo of Profile">
+                                @else
+                                <img class="w-9 h-9 rounded-full" src="/foto/{{ Auth::user()->foto }}"
+                                    alt="Photo of Profile">
+                                @endif
                                 <div class="ml-1">
                                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 20 20">
@@ -39,7 +53,20 @@
 
                         <x-slot name="content">
                             <x-dropdown-link :href="route('profile.edit')">
-                                {{ __('Profile') }}
+                                <div class="flex items-center gap-2 w-full">
+                                @if(Auth::user()->foto == null)
+                                <img class="w-9 h-9 rounded-full" src="/assets/svg/avatar.png"
+                                    alt="Photo of Profile">
+                                @else
+                                <img class="w-9 h-9 rounded-full" src="/foto/{{ Auth::user()->foto }}"
+                                    alt="Photo of Profile">
+                                @endif
+                                    <div class="w-full overflow-hidden">
+                                        <p class="font-bold">
+                                            {{ Auth::user()->name }}
+                                        </p>
+                                    </div>
+                                </div>
                             </x-dropdown-link>
 
                             <hr class="w-10/12 mx-auto">
@@ -86,7 +113,8 @@
                                 @csrf
 
                                 <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                        this.closest('form').submit();" class="flex items-center gap-2">
+                                                        this.closest('form').submit();"
+                                    class="flex items-center gap-2">
                                     <div>
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                             stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -106,7 +134,7 @@
                     class="ml-4 font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">Log
                     in</a>
                 <a href="{{ route('role.index') }}"
-                    class="ml-4 font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">Register</a>
+                    class="ml-4 bg-[#3C6A91] font-semibold text-white p-2 rounded-lg hover:text-gray-400">Register</a>
                 @endauth
             </div>
             @endif

@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('nomor')->nullable();
             $table->string('about')->nullable();
+            $table->string('foto')->nullable();
             $table->string('termsofservice');
             $table->rememberToken();
             $table->timestamps();

@@ -166,54 +166,70 @@
             <!-- Room #1 -->
             <div class="w-full flex h-fit p-4">
                 <!-- Image -->
-                <div id="controls-carousel" class="relative w-3/12 mr-3" data-carousel="static">
-                    <!-- Carousel wrapper -->
-                    <div class="relative h-full overflow-hidden rounded-lg">
-                        <!-- Item 1 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="/assets/poto1.png"
-                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                alt="...">
+                <div id="carouselExampleCaptions" class="relative w-3/12 mr-3" data-te-carousel-init
+                    data-te-carousel-slide>
+                    <!--Carousel indicators-->
+                    <div class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+                        data-te-carousel-indicators>
+                        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="0"
+                            data-te-carousel-active
+                            class="box-content w-2 h-2 rounded-full flex-initial cursor-pointer bg-white bg-clip-padding mr-1 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                            aria-current="true" aria-label="Slide 1">
+                        </button>
+                        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="1"
+                            class="box-content w-2 h-2 rounded-full flex-initial cursor-pointer bg-white bg-clip-padding mr-1 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="2"
+                            class="box-content w-2 h-2 rounded-full flex-initial cursor-pointer bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                            aria-label="Slide 3"></button>
+                    </div>
+
+                    <!--Carousel items-->
+                    <div class="relative w-full h-full overflow-hidden after:clear-both after:block after:content-['']"
+                        style="height: 30vh;">
+                        <!--First item-->
+                        <div class="relative h-full float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                            style="height: 30vh;" data-te-carousel-active data-te-carousel-item
+                            style="backface-visibility: hidden">
+                            <img src="/assets/poto1.png" class="block object-cover" alt="..." />
                         </div>
-                        <!-- Item 2 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                            <img src="/assets/poto2.png"
-                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                alt="...">
+                        <!--Second item-->
+                        <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                            data-te-carousel-item style="backface-visibility: hidden">
+                            <img src="/assets/poto2.png" class="block object-cover" alt="..." />
                         </div>
-                        <!-- Item 3 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="/assets/poto3.png"
-                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                alt="...">
+                        <!--Third item-->
+                        <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                            data-te-carousel-item style="backface-visibility: hidden">
+                            <img src="/assets/poto3.png" class="block object-cover" alt="..." />
                         </div>
                     </div>
-                    <!-- Slider controls -->
-                    <button type="button"
-                        class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                        data-carousel-prev>
-                        <span
-                            class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 19l-7-7 7-7"></path>
+
+                    <!--Carousel controls - prev item-->
+                    <button
+                        class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                        type="button" data-te-target="#carouselExampleCaptions" data-te-slide="prev">
+                        <span class="inline-block h-8 w-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                             </svg>
-                            <span class="sr-only">Previous</span>
                         </span>
+                        <span
+                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
                     </button>
-                    <button type="button"
-                        class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                        data-carousel-next>
-                        <span
-                            class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                </path>
+                    <!--Carousel controls - next item-->
+                    <button
+                        class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                        type="button" data-te-target="#carouselExampleCaptions" data-te-slide="next">
+                        <span class="inline-block h-8 w-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                             </svg>
-                            <span class="sr-only">Next</span>
                         </span>
+                        <span
+                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
                     </button>
                 </div>
 
@@ -269,54 +285,70 @@
             <!-- Room #2 -->
             <div class="w-full flex h-fit p-4">
                 <!-- Image -->
-                <div id="controls-carousel" class="relative w-3/12 mr-3" data-carousel="static">
-                    <!-- Carousel wrapper -->
-                    <div class="relative h-full overflow-hidden rounded-lg">
-                        <!-- Item 1 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="/assets/poto1.png"
-                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                alt="...">
+                <div id="carouselExampleCaptionss" class="relative w-3/12 mr-3" data-te-carousel-init
+                    data-te-carousel-slide>
+                    <!--Carousel indicators-->
+                    <div class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+                        data-te-carousel-indicators>
+                        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="0"
+                            data-te-carousel-active
+                            class="box-content w-2 h-2 rounded-full flex-initial cursor-pointer bg-white bg-clip-padding mr-1 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                            aria-current="true" aria-label="Slide 1">
+                        </button>
+                        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="1"
+                            class="box-content w-2 h-2 rounded-full flex-initial cursor-pointer bg-white bg-clip-padding mr-1 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="2"
+                            class="box-content w-2 h-2 rounded-full flex-initial cursor-pointer bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+                            aria-label="Slide 3"></button>
+                    </div>
+
+                    <!--Carousel items-->
+                    <div class="relative w-full h-full overflow-hidden after:clear-both after:block after:content-['']"
+                        style="height: 30vh;">
+                        <!--First item-->
+                        <div class="relative h-full float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                            style="height: 30vh;" data-te-carousel-active data-te-carousel-item
+                            style="backface-visibility: hidden">
+                            <img src="/assets/poto1.png" class="block object-cover" alt="..." />
                         </div>
-                        <!-- Item 2 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-                            <img src="/assets/poto2.png"
-                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                alt="...">
+                        <!--Second item-->
+                        <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                            data-te-carousel-item style="backface-visibility: hidden">
+                            <img src="/assets/poto2.png" class="block object-cover" alt="..." />
                         </div>
-                        <!-- Item 3 -->
-                        <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                            <img src="/assets/poto3.png"
-                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                alt="...">
+                        <!--Third item-->
+                        <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+                            data-te-carousel-item style="backface-visibility: hidden">
+                            <img src="/assets/poto3.png" class="block object-cover" alt="..." />
                         </div>
                     </div>
-                    <!-- Slider controls -->
-                    <button type="button"
-                        class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                        data-carousel-prev>
-                        <span
-                            class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M15 19l-7-7 7-7"></path>
+
+                    <!--Carousel controls - prev item-->
+                    <button
+                        class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                        type="button" data-te-target="#carouselExampleCaptionss" data-te-slide="prev">
+                        <span class="inline-block h-8 w-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
                             </svg>
-                            <span class="sr-only">Previous</span>
                         </span>
+                        <span
+                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
                     </button>
-                    <button type="button"
-                        class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                        data-carousel-next>
-                        <span
-                            class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                            <svg aria-hidden="true" class="w-6 h-6 text-white dark:text-gray-800" fill="none"
-                                stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
-                                </path>
+                    <!--Carousel controls - next item-->
+                    <button
+                        class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+                        type="button" data-te-target="#carouselExampleCaptionss" data-te-slide="next">
+                        <span class="inline-block h-8 w-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="h-6 w-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                             </svg>
-                            <span class="sr-only">Next</span>
                         </span>
+                        <span
+                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
                     </button>
                 </div>
 
@@ -357,15 +389,14 @@
                         <h1>Rp. 499.000</h1>
                     </div>
                     <div>
-                        <button
-                            class="flex bg-[#3C6A91] hover:bg-[#081440] px-5 py-3 text-white font-medium rounded-lg">
-                            See Availability<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                stroke-width="2" stroke="currentColor" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                            </svg>
-                        </button>
-                        </button>
+                        <a href="/room"><button
+                                class="flex bg-[#3C6A91] hover:bg-[#081440] px-5 py-3 text-white font-medium rounded-lg">
+                                See Availability<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="2" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                                </svg>
+                            </button></a>
                     </div>
                 </div>
             </div>

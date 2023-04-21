@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {
@@ -77,5 +78,30 @@ class ProfileController extends Controller
     public function history()
     {
         return view('profile.history');
+    }
+
+    public function avatar(Request $request)
+    {
+        $user = Auth::User(); 
+        $this->validate(
+            $request,
+            [
+                'foto' => 'mimes:png,jpeg,jpg'
+            ]
+        );
+
+        $path = 'foto/'.$user->foto;
+        if(File::exists($path))
+        {
+            File::delete($path);
+        }
+        $foto = $request->file('foto');
+        $name = 'avatar_' . date('Ymdhis') . '.' . $request->file('foto')->getClientOriginalExtension();
+        $foto->move('foto/', $name);
+
+        $user = Auth::user();
+        $user->foto = $name;
+        $user->update();
+        return Redirect('/profile');
     }
 }
