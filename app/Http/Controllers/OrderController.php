@@ -1,23 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Room;
 
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function index()
+    public function order($id)
     {
-        return view('room.order');
+        $room = Room::find($id);
+        return view('order.index', compact('room'));
     }
 
-    public function payment()
+    public function payment($id)
     {
-        return view('room.payment');
+        $room = Room::find($id);
+        return view('order.payment', compact('room'));
     }
     
-    public function receipt()
+    public function receipt($id)
     {
-        return view('room.receipt');
+        $room = Room::find($id);
+        return view('order.receipt', compact('room'));
     }
 }

@@ -30,9 +30,9 @@
             </div>
         </form>
         <div class="flex gap-4 mt-3">
-            <a href="{{ route('order') }}"><button
+            <a href="/order/form/{{ $room->id }}"><button
                     class="bg-white text-[#b0b0b0] py-4 px-4 rounded-lg">Previous</button></a>
-            <a href="{{ route('receipt') }}"><button class="bg-[#3554D1] text-white py-4 px-4 rounded-lg">
+            <a href="/order/receipt/{{ $room->id }}"><button class="bg-[#3554D1] text-white py-4 px-4 rounded-lg">
                     <div class="flex items-center gap-2">
                         Next
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"

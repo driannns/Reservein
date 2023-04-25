@@ -26,9 +26,7 @@ Route::get('/', function () {
 Route::get('/role', [RoleController::class, 'index'])->name('role.index');
 Route::post('/role', [RoleController::class, 'post'])->name('register.index');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard',[RoomController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -42,12 +40,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/history', [ProfileController::class, 'history'])->name('history');
 
     // Room Routes
-    Route::get('/room', [RoomController::class, 'index'])->name('room');
+    Route::get('/room/{id}', [RoomController::class, 'room'])->name('room');
 
     // Order
-    Route::get('/room/order', [OrderController::class, 'index'])->name('order');
-    Route::get('/room/order/payment', [OrderController::class, 'payment'])->name('payment');
-    Route::get('/room/order/receipt', [OrderController::class, 'receipt'])->name('receipt');
+    Route::get('/order/form/{id}', [OrderController::class, 'order'])->name('order');
+    Route::get('/order/payment/{id}', [OrderController::class, 'payment'])->name('payment');
+    Route::get('/order/receipt/{id}', [OrderController::class, 'receipt'])->name('receipt');
 });
 
 require __DIR__.'/auth.php';

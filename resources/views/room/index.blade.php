@@ -21,7 +21,7 @@
             <div class="border border-gray-200 rounded-xl p-5" id="main-detail">
                 <div class="flex justify-between">
                     <div>
-                        <h1 class="text-3xl font-semibold">Stellar Space Medium</h1>
+                        <h1 class="text-3xl font-semibold">{{ $room->room_name }}</h1>
                     </div>
                     <div class="flex gap-5 text-[#374151]">
                         <div class="flex gap-1 items-center">
@@ -53,30 +53,23 @@
                     </div>
                     <p>·</p>
                     <div>
-                        <p>Dago, Bandung</p>
+                        <p>{{ $room->location }}</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2 w-6/12 mt-4">
                     <img src="assets/poto1.png" alt="" class="w-1/12 rounded-full">
-                    <p class="text-[#6B7280]">by Stellar Meetings</p>
+                    <p class="text-[#6B7280]">by {{ $room->company }}</p>
                 </div>
                 <div class="flex gap-8 ml-10 mt-6 text-[#374151]">
-                    <div>5-10 Person</div>
-                    <div>U Shape</div>
-                    <div>10 x 7 m²</div>
+                    <div>{{ $room->person }}</div>
+                    <div>{{ $room->room_type }}</div>
+                    <div>{{ $room->room_area    }}</div>
                 </div>
             </div>
             <div class="pr-20 border border-gray-200 rounded-xl p-5" id="room-information">
                 <h1 class="text-2xl font-semibold mb-14">Room Information</h1>
                 <p class="leading-loose text-[#4B5563]">
-                    Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides accommodation, an outdoor
-                    swimming
-                    pool, a bar, a shared lounge, a garden and barbecue facilities. Complimentary WiFi is provided.
-
-                    There is a private bathroom with bidet in all units, along with a hairdryer and free toiletries.
-
-                    The Symphony 9 Tam Coc offers a terrace. Both a bicycle rental service and a car rental service are
-                    available at the accommodation, while cycling can be enjoyed nearby.
+                    {{ $room->room_description }}
                 </p>
             </div>
             <div class="border border-gray-200 rounded-xl p-5" id="properties">
@@ -85,12 +78,12 @@
                     <p class="text-[#6B7280]">About the property's and services</p>
                 </div>
                 <div class="grid grid-cols-2 gap-y-7 pl-5 mb-10 text-[#374151]">
-                    <div>Speaker</div>
-                    <div>Projector</div>
-                    <div>Whiteboard</div>
-                    <div>Charging port</div>
-                    <div>Food and Baverage</div>
-                    <div>Free Cancellation</div>
+                    <div>{{ $room->properties1 }}</div>
+                    <div>{{ $room->properties2 }}</div>
+                    <div>{{ $room->properties3 }}</div>
+                    <div>{{ $room->properties4 }}</div>
+                    <div>{{ $room->properties5 }}</div>
+                    <div>{{ $room->properties6 }}</div>
                 </div>
                 <div class="">
                     <button class="bg-white py-2 px-3 rounded-full">View Less</button>
@@ -197,8 +190,7 @@
             <div class="border border-gray-200 rounded-xl py-5 pl-5 pr-24">
                 <h1 class="text-xl font-semibold mb-4">Speacial Note</h1>
                 <div class="text-[#6B7280]">
-                    <p>Ban and I will work together to keep the landscape and environment green and
-                        clean by not littering, not using stimulants and respecting people around.</p>
+                    <p>{{ $room->special_note }}</p>
                     <p class="mt-2">Do not sing karaoke past 11:30</p>
                 </div>
             </div>
@@ -219,7 +211,7 @@
         <div class="w-4/12 h-fit p-5 shadow-lg ml-3 rounded-lg">
             <div class="flex flex-col gap-5">
                 <div class="flex justify-between">
-                    <h1 class="text-2xl font-bold">IDR 200.000 <span class="text-lg font-normal text-[#6b7280]">/hour</span></h1>
+                    <h1 class="text-2xl font-bold">@currency($room->price)<span class="text-lg font-normal text-[#6b7280]">/hour</span></h1>
                     <div class="flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#f97316" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="#f97316" class="w-6 h-6">
@@ -256,7 +248,7 @@
                 </div>
                 <div class="">
                     <div class="flex justify-between">
-                        <p>IDR 200.000 x 2 hour</p>
+                        <p>@currency($room->price) x 2 hour</p>
                         <p>IDR 400.000</p>
                     </div>
                     <div class="flex justify-between">
@@ -268,7 +260,7 @@
                     <p>Total</p>
                     <p>IDR 400.000</p>
                 </div>
-                <a href="{{ route('order') }}"><button class="w-full bg-[#3C6A91] hover:bg-[#081440] text-white p-2 rounded-full">
+                <a href="/order/form/{{$room->id}}"><button class="w-full bg-[#3C6A91] hover:bg-[#081440] text-white p-2 rounded-full">
                     Reserve
                 </button></a>
             </div>
