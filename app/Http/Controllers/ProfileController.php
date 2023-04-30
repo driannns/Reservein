@@ -29,6 +29,11 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function faqs()
+    {
+        return view('profile.faqs');
+    }
+
     public function password(Request $request): View
     {
         return view('profile.password', [

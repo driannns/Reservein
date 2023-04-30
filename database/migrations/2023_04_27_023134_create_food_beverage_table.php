@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('booking', function (Blueprint $table) {
+        Schema::create('food_beverage', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('room_id');
+            $table->string('name', 50);
+            $table->enum('type', ['Starter', 'Main Course', 'Deserts & Drinks']);
+            $table->string('description', 250);
+            $table->string('price', 250);
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('booking');
+        Schema::dropIfExists('food_beverage');
     }
 };

@@ -8,47 +8,63 @@
             </div>
 
             <div class="w-10/12">
-                <div class="flex justify-between gap-12 rounded-full bg-white px-7">
-                    <div class="flex items-center py-3 w-fit">
-                        <div class="">
-                            <p class="font-bold text-xl">Location</p>
-                            <p class="text-[#CACACA]">Where are you?</p>
+                <form action="{{route('filtered')}}">
+                    <div class="flex justify-between gap-12 rounded-full bg-white px-7">
+                        <div class="flex items-center py-3 w-fit">
+                            <div>
+                                <p class="font-bold text-xl pl-2">Location</p>
+                                <select class="text-[#CACACA] border-none focus:ring-0" name="location" id="location">
+                                    <option value="">Where are you?</option>
+                                    <option value="Bandung">Bandung</option>
+                                    <option value="Jakarta">Jakarta</option>
+                                    <option value="Tanggerang">Tanggerang</option>
+                                    <option value="Surabaya">Surabaya</option>
+                                    <option value="Bekasi">Bekasi</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="#CACACA" class="w-8 h-8 mr-1">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
-                        </svg>
-                        <div class="">
-                            <p class="font-bold text-xl">Room Type</p>
-                            <p class="text-[#CACACA]">Enter your room</p>
-                        </div>
-                    </div>
-                    <div class="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="#CACACA" class="w-8 h-8 mr-1">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
-                        </svg>
-                        <div class="">
-                            <p class="font-bold text-xl">Date</p>
-                            <p class="text-[#CACACA]">Choose your date</p>
-                        </div>
-                    </div>
-                    <div class="bg-[#3C6A91] my-auto rounded-full">
-
-                        <button class="flex items-center my-auto p-3 rounded-full text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                                stroke="white" class="w-5 h-5">
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="#CACACA" class="w-8 h-8 mr-1">
                                 <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
                             </svg>
-                            Search
-                        </button>
+                            <div class="">
+                                <p class="font-bold text-xl pl-2">Check In</p>
+                                <input class="border-0 text-[#CACACA] focus:ring-0" type="date" name="date">
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="#CACACA" class="w-8 h-8 mr-1">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                            </svg>
+                            <div class="">
+                                <p class="font-bold text-xl pl-2">Type</p>
+                                <select class="text-[#CACACA] border-none focus:ring-0" name="roomType" id="roomType">
+                                    <option value="">Room Type</option>
+                                    <option value="Openspace">Openspace</option>
+                                    <option value="Outdoor">Outdoor</option>
+                                    <option value="Indoor">Indoor</option>
+                                    <option value="Lounge">Lounge</option>
+                                    <option class="rounded-full" value="U Shape">U Shape</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="bg-[#3C6A91] my-auto rounded-full">
+
+                            <button class="flex items-center my-auto p-3 rounded-full text-white" type='submit'>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="white" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                </svg>
+                                Search
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -72,7 +88,7 @@
                             d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
                     <input class="border-none bg-transparent w-full focus:border-transparent focus:ring-0" type="text"
-                        name="search" placeholder="e.g. Brewspace">
+                        name="search" id="inputFindRoom" placeholder="e.g. Brewspace">
                 </div>
                 <hr class="my-5 border-[#dddddd]">
                 <div>
@@ -164,7 +180,7 @@
         <div class="w-8/12 ml-5">
             <!-- Room #1 -->
             @foreach($room as $rooms)
-            <div class="w-full flex h-fit p-4">
+            <div class="w-full flex h-fit p-4" id="card-rooms">
                 <!-- Image -->
                 <div id="carouselExampleCaptions" class="relative w-3/12 mr-3" data-te-carousel-init
                     data-te-carousel-slide>
@@ -237,9 +253,9 @@
                 <div class="w-6/12" id="description">
                     <!-- Room name -->
                     <div>
-                        <h1 class="font-bold" id="title">
+                        <h4 class="font-bold" id="title">
                             {{ $rooms->room_name}}
-                        </h1>
+                        </h4>
                     </div>
                     <!-- Address -->
                     <div>
@@ -254,10 +270,10 @@
                         <p>You can cancel later, so lock in this great price today.</p>
                     </div>
                     <div class="flex text-sm gap-4 mt-3">
-                        <div class="border border-gray-300 rounded-xl px-3 py-1">{{ $rooms->properties1}}</div>
-                        <div class="border border-gray-300 rounded-xl px-3 py-1">{{ $rooms->properties2}}</div>
-                        <div class="border border-gray-300 rounded-xl px-3 py-1">{{ $rooms->properties3}}</div>
-                        <div class="border border-gray-300 rounded-xl px-3 py-1">{{ $rooms->properties4}}</div>
+                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">{{ $rooms->properties1}}</div>
+                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">{{ $rooms->properties2}}</div>
+                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">{{ $rooms->properties3}}</div>
+                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">{{ $rooms->properties4}}</div>
                     </div>
                 </div>
                 <div class="w-4/12 flex flex-col items-end justify-around">
@@ -281,6 +297,8 @@
                 </div>
             </div>
             @endforeach
+            <p>{{ $room->links() }}</p>
+            <p>Displaying {{$room->count()}} of {{$room->total() }} room(s)</p>
         </div>
     </div>
 </x-app-layout>

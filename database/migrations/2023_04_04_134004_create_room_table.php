@@ -36,7 +36,6 @@ return new class extends Migration
             $table->string('foto4');
             $table->string('price');
             $table->string('review')->nullable();
-            $table->text('description');
             $table->rememberToken();
             $table->timestamps();
         });

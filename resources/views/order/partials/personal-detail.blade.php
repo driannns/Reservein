@@ -114,6 +114,7 @@
         </div>
         <hr class="my-2 border-[#dddddd]">
         <div class="">
+            <a class="text-blue-500" href="/room/{id}/additional"><p>Food and Beverages</p></a>
             <p>You selected:</p>
             <p class="font-semibold flex justify-between">Food and Baverage <span>7 Items</span></p>
         </div>

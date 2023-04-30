@@ -8,6 +8,7 @@
         <div><a class="pb-1" href="/profile">Account</a></div>
         <div><a class="pb-1" href="/profile/loyalty">Loyalty</a></div>
         <div><a class="pb-1" href="/profile/password">Account Password</a></div>
+        <div><a class="pb-1" href="/profile/faqs">FaQs</a></div>
     </div>
 </section>
 <script type="application/javascript">
