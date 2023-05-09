@@ -46,11 +46,23 @@ Route::middleware('auth')->group(function () {
 
     // Room Routes
     Route::get('/room/{id}', [RoomController::class, 'room'])->name('room');
-    Route::get('/room/{id}/additional', [RoomController::class, 'additional'])->name('additional');
+    Route::post('/room/{id}/session', [RoomController::class, 'session'])->name('session');
+    Route::get('/order/{id}/additional', [RoomController::class, 'additional'])->name('additional');
+    Route::get('/order/{id}/additional', [RoomController::class, 'additional'])->name('additional');
 
     // Order
-    Route::get('/order/form/{id}', [OrderController::class, 'order'])->name('order');
+    Route::get('/order/form/{id}', [OrderController::class, 'index'])->name('order');
+
+    Route::get('/order/additional/{id}', [OrderController::class, 'additional'])->name('additional');
+    Route::post('/order/additional/total/{id}', [OrderController::class, 'totaladditional'])->name('totalAdditional');
+    Route::post('/order/form/{id}', [OrderController::class, 'orderWithAdditional'])->name('orderWithAdditional');
+    Route::post('/order/form/store/{id}', [OrderController::class, 'store'])->name('store');
+
     Route::get('/order/payment/{id}', [OrderController::class, 'payment'])->name('payment');
+    Route::post('/order/payment/{id}', [OrderController::class, 'paymentStore'])->name('paymentStore');
+
+    Route::get('/order/confirm-payment/{id}', [OrderController::class, 'confirmPayment'])->name('confirmPayment');
+    Route::post('/order/confirm-payment/{id}', [OrderController::class, 'confirmPaymentStore'])->name('confirmPaymentStore');
     Route::get('/order/receipt/{id}', [OrderController::class, 'receipt'])->name('receipt');
 });
 

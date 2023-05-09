@@ -278,7 +278,7 @@
                 </div>
                 <div class="w-4/12 flex flex-col items-end justify-around">
                     <div class="mt-2">
-                        <p>0 reviews</p>
+                        <p>{{ $rooms->rating_count }} reviews</p>
                     </div>
                     <div>
                         <p>{{ $rooms->people}}</p>
@@ -298,7 +298,7 @@
             </div>
             @endforeach
             <p>{{ $room->links() }}</p>
-            <p>Displaying {{$room->count()}} of {{$room->total() }} room(s)</p>
+            <!-- <p>Displaying {{$room->count()}} of {{$room->total() }} room(s)</p> -->
         </div>
     </div>
 </x-app-layout>

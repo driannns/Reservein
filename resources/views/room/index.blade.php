@@ -7,10 +7,10 @@
             </div>
         </div>
         <div class="w-1/2 grid grid-cols-2 place-items-center gap-1">
-            <img class="w-full" src="/assets/poto1.png" alt="">
-            <img class="w-full" src="/assets/poto2.png" alt="">
-            <img class="w-full" src="/assets/poto3.png" alt="">
-            <img class="w-full" src="/assets/poto4.png" alt="">
+            <img class="w-full" src="/assets/poto1.png" alt="Photo of {{ $room->room_name }}">
+            <img class="w-full" src="/assets/poto2.png" alt="Photo of {{ $room->room_name }}">
+            <img class="w-full" src="/assets/poto3.png" alt="Photo of {{ $room->room_name }}">
+            <img class="w-full" src="/assets/poto4.png" alt="Photo of {{ $room->room_name }}">
         </div>
     </div>
 
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2 w-6/12 mt-4">
-                    <img src="assets/poto1.png" alt="" class="w-1/12 rounded-full">
+                    <img src="/assets/poto1.png" alt="" class="w-1/12 rounded-full">
                     <p class="text-[#6B7280]">by {{ $room->company }}</p>
                 </div>
                 <div class="flex gap-8 ml-10 mt-6 text-[#374151]">
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="border border-gray-200 rounded-xl p-5" id="review">
-                <h1 class="text-2xl font-semibold mb-8">Reviews (23 reviews)</h1>
+                <h1 class="text-2xl font-semibold mb-8">Reviews ({{ $totalRatings }} reviews)</h1>
                 <div class="flex" id="star">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="#EAB308" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="#EAB308" class="w-5 h-5">
@@ -118,12 +118,17 @@
                             d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
                     </svg>
                 </div>
+                @foreach ($rating as $ratings)
                 <div class="mt-7">
                     <div class="flex justify-between">
                         <div class="flex items-center">
-                            <img src="assets/poto1.png" alt="" class="w-12 h-12 rounded-full">
+                            @if( $ratings->user->foto == null)
+                            <img src="/assets/svg/avatar.png" alt="" class="w-12 h-12 rounded-full">
+                            @else
+                            <img src="/foto/{{ $ratings->user->foto }}" alt="" class="w-12 h-12 rounded-full">
+                            @endif
                             <div class="ml-4">
-                                <p class="font-semibold">Cody Fisher</p>
+                                <p class="font-semibold">{{ $ratings->user->name }}</p>
                                 <p class="text-[#6B7280]">May 20,2021</p>
                             </div>
                         </div>
@@ -155,9 +160,10 @@
                             </svg>
                         </div>
                     </div>
-                    <p class="ml-16 mt-2 text-[#4B5563]">This is Crazyy, feels like so comfy</p>
+                    <p class="ml-16 mt-2 text-[#4B5563]">{{ $ratings->description }}</p>
                     <hr class="border-white w-11/12 mx-auto my-9">
                 </div>
+                @endforeach
                 <div class="">
                     <button class="bg-white py-2 px-3 rounded-full" style="font-family:'Poppins', sans-serif;">View
                         More</button>
@@ -209,62 +215,102 @@
         </div>
         <!-- Reserve -->
         <div class="w-4/12 h-fit p-5 shadow-lg ml-3 rounded-lg">
-            <div class="flex flex-col gap-5">
-                <div class="flex justify-between">
-                    <h1 class="text-2xl font-bold">@currency($room->price)<span class="text-lg font-normal text-[#6b7280]">/hour</span></h1>
-                    <div class="flex items-center gap-2">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="#f97316" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="#f97316" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                        </svg>
-                        <p>4.5 <span class="text-[#6B7280]">(112)</span></p>
-                    </div>
-                </div>
-                <div class="border border-[#e5e7eb] rounded-3xl p-3">
-                    <div class="flex items-center gap-3 mb-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="#9CA3AF" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                        </svg>
-                        <div class="">
-                            <p class="font-semibold text-lg">15 March 2023</p>
-                            <p class="text-[#9CA3AF]">Check in</p>
+            <form action="/room/{{ $room->id }}/session" method="post">
+                @csrf
+                <div class="flex flex-col gap-5">
+                    <div class="flex justify-between">
+                        <h1 class="text-2xl font-bold">@currency($room->price)<span
+                                class="text-lg font-normal text-[#6b7280]">/hour</span></h1>
+                        <div class="flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="#f97316" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="#f97316" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                            </svg>
+                            <p>4.5 <span class="text-[#6B7280]">(112)</span></p>
                         </div>
                     </div>
-                    <hr class="border-[#e5e7eb] -mx-3">
-                    <div class="flex items-center gap-3 mt-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="#9CA3AF" class="w-8 h-8">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <div class="">
-                            <p class="font-semibold text-lg">5PM - 7PM</p>
-                            <p class="text-[#9CA3AF]">Time</p>
+                    <div class="border border-[#e5e7eb] rounded-3xl p-3">
+                        <div class="flex items-center gap-3 mb-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="#9CA3AF" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                            </svg>
+                            <div class="">
+                                <input class="border-0 font-bold text-lg bg-[#EDEDED] focus:ring-0 -ml-3" type="date"
+                                    name="date" required>
+                                <p class="text-[#9CA3AF]">Check in</p>
+                            </div>
+                        </div>
+                        <hr class="border-[#e5e7eb] -mx-3">
+                        <div class="flex items-center gap-3 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="#9CA3AF" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+
+                            <div>
+                                <select id="hour" name="hour" required
+                                class="bg-transparent border-none font-bold text-lg text-gray-900 rounded-lg focus:ring-0 block w-full p-2.5">
+                                    <option selected disabled>--:-- WIB</option>
+                                    @for ($i = 1; $i < 24; $i++)
+                                        @if ($i <= 9)
+                                        <option value="{{$i}}">0{{$i}}:00 WIB</option>
+                                        @else
+                                        <option value="{{$i}}">{{$i}}:00 WIB</option>
+                                        @endif
+                                    @endfor
+                                </select>
+                                <label for="hour"
+                                    class="block mb-2 text-sm font-medium text-gray-900">Time</label>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="#9CA3AF" class="w-8 h-8">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div class="">
+                                <div class="flex items-center">
+                                    <input class="w-4/12 border-0 font-bold text-lg bg-[#EDEDED] focus:ring-0 -ml-3"
+                                        id="duration" placeholder="3" type="number" name="duration" min="0" required>
+                                    <p class="font-bold text-lg">Jam</p>
+                                </div>
+                                <p class="text-[#9CA3AF]">Duration</p>
+                            </div>
                         </div>
                     </div>
+                    <a href="/order/form/{{$room->id}}"><button
+                            class="w-full bg-[#3C6A91] hover:bg-[#081440] text-white p-2 rounded-full">
+                            Reserve
+                        </button></a>
                 </div>
-                <div class="">
-                    <div class="flex justify-between">
-                        <p>@currency($room->price) x 2 hour</p>
-                        <p>IDR 400.000</p>
-                    </div>
-                    <div class="flex justify-between">
-                        <p>Service charge</p>
-                        <p>IDR 0</p>
-                    </div>
-                </div>
-                <div class="flex justify-betweenfont-semibold">
-                    <p>Total</p>
-                    <p>IDR 400.000</p>
-                </div>
-                <a href="/order/form/{{$room->id}}"><button class="w-full bg-[#3C6A91] hover:bg-[#081440] text-white p-2 rounded-full">
-                    Reserve
-                </button></a>
-            </div>
+            </form>
         </div>
     </div>
 
+    <script>
+        const inputField = document.getElementById('duration');
+
+        inputField.addEventListener('input', (event) => {
+            const inputValue = event.target.value;
+
+            const displayValue = document.getElementById('durationValue');
+            displayValue.value = inputValue;
+        });
+
+        function calculate() {
+            const input1 = parseInt(document.getElementById("harga").textContent);
+            const input = parseInt(document.getElementById("durationValue").value);
+
+            const result = input1 * input;
+
+            document.getElementById("result").textContent = result;
+        }
+        calculate();
+
+    </script>
 </x-app-layout>

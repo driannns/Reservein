@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Order;
 use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
@@ -82,7 +83,12 @@ class ProfileController extends Controller
 
     public function history()
     {
-        return view('profile.history');
+        $userId = auth()->user()->id;
+        $order = Order::where('user_id', $userId)->get();
+        foreach ($order as $orders) {
+            $room = $orders->room->room_name;
+        }
+        return view('profile.history', compact('order'));
     }
 
     public function avatar(Request $request)

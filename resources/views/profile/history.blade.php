@@ -43,65 +43,30 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                                $n = 1;
+                            @endphp
+                            @foreach($order as $orders)
                             <tr class="border-b border-black">
                                 <td class="px-6 py-4">
-                                    1
+                                    {{ $n++ }}
                                 </td>
                                 <td class="px-6 py-4">
-                                Ciganitri Meeting Room
+                                    {{ $orders->room->room_name }}
                                 </td>
                                 <td class="text-center px-6 py-4">
-                                3/26/2023
+                                {{ $orders->created_at }}
                                 </td>
                                 <td class="text-center px-6 py-4">
-                                Rp 2.400.000
+                                @currency($orders->totalprice)
                                 </td>
                                 <td class="px-6 py-4">
                                 <div class="mx-auto w-fit font-bold py-2 px-3 rounded-full text-white bg-[#2DCAED]">
-                                    Confirmed
+                                   {{ $orders->status }}
                                 </div>
                                 </td>
                             </tr>
-                            <tr class="border-b border-black">
-                                <th
-                                    class="px-6 py-4">
-                                    2
-                                </th>
-                                <td class="px-6 py-4">
-                                Masboy Office
-                                </td>
-                                <td class="text-center px-6 py-4">
-                                3/25/2023
-                                </td>
-                                <td class="text-center px-6 py-4">
-                                Rp 8.400.000
-                                </td>
-                                <td class="px-6 py-4">
-                                <div class="mx-auto w-fit font-bold py-2 px-3 rounded-full text-white bg-[#DDC237]">
-                                    Pending
-                                </div>
-                                </td>
-                            </tr>
-                            <tr class="border-b border-black">
-                                <th
-                                    class="px-6 py-4">
-                                    3
-                                </th>
-                                <td class="px-6 py-4">
-                                Rizaldi Cafe
-                                </td>
-                                <td class="text-center px-6 py-4">
-                                3/22/2023
-                                </td>
-                                <td class="text-center px-6 py-4">
-                                Rp 400.000
-                                </td>
-                                <td class="px-6 py-4">
-                                <div class="mx-auto w-fit font-bold py-2 px-3 rounded-full text-white bg-[#5F5B5B]">
-                                    Rejected
-                                </div>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -40,8 +40,18 @@ class Room extends Model
         'description'
     ];
 
-    // public function rating()
-    // {
-    //     return $this->hasMany(Rating::class);
-    // }
+    public function rating()
+    {
+        return $this->hasMany(Rating::class);
+    }
+
+    public function additional()
+    {
+        return $this->hasMany(Additional::class);
+    }
+
+    public function order()
+    {
+        return $this->hasOne(Order::class);
+    }
 }

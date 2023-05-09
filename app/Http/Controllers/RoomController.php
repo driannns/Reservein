@@ -2,13 +2,17 @@
 
 namespace App\Http\Controllers;
 use App\Models\Room;
+use App\Models\Rating;
 use Illuminate\Http\Request;
 
 class RoomController extends Controller
 {
     public function index()
     {
-        $room = Room::paginate(5);
+        $room = Room::withCount('rating')->paginate(5);
+        foreach ($room as $rooms){
+            $totalposts = $rooms->rating_count;
+        }
         return view('dashboard', compact('room'));
     }
 
@@ -24,18 +28,41 @@ class RoomController extends Controller
         }
         
         $room = $rooms->paginate(5);
-        // dd($room);
         return view('dashboard', compact('room'));
     }
 
     public function room($id)
     {
-        $room = Room::where('id', $id)->get()->first();
-        return view('room.index', compact('room'));
+        $room = Room::withCount('rating')->find($id);
+        $rating = Rating::where('room_id', $id)->get();
+        $totalRatings = $room->rating_count;
+        return view('room.index', compact('room', 'totalRatings', 'rating'));
     }
 
-    public function additional()
+    public function session(Request $request, $id)
     {
-        return view('room.additional');
+        session()->start();
+        if($request->input('hour') <= 9 ){
+            $hour = '0'.$request->input('hour').':00 WIB';
+        }
+        else{
+            $hour = $request->input('hour').':00 WIB';
+        }
+        $checkouthour = $request->input('hour') + $request->input('duration');
+        if($checkouthour <= 9 ){
+            $formatcheckout = '0'.$checkouthour.':00 WIB';
+        }
+        else{
+            $formatcheckout = $checkouthour.':00 WIB';
+        }
+        $values = [        
+            'date' => $request->input('date'),
+            'hour' => $hour,
+            'duration' => $request->input('duration'),
+            'checkouthour' => $formatcheckout,    
+        ];
+        session()->put('values', $values);
+
+        return redirect("/order/form/$id");
     }
 }

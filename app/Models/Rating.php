@@ -7,12 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rating extends Model
 {
+    protected $table = 'rating';
     protected $fillable = [
-        'star_rating'
+        'user_id',
+        'room_id',
+        'star_rating',
+        'description'
     ];
 
     public function room()
     {
-        $this->belongsTo(Room::class);
+        return $this->belongsTo(Room::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

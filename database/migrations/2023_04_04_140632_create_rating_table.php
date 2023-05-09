@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('rating', function (Blueprint $table) {
             $table->increments('id');
+            $table->foreignId('user_id');
             $table->integer('room_id')->unsigned();
             $table->integer('star_rating');
+            $table->text('description');
             $table->timestamps();
 
             $table->foreign('room_id')->references('id')->on('room')->ondelete('cascade');

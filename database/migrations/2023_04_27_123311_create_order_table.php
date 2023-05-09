@@ -11,25 +11,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('order', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('room_id');
+            $table->integer('room_id')->unsigned();
             $table->foreignId('user_id');
             $table->string('fullname');
             $table->string('email');
             $table->string('phonenumber');
-            $table->string('address1');
-            $table->string('address2');
-            $table->string('state');
-            $table->string('zipcode');
             $table->string('specialrequest');
-            $table->string('paymentmethod');
-            $table->string('cardholdername');
-            $table->string('cardnumber');
-            $table->string('expirydate');
-            $table->string('cvc');
-            $table->string('members');
+            $table->string('checkinday');
+            $table->string('checkinhour');
+            $table->string('checkoutday');
+            $table->string('checkouthour');
+            $table->string('duration');
+            $table->string('additionalItems');
+            $table->string('totalprice');
+            $table->string('status');
             $table->timestamps();
+
+            $table->foreign('room_id')->references('id')->on('room')->ondelete('cascade');
         });
     }
 
