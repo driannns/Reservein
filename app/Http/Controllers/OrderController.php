@@ -13,22 +13,12 @@ class OrderController extends Controller
 {
     public function index($id)
     {
+        $room = Room::withCount('rating')->where('id', $id)->first();
+        $totalrating = $room->rating_count;
         $room = Room::find($id);
         $values = session()->get('values');
         $hargaRuangan = session()->get('values.duration') * $room->price;
-        return view('order.index', compact('room', 'values', 'hargaRuangan'));
-    }
-
-    public function payment($id)
-    {
-        $room = Room::find($id);
-        return view('order.payment', compact('room'));
-    }
-    
-    public function receipt($id)
-    {
-        $room = Room::find($id);
-        return view('order.receipt', compact('room'));
+        return view('order.index', compact('room', 'values', 'hargaRuangan', 'totalrating'));
     }
 
     public function additional($id)
@@ -89,10 +79,11 @@ class OrderController extends Controller
 
         session()->put('total', $total);
              
-        $room = Room::find($id);
+        $room = Room::withCount('rating')->where('id', $id)->first();
+        $totalrating = $room->rating_count;
         $values = session()->get('values');
         $hargaRuangan = session()->get('values.duration') * $room->price;
-        return view('order.index', compact('room', 'values', 'hargaRuangan', 'total'));
+        return view('order.index', compact('room', 'values', 'hargaRuangan', 'total', 'totalrating'));
     }
 
     public function store(Request $request, $id)
@@ -111,18 +102,20 @@ class OrderController extends Controller
 
         session()->put('order', $order);
         $order = session()->get('order');
-        $room = Room::find($id);
+        $room = Room::withCount('rating')->where('id', $id)->first();
+        $totalrating = $room->rating_count;
+        
         $total = session()->get('total');
+        $hargaRuangan = session()->get('values.duration') * $room->price;
         $values = session()->get('values');
         $serviceFee = 5000;
-        $hargaRuangan = session()->get('values.duration') * $room->price;
-        return view('order.payment', compact('room', 'values', 'hargaRuangan', 'total', 'order', 'serviceFee'));
+        return view('order.payment', compact('room', 'values', 'hargaRuangan', 'total', 'order', 'serviceFee', 'totalrating'));
     }
 
     public function paymentStore(Request $request, $id)
     {
-        session()->start();
-        $room = Room::find($id);
+        $room = Room::withCount('rating')->where('id', $id)->first();
+        $totalrating = $room->rating_count;
         $orderValue = session()->get('order');
         $values = session()->get('values');
         $orderPayment = [
@@ -145,16 +138,10 @@ class OrderController extends Controller
             'paymentmethod' => $request->paymentmethod,
             'points' => $request->points,
         ];
-        
         session()->put('orderPayment', $orderPayment);
-        session()->put('paymentinfo', $paymentInfo);
+        session()->put('paymentInfo', $paymentInfo);
         $virtualNumber = mt_rand(100000000000, 999999999999);
-        return view('order.confirmpayment', compact('room', 'paymentInfo', 'orderPayment', 'virtualNumber'));
-    }
-    
-    public function confirmPayment()
-    {
-        return view('order.confirmpayment');
+        return view('order.confirmpayment', compact('room', 'paymentInfo', 'orderPayment', 'virtualNumber', 'totalrating'));
     }
     
     public function confirmPaymentStore(Request $request, $id)
@@ -162,7 +149,6 @@ class OrderController extends Controller
         session()->start();
         $orderPayment = Session::get('orderPayment');
         $paymentInfo = Session::get('paymentInfo');
-        
         $orderReceipt = Order::create([
             'room_id' => $orderPayment['room_id'],
             'user_id' => $orderPayment['user_id'],
@@ -179,14 +165,30 @@ class OrderController extends Controller
             'totalprice' => $orderPayment['totalprice'],
             'status' => 'Processing'
         ]);
+
+        $paymentReceipt = Payment::create([
+            'paymentmethod' => $paymentInfo['paymentmethod'],
+            'order_id' => $orderReceipt->id,
+        ]);
+
+        $room = Room::withCount('rating')->where('id', $id)->first();
+        $totalrating = $room->rating_count;
+        $receipt = Order::where('id', $orderReceipt->id)->first();
+        $payment = Payment::where('order_id', $orderReceipt->id)->get();
+        $paymentMethod = $payment->pluck('paymentmethod')->first();
         session()->forget('orderPayment');
         session()->forget('paymentInfo');
         session()->forget('order');
         session()->forget('values');
-        $room = Room::find($id);
-        $receipt = Order::where('id', $orderReceipt->id)->first();
-        $payment = Payment::where('order_id', $orderReceipt->id)->get();
-        $paymentMethod = $payment->pluck('paymentmethod')->first();
-        return view('order.receipt', compact('paymentMethod', 'room', 'receipt'));
+        return view('order.receipt', compact('paymentMethod', 'room', 'receipt', 'totalrating'));
+    }
+
+    public function refund($id)
+    {
+        Order::where('id', $id)->delete();
+
+        $refundMessage = "Refund Requested";
+
+        return redirect()->route('dashboard')->with('refundMessage',$refundMessage);
     }
 }

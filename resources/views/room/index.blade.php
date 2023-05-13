@@ -49,7 +49,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
                         </svg>
-                        <p>4.5 <span class="text-[#6B7280]">(112)</span></p>
+                        <p>{{ $ratingMean }}<span class="text-[#6B7280]">({{ $totalRatings }})</span></p>
                     </div>
                     <p>·</p>
                     <div>
@@ -89,7 +89,7 @@
                     <button class="bg-white py-2 px-3 rounded-full">View Less</button>
                 </div>
             </div>
-            <div class="border border-gray-200 rounded-xl p-5" id="review">
+            <div class="rounded-xl p-5 h-fit" id="review">
                 <h1 class="text-2xl font-semibold mb-8">Reviews ({{ $totalRatings }} reviews)</h1>
                 <div class="flex" id="star">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="#EAB308" viewBox="0 0 24 24" stroke-width="1.5"
@@ -133,39 +133,21 @@
                             </div>
                         </div>
                         <div class="flex">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="#EAB308" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="#EAB308" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="#EAB308" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="#EAB308" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="#EAB308" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="#EAB308" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="#EAB308" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="#EAB308" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                            </svg>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="#EAB308" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="#EAB308" class="w-4 h-4">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                            </svg>
+                            @for($i = 1; $i <= ($ratings->star_rating); $i++)
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#EAB308" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="#EAB308" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                                </svg>
+                            @endfor
                         </div>
+                        </div>
+                        <p class="ml-16 mt-2 text-[#4B5563]">{{ $ratings->description }}</p>
+                        <hr class="border-white w-11/12 mx-auto my-9">
                     </div>
-                    <p class="ml-16 mt-2 text-[#4B5563]">{{ $ratings->description }}</p>
-                    <hr class="border-white w-11/12 mx-auto my-9">
-                </div>
                 @endforeach
                 <div class="">
-                    <button class="bg-white py-2 px-3 rounded-full" style="font-family:'Poppins', sans-serif;">View
+                    <button data-modal-target="medium-modal" data-modal-toggle="medium-modal" class="bg-white py-2 px-3 rounded-full" style="font-family:'Poppins', sans-serif;">View
                         More</button>
                 </div>
             </div>
@@ -227,7 +209,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
                             </svg>
-                            <p>4.5 <span class="text-[#6B7280]">(112)</span></p>
+                            <p>{{ $ratingMean }} <span class="text-[#6B7280]">({{ $totalRatings }})</span></p>
                         </div>
                     </div>
                     <div class="border border-[#e5e7eb] rounded-3xl p-3">
@@ -253,18 +235,17 @@
 
                             <div>
                                 <select id="hour" name="hour" required
-                                class="bg-transparent border-none font-bold text-lg text-gray-900 rounded-lg focus:ring-0 block w-full p-2.5">
-                                    <option selected disabled>--:-- WIB</option>
-                                    @for ($i = 1; $i < 24; $i++)
-                                        @if ($i <= 9)
-                                        <option value="{{$i}}">0{{$i}}:00 WIB</option>
+                                    class="bg-transparent border-none font-bold text-lg text-gray-900 rounded-lg focus:ring-0 block w-full p-2.5">
+                                    <option value="">--:-- WIB</option>
+                                    @for ($i = 1; $i < 24; $i++) 
+                                    @if ($i <=9) <option value="{{$i}}">0{{$i}}:00 WIB
+                                        </option>
                                         @else
                                         <option value="{{$i}}">{{$i}}:00 WIB</option>
                                         @endif
-                                    @endfor
+                                        @endfor
                                 </select>
-                                <label for="hour"
-                                    class="block mb-2 text-sm font-medium text-gray-900">Time</label>
+                                <label for="hour" class="text-[#9CA3AF]">Time</label>
                             </div>
                         </div>
                         <div class="flex items-center gap-3 mt-1">
@@ -291,7 +272,63 @@
             </form>
         </div>
     </div>
-
+    <!-- Rating Modal -->
+    <div id="medium-modal" tabindex="-1"
+        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative w-full max-w-lg max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-5 border-b rounded-t">
+                    <h3 class="text-xl font-medium text-gray-900">
+                        {{ $room->room_name }}
+                    </h3>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                        data-modal-hide="medium-modal">
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-6 space-y-6">
+                @foreach ($allRating as $ratings)
+                <div class="mt-7">
+                    <div class="flex justify-between">
+                        <div class="flex items-center">
+                            @if( $ratings->user->foto == null)
+                            <img src="/assets/svg/avatar.png" alt="" class="w-12 h-12 rounded-full">
+                            @else
+                            <img src="/foto/{{ $ratings->user->foto }}" alt="" class="w-12 h-12 rounded-full">
+                            @endif
+                            <div class="ml-4">
+                                <p class="font-semibold">{{ $ratings->user->name }}</p>
+                                <p class="text-[#6B7280]">May 20,2021</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            @for($i = 1; $i <= ($ratings->star_rating); $i++)
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#EAB308" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="#EAB308" class="w-4 h-4">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                                </svg>
+                            @endfor
+                        </div>
+                    </div>
+                    <p class="ml-16 mt-2 text-[#4B5563]">{{ $ratings->description }}</p>
+                    <hr class="border-white w-11/12 mx-auto my-9">
+                </div>
+                @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
     <script>
         const inputField = document.getElementById('duration');
 

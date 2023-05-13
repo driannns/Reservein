@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
 
     // Room Routes
     Route::get('/room/{id}', [RoomController::class, 'room'])->name('room');
+    Route::get('/room/rating/{id}', [RoomController::class, 'roomRating'])->name('roomRating');
     Route::post('/room/{id}/session', [RoomController::class, 'session'])->name('session');
     Route::get('/order/{id}/additional', [RoomController::class, 'additional'])->name('additional');
     Route::get('/order/{id}/additional', [RoomController::class, 'additional'])->name('additional');
@@ -64,6 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/order/confirm-payment/{id}', [OrderController::class, 'confirmPayment'])->name('confirmPayment');
     Route::post('/order/confirm-payment/{id}', [OrderController::class, 'confirmPaymentStore'])->name('confirmPaymentStore');
     Route::get('/order/receipt/{id}', [OrderController::class, 'receipt'])->name('receipt');
+    Route::delete('/order/refund/{id}', [OrderController::class, 'refund'])->name('refund');
 });
 
 require __DIR__.'/auth.php';

@@ -22,3 +22,17 @@ inputUser.addEventListener("input", function (e) {
         }
     }
 });
+
+const tableRows = document.querySelectorAll("#tableBody tr");
+const searchInput = document.querySelector("#historySearch");
+
+searchInput.addEventListener("input", function (e) {
+    const searchTerm = e.target.value.toLowerCase();
+
+    tableRows.forEach((row) => {
+        const tableValue = row.querySelector("h3").innerText.toLowerCase();
+        const shouldDisplay = tableValue.includes(searchTerm);
+
+        row.style.display = shouldDisplay ? "" : "none";
+    });
+});

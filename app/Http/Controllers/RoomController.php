@@ -34,9 +34,13 @@ class RoomController extends Controller
     public function room($id)
     {
         $room = Room::withCount('rating')->find($id);
-        $rating = Rating::where('room_id', $id)->get();
+        $rating = Rating::where('room_id', $id)->paginate(2);
+        $allRating = Rating::where('room_id', $id)->get();
+        $jumlahRating = 0;
+        $jumlahRating =+ $allRating->sum('star_rating');
+        $ratingMean = $jumlahRating / count($allRating);
         $totalRatings = $room->rating_count;
-        return view('room.index', compact('room', 'totalRatings', 'rating'));
+        return view('room.index', compact('room', 'totalRatings', 'rating', 'allRating','ratingMean'));
     }
 
     public function session(Request $request, $id)

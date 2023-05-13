@@ -4,7 +4,7 @@
             <h1 class="text-3xl text-[#686868]">Booking History</h1>
             <div class="flex items-center bg-white rounded-2xl px-2">
                 <input class="border-none bg-transparent focus:border-transparent focus:ring-0" type="text"
-                    name="search" placeholder="Cari Pesanan">
+                    name="search" placeholder="Cari Pesanan" id="historySearch">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -20,6 +20,11 @@
                 <div class="">Confirmed</div>
                 <div class="">Cancelled</div>
             </div>
+            @if (count($order) < 1)
+                <div class="grid place-content-center text-4xl font-bold" style="height: 60vh;">
+                    You haven't ordered yet 
+                </div>
+            @else
             <div class="p-5">
                 <div class="relative overflow-x-auto">
                     <table class="w-full text-sm text-left text-gray-500">
@@ -42,17 +47,17 @@
                                 </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="tableBody">
                             @php
                                 $n = 1;
                             @endphp
                             @foreach($order as $orders)
-                            <tr class="border-b border-black">
+                            <tr class="border-b border-black" id="tableHistory">
                                 <td class="px-6 py-4">
                                     {{ $n++ }}
                                 </td>
-                                <td class="px-6 py-4">
-                                    {{ $orders->room->room_name }}
+                                <td class="px-6 py-4" id="room_name">
+                                    <h3>{{ $orders->room->room_name }}</h3>
                                 </td>
                                 <td class="text-center px-6 py-4">
                                 {{ $orders->created_at }}
@@ -70,8 +75,8 @@
                         </tbody>
                     </table>
                 </div>
-
             </div>
+            @endif
         </div>
     </div>
 </x-app-layout>

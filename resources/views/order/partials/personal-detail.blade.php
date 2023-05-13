@@ -1,6 +1,6 @@
 <div class="flex py-16">
     <div class="w-4/6">
-        <form class="grid gap-3" action="{{ route('store', $room->id) }}" method="post">
+        <form class="flex flex-col gap-3" action="{{ route('store', $room->id) }}" method="post">
             @csrf
             <h1 class="font-semibold">Let us know who you are</h1>
             <input class="w-full bg-transparent border-[#dddddd] p-4 text-sm" type="text" name="fullname"
@@ -78,7 +78,7 @@
                         class="grid place-content-center w-7 h-7 text-xs font-semibold rounded-md bg-[#3554D1] text-white">
                         4.8
                     </div>
-                    <p class="font-medium text-sm">Exceptional <span>23 Reviews</span></p>
+                    <p class="font-medium text-sm">Exceptional <span>{{ $totalrating }} Reviews</span></p>
                 </div>
             </div>
         </div>

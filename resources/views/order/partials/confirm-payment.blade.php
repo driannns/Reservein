@@ -91,7 +91,7 @@
                         class="grid place-content-center w-7 h-7 text-xs font-semibold rounded-md bg-[#3554D1] text-white">
                         4.8
                     </div>
-                    <p class="font-medium text-sm">Exceptional <span>23 Reviews</span></p>
+                    <p class="font-medium text-sm">Exceptional <span>{{ $totalrating }} Reviews</span></p>
                 </div>
             </div>
         </div>

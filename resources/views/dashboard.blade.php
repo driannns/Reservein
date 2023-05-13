@@ -270,10 +270,14 @@
                         <p>You can cancel later, so lock in this great price today.</p>
                     </div>
                     <div class="flex text-sm gap-4 mt-3">
-                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">{{ $rooms->properties1}}</div>
-                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">{{ $rooms->properties2}}</div>
-                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">{{ $rooms->properties3}}</div>
-                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">{{ $rooms->properties4}}</div>
+                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">
+                            {{ $rooms->properties1}}</div>
+                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">
+                            {{ $rooms->properties2}}</div>
+                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">
+                            {{ $rooms->properties3}}</div>
+                        <div class="border border-gray-300 rounded-xl px-3 py-1 text-center flex items-center">
+                            {{ $rooms->properties4}}</div>
                     </div>
                 </div>
                 <div class="w-4/12 flex flex-col items-end justify-around">
@@ -298,7 +302,26 @@
             </div>
             @endforeach
             <p>{{ $room->links() }}</p>
-            <!-- <p>Displaying {{$room->count()}} of {{$room->total() }} room(s)</p> -->
         </div>
     </div>
+    @if(Session::has('refundMessage'))
+    <div id="toast-undo"
+                class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow absolute right-4 bottom-4"
+                role="alert">
+                <div class="text-sm font-normal text-gray-500"> {{ Session::get('refundMessage') }}</div>
+                <div class="flex items-center ml-auto space-x-2">
+                    <button type="button"
+                        class="bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8"
+                        data-dismiss-target="#toast-undo" aria-label="Close">
+                        <span class="sr-only">Close</span>
+                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+    @endif
 </x-app-layout>

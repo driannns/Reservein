@@ -1,6 +1,6 @@
 <div class="flex w-full py-16 justify-center">
     <div class="w-fit">
-        <h1 class="font-bold text-3xl">Your booking details</h1>
+        <h1 class="font-bold text-3xl">Your booking details {{ $receipt->id}}</h1>
         <div class="flex w-full mt-10">
             <div class="grid place-items-center" style="width: 15vw;">
                 <img class="w-full" src="/assets/poto1.png" alt="Photo">
@@ -40,7 +40,7 @@
                         class="grid place-content-center w-7 h-7 text-xs font-semibold rounded-md bg-[#3554D1] text-white">
                         4.8
                     </div>
-                    <p class="font-medium text-sm">Exceptional <span>23 Reviews</span></p>
+                    <p class="font-medium text-sm">Exceptional <span>{{ $totalrating }} Reviews</span></p>
                 </div>
             </div>
         </div>
@@ -180,9 +180,13 @@
                 <button data-modal-hide="defaultModal" type="button"
                     class="text-white bg-[#6B7280] hover:bg-[#595d66] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
                     Close</button>
-                <button data-modal-hide="defaultModal" type="button"
-                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 focus:z-10">Request Refund</button>
-            </div>
+                    <form action="{{ route('refund', $receipt->id)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button data-modal-hide="defaultModal" type="submit"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 focus:z-10">Request Refund</button>
+                    </form>            
+                </div>
         </div>
     </div>
 </div>
