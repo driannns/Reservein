@@ -31,6 +31,7 @@ class User extends Authenticatable
         'termsofservice',
         'foto',
         'password',
+        'point'
     ];
 
     /**

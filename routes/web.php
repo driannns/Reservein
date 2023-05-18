@@ -61,6 +61,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/order/payment/{id}', [OrderController::class, 'payment'])->name('payment');
     Route::post('/order/payment/{id}', [OrderController::class, 'paymentStore'])->name('paymentStore');
+    Route::get('/order/point', [OrderController::class, 'addPoint'])->name('addPoint');
+    Route::get('/order/point/remove', [OrderController::class, 'removePoint'])->name('removePoint');
 
     Route::get('/order/confirm-payment/{id}', [OrderController::class, 'confirmPayment'])->name('confirmPayment');
     Route::post('/order/confirm-payment/{id}', [OrderController::class, 'confirmPaymentStore'])->name('confirmPaymentStore');

@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('nomor')->nullable();
             $table->string('about')->nullable();
             $table->string('foto')->nullable();
+            $table->integer('point')->nullable();
             $table->string('termsofservice');
             $table->rememberToken();
             $table->timestamps();

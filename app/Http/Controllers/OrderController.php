@@ -6,6 +6,7 @@ use App\Models\Payment;
 use App\Models\Order;
 use App\Models\Additional;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -65,6 +66,9 @@ class OrderController extends Controller
                 }
             }
         session()->put('cart', $cart);
+        if(empty($cart)){
+            return redirect()->route('additional',  $id)->with('error', 'No cart added');
+        }
 
         return view('room.totalAdditional', compact('cart', 'room'));
     }
@@ -88,6 +92,7 @@ class OrderController extends Controller
 
     public function store(Request $request, $id)
     {
+        $point = session('point');
         $room = Room::find($id);
         session()->start();
         $order = [
@@ -109,7 +114,25 @@ class OrderController extends Controller
         $hargaRuangan = session()->get('values.duration') * $room->price;
         $values = session()->get('values');
         $serviceFee = 5000;
-        return view('order.payment', compact('room', 'values', 'hargaRuangan', 'total', 'order', 'serviceFee', 'totalrating'));
+        return view('order.payment', compact('room', 'values', 'hargaRuangan', 'total', 'order', 'serviceFee', 'totalrating', 'point'));
+    }
+
+    public function payment()
+    {
+        $point = session('point');
+        // dd($point);
+        $order = session()->get('order');
+        $room = Room::find($order['room_id']);
+        session()->start();
+
+        $room = Room::withCount('rating')->where('id', $order['room_id'])->first();
+        $totalrating = $room->rating_count;
+        
+        $total = session()->get('total');
+        $hargaRuangan = session()->get('values.duration') * $room->price;
+        $values = session()->get('values');
+        $serviceFee = 5000;
+        return view('order.payment', compact('room', 'values', 'hargaRuangan', 'total', 'order', 'serviceFee', 'totalrating', 'point'));
     }
 
     public function paymentStore(Request $request, $id)
@@ -143,12 +166,34 @@ class OrderController extends Controller
         $virtualNumber = mt_rand(100000000000, 999999999999);
         return view('order.confirmpayment', compact('room', 'paymentInfo', 'orderPayment', 'virtualNumber', 'totalrating'));
     }
+
+    public function addPoint()
+    {
+        $order = session()->get('order');
+        $room_id = $order['room_id'];
+        $user = auth()->user()->point;
+        $point = [
+            'point' => $user
+        ];
+        session()->put('point', $point);
+        return redirect("/order/payment/$room_id");
+    }
+
+    public function removePoint()
+    {
+        session()->forget('point');
+        $order = session()->get('order');
+        $room_id = $order['room_id'];
+        return redirect("/order/payment/$room_id");
+    }
     
     public function confirmPaymentStore(Request $request, $id)
     {
+        $user = Auth::user();
         session()->start();
         $orderPayment = Session::get('orderPayment');
         $paymentInfo = Session::get('paymentInfo');
+
         $orderReceipt = Order::create([
             'room_id' => $orderPayment['room_id'],
             'user_id' => $orderPayment['user_id'],
@@ -170,6 +215,13 @@ class OrderController extends Controller
             'paymentmethod' => $paymentInfo['paymentmethod'],
             'order_id' => $orderReceipt->id,
         ]);
+
+        $point = $orderPayment['totalprice'] * 0.02;
+
+        $user->update([
+            'point' => $point
+        ]);
+        
 
         $room = Room::withCount('rating')->where('id', $id)->first();
         $totalrating = $room->rating_count;

@@ -38,7 +38,11 @@ class RoomController extends Controller
         $allRating = Rating::where('room_id', $id)->get();
         $jumlahRating = 0;
         $jumlahRating =+ $allRating->sum('star_rating');
-        $ratingMean = $jumlahRating / count($allRating);
+        if(count($allRating) > 0){
+            $ratingMean = $jumlahRating / count($allRating);
+        }else{
+            $ratingMean = 0;
+        }
         $totalRatings = $room->rating_count;
         return view('room.index', compact('room', 'totalRatings', 'rating', 'allRating','ratingMean'));
     }
