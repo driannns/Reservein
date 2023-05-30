@@ -31,7 +31,6 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'role' => ['required', 'string', 'max:255'],
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
             'gender' => ['string', 'max:255'],
@@ -46,7 +45,6 @@ class RegisteredUserController extends Controller
         ]);
 
         Auth::login($user = User::create([
-            'role' => $request->role,
             'name' => $request->name,
             'username' => $request->username,
             'termsofservice' => $request->termsofservice,

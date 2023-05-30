@@ -10,8 +10,8 @@
                         @else
                         <a href="/">
                             @endauth
-                        <img src="/assets/logo.png" alt="Logo og ReserveIn" />
-                    </a>
+                            <img src="/assets/logo.png" alt="Logo og ReserveIn" />
+                        </a>
                 </div>
             </div>
             @if (Route::has('login'))
@@ -29,13 +29,93 @@
                     </svg>
                 </div>
                 <div class="hidden sm:flex sm:items-center sm:ml-2 ">
+                    <!-- Dropdown menu -->
+                    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                        <ul class="py-2 text-sm" aria-labelledby="dropdownDefaultButton">
+                            <li>
+                                <x-dropdown-link :href="route('profile.edit')">
+                                    <div class="flex items-center gap-2 w-full">
+                                        @if(Auth::user()->foto == null)
+                                        <img class="w-9 h-9 rounded-full" src="/assets/svg/avatar.png"
+                                            alt="Photo of Profile">
+                                        @else
+                                        <img class="w-9 h-9 rounded-full" src="/foto/{{ Auth::user()->foto }}"
+                                            alt="Photo of Profile">
+                                        @endif
+                                        <div class="w-full overflow-hidden">
+                                            <p class="font-bold">
+                                                {{ Auth::user()->name }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </x-dropdown-link>
+                            </li>
+                            <li>
+                                <x-dropdown-link :href="route('history')" class="flex items-center gap-2">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                                        </svg>
+                                    </div>
+                                    My bookings
+                                </x-dropdown-link>
+                            </li>
+                            <li>
+                                <x-dropdown-link class="flex items-center gap-2">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                        </svg>
+
+                                    </div>
+                                    Wishlist
+                                </x-dropdown-link>
+                            </li>
+                            <li>
+                                <x-dropdown-link class="flex items-center gap-2">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+                                        </svg>
+
+                                    </div>
+                                    Help
+                                </x-dropdown-link>
+                            </li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
+                                                        this.closest('form').submit();"
+                                        class="flex items-center gap-2">
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                                            </svg>
+
+                                        </div>
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
-                            <button
+                            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                                 class="inline-flex items-center px-3 py-2 border border-transparent leading-4 font-medium rounded-md text-[#1F2937] hover:text-gray-400 focus:outline-none transition ease-in-out duration-150">
                                 @if(Auth::user()->foto == null)
-                                <img class="w-9 h-9 rounded-full" src="/assets/svg/avatar.png"
-                                    alt="Photo of Profile">
+                                <img class="w-9 h-9 rounded-full" src="/assets/svg/avatar.png" alt="Photo of Profile">
                                 @else
                                 <img class="w-9 h-9 rounded-full" src="/foto/{{ Auth::user()->foto }}"
                                     alt="Photo of Profile">
@@ -54,13 +134,13 @@
                         <x-slot name="content">
                             <x-dropdown-link :href="route('profile.edit')">
                                 <div class="flex items-center gap-2 w-full">
-                                @if(Auth::user()->foto == null)
-                                <img class="w-9 h-9 rounded-full" src="/assets/svg/avatar.png"
-                                    alt="Photo of Profile">
-                                @else
-                                <img class="w-9 h-9 rounded-full" src="/foto/{{ Auth::user()->foto }}"
-                                    alt="Photo of Profile">
-                                @endif
+                                    @if(Auth::user()->foto == null)
+                                    <img class="w-9 h-9 rounded-full" src="/assets/svg/avatar.png"
+                                        alt="Photo of Profile">
+                                    @else
+                                    <img class="w-9 h-9 rounded-full" src="/foto/{{ Auth::user()->foto }}"
+                                        alt="Photo of Profile">
+                                    @endif
                                     <div class="w-full overflow-hidden">
                                         <p class="font-bold">
                                             {{ Auth::user()->name }}
@@ -130,11 +210,29 @@
                     </x-dropdown>
                 </div>
                 @else
+                @if(request()->is('/'))
                 <a href="{{ route('login') }}"
                     class="ml-4 font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">Log
                     in</a>
                 <a href="{{ route('role.index') }}"
                     class="ml-4 bg-[#3C6A91] font-semibold text-white p-2 rounded-lg hover:text-gray-400">Register</a>
+                @elseif(request()->is('login'))
+                <a href="{{ route('partnerLogin-form') }}"
+                    class="ml-4 font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">Log
+                    in as Partner</a>
+                <a href="{{ route('role.index') }}"
+                    class="ml-4 bg-[#3C6A91] font-semibold text-white p-2 rounded-lg hover:text-gray-400">Register</a>
+                @elseif(request()->is('partner/login'))
+                <a href="{{ route('login') }}"
+                    class="ml-4 font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">Log
+                    in as Customer</a>
+                <a href="{{ route('role.index') }}"
+                    class="ml-4 bg-[#3C6A91] font-semibold text-white p-2 rounded-lg hover:text-gray-400">Register</a>
+                @elseif(request()->is('role'))
+                <a href="{{ route('login') }}"
+                    class="ml-4 font-semibold dark:text-[#1F2937] dark:hover:text-gray-400">Log
+                    in</a>
+                @endif
                 @endauth
             </div>
             @endif

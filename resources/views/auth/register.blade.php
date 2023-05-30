@@ -2,10 +2,8 @@
     <div class="relative top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-8/12 border gap-8 shadow-lg rounded-2xl p-10"
         style="background-color: rgba(255, 255, 255, 0.7)">
         <form method="POST" action="{{ route('register') }}" class="w-8/12 mx-auto">
-            <h1 class="text-xl font-bold mb-4" style="font-family:'Poppins', sans-serif;">Sign up to Reservin</h1>
+            <h1 class="text-xl font-bold mb-4" style="font-family:'Poppins', sans-serif;">Sign up as Customer to Reservin</h1>
             @csrf
-            <!-- Role -->
-            <input type="hidden" name="role" value="{{session('data')}}">
             <div class="flex items-center gap-2">
                 <div class="w-1/2">
                     <x-input-label for="name" :value="__('Name')" style="font-weight:700;"/>

@@ -296,7 +296,7 @@
                     </button>
                 </div>
                 <!-- Modal body -->
-                <div class="p-6 space-y-6">
+                <div class="p-6 space-y-6 transition-all">
                 @foreach ($allRating as $ratings)
                 <div class="mt-7">
                     <div class="flex justify-between">

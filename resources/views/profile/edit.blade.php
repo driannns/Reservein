@@ -54,15 +54,6 @@
                 });
 
                 reader.readAsDataURL(choosedFile);
-
-                //Allright is done
-
-                //please like the video
-                //comment if have any issue related to vide & also rate my work in comment section
-
-                //And aslo please subscribe for more tutorial like this
-
-                //thanks for watching
             }
         });
 

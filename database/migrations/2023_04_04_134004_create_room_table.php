@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('room', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedBigInteger('partner_id');
             $table->string('room_name'); 
-            $table->string('location');
-            $table->string('company');
+            $table->string('address1');
+            $table->string('address2');
+            $table->string('subdistrict');
+            $table->string('city');
+            $table->string('zipcode');
             $table->string('room_type');
             $table->string('room_area');
             $table->string('extra');

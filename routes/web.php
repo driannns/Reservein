@@ -4,6 +4,9 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\PropertiesController;
+use App\Http\Controllers\AdditionalController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -24,7 +27,6 @@ Route::get('/', function () {
 
 // ROLE
 Route::get('/role', [RoleController::class, 'index'])->name('role.index');
-Route::post('/role', [RoleController::class, 'post'])->name('register.index');
 
 Route::get('/dashboard',[RoomController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -68,6 +70,26 @@ Route::middleware('auth')->group(function () {
     Route::post('/order/confirm-payment/{id}', [OrderController::class, 'confirmPaymentStore'])->name('confirmPaymentStore');
     Route::get('/order/receipt/{id}', [OrderController::class, 'receipt'])->name('receipt');
     Route::delete('/order/refund/{id}', [OrderController::class, 'refund'])->name('refund');
+});
+
+// ADMIN ROUTE
+
+Route::prefix('partner')->group(function () {
+    Route::get('/login', [PartnerController::class, 'index'])->name('partnerLogin-form');
+    
+    Route::post('/login', [PartnerController::class, 'login'])->name('partnerLogin');
+
+    Route::get('/register', [PartnerController::class, 'registerForm'])->name('partnerRegister-form');
+    Route::post('/register', [PartnerController::class, 'register'])->name('partnerRegister');
+    
+    Route::get('/dashboard', [PartnerController::class, 'dashboard'])->name('partnerDashboard')->middleware('partner');
+
+    // CRUD Additional & Properties
+    Route::resource('properties', PropertiesController::class)->middleware('partner');
+    Route::resource('additional', AdditionalController::class)->middleware('partner');
+
+    // Order History
+    Route::post('orderhistory', [PartnerController::class, 'orderHistory'])->name('partnerHistory')->middleware('partner');
 });
 
 require __DIR__.'/auth.php';

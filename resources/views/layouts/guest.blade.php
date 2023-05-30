@@ -33,9 +33,9 @@
                     <br>at Your 
                     <br>Fingertips</h1>
                 </div>
-                <img class="w-11/12 left-1/2 -translate-x-1/2 absolute bottom-0" src="assets/login.png" alt="">
+                <img class="w-11/12 left-1/2 -translate-x-1/2 absolute bottom-0" src="/assets/login.png" alt="">
             </div>
-            <div class="w-9/12" style="background-image: url('assets/register.png'); background-size: cover;">
+            <div class="w-9/12" style="background-image: url('/assets/register.png'); background-size: cover;">
                 <div class="w-full" style="height: 90vh;">
                     {{ $slot }}
                 </div>

@@ -193,7 +193,7 @@ class OrderController extends Controller
         session()->start();
         $orderPayment = Session::get('orderPayment');
         $paymentInfo = Session::get('paymentInfo');
-
+        
         $orderReceipt = Order::create([
             'room_id' => $orderPayment['room_id'],
             'user_id' => $orderPayment['user_id'],
@@ -215,11 +215,17 @@ class OrderController extends Controller
             'paymentmethod' => $paymentInfo['paymentmethod'],
             'order_id' => $orderReceipt->id,
         ]);
+        // Point
+        $pointSession = session()->get('point');
+        if(!empty($pointSession)){
+            $user->point -= $pointSession['point'];
+            session()->forget('point');
+        }
+        $userPoint = $user->point + ($orderPayment['totalprice'] * 0.01);
 
-        $point = $orderPayment['totalprice'] * 0.02;
 
         $user->update([
-            'point' => $point
+            'point' => $userPoint
         ]);
         
 
