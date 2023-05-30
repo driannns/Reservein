@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Room;
+use App\Models\User;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -37,10 +38,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => '',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => '',
-                'foto2' => '',
-                'foto3' => '',
-                'foto4' => '',
+                'foto1' => 'foto1.png',
+                'foto2' => 'foto2.png',
+                'foto3' => 'foto3.png',
+                'foto4' => 'foto3.png',
                 'price' => 499000,
             ],
             [
@@ -67,10 +68,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => '',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => '',
-                'foto2' => '',
-                'foto3' => '',
-                'foto4' => '',
+                'foto1' => 'foto1.png',
+                'foto2' => 'foto2.png',
+                'foto3' => 'foto3.png',
+                'foto4' => 'foto3.png',
                 'price' => 599000,
             ],
             [
@@ -97,10 +98,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => '',
-                'foto2' => '',
-                'foto3' => '',
-                'foto4' => '',
+                'foto1' => 'foto1.png',
+                'foto2' => 'foto2.png',
+                'foto3' => 'foto3.png',
+                'foto4' => 'foto3.png',
                 'price' => 799000,
             ],
             [
@@ -127,10 +128,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => '',
-                'foto2' => '',
-                'foto3' => '',
-                'foto4' => '',
+                'foto1' => 'foto1.png',
+                'foto2' => 'foto2.png',
+                'foto3' => 'foto3.png',
+                'foto4' => 'foto3.png',
                 'price' => 399000,
             ],
             [
@@ -157,10 +158,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => '',
-                'foto2' => '',
-                'foto3' => '',
-                'foto4' => '',
+                'foto1' => 'foto1.png',
+                'foto2' => 'foto2.png',
+                'foto3' => 'foto3.png',
+                'foto4' => 'foto3.png',
                 'price' => 459000,
             ],
             [
@@ -187,10 +188,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => '',
-                'foto2' => '',
-                'foto3' => '',
-                'foto4' => '',
+                'foto1' => 'foto1.png',
+                'foto2' => 'foto2.png',
+                'foto3' => 'foto3.png',
+                'foto4' => 'foto3.png',
                 'price' => 459000,
             ],
             [
@@ -217,10 +218,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => '',
-                'foto2' => '',
-                'foto3' => '',
-                'foto4' => '',
+                'foto1' => 'foto1.png',
+                'foto2' => 'foto2.png',
+                'foto3' => 'foto3.png',
+                'foto4' => 'foto3.png',
                 'price' => 459000,
             ],
             [
@@ -247,10 +248,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => '',
-                'foto2' => '',
-                'foto3' => '',
-                'foto4' => '',
+                'foto1' => 'foto1.png',
+                'foto2' => 'foto2.png',
+                'foto3' => 'foto3.png',
+                'foto4' => 'foto3.png',
                 'price' => 459000,
             ],
             [
@@ -277,14 +278,15 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => '',
-                'foto2' => '',
-                'foto3' => '',
-                'foto4' => '',
+                'foto1' => 'foto1.png',
+                'foto2' => 'foto2.png',
+                'foto3' => 'foto3.png',
+                'foto4' => 'foto3.png',
                 'price' => 459000,
             ],
         ];
 
         Room::insert($roomseeder);
+        \App\Models\User::factory(2)->create();
     }
 }
