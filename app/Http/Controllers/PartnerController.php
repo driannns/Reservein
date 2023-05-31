@@ -71,10 +71,10 @@ class PartnerController extends Controller
         return redirect()->route('partnerLogin-form')->with('message', 'Partner Created Successfully');
     }
 
-    public function orderHistory(Request $request)
+    public function orderHistory($id)
     {
-        $partnerId = $request->partner_id;
-        $room = Room::where('partner_id', $partnerId)->get();
+        // $partnerId = $request->partner_id;
+        $room = Room::where('partner_id', $id)->get();
         $roomIds = $room->pluck('id');
         $orders = [];
 
@@ -115,6 +115,6 @@ class PartnerController extends Controller
                 $orders[] = $order[0];
             }
         }
-        return view('partner.order-history', ['orders' => $orders]);
+        return redirect()->back();
     }
 }

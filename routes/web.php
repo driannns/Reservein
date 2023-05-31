@@ -94,7 +94,7 @@ Route::prefix('partner')->group(function () {
 
     // Order History
     // Route::get('orderhistory', [PartnerController::class, 'orderHistoryGet'])->name('partnerHistoryGet')->middleware('partner');
-    Route::post('orderhistory', [PartnerController::class, 'orderHistory'])->name('partnerHistory')->middleware('partner');
+    Route::get('orderhistory/{id}', [PartnerController::class, 'orderHistory'])->name('partnerHistory')->middleware('partner');
     Route::patch('/statusUpdate/{id}', [OrderController::class, 'updateStatus'])->name('updateStatus')->middleware('partner');
 });
 

@@ -27,11 +27,7 @@
                         <a href="#" class="block px-4 py-2">Notification</a>
                     </li>
                     <li>
-                        <form action="{{ route('partnerHistory') }}" method="post">
-                            @csrf
-                            <input type="hidden" name="partner_id" value="{{ Auth::guard('partner')->user()->id }}">
-                            <button type="submit" class="block px-4 py-2">Order History</button>
-                        </form>
+                    <a href="{{ route('partnerHistory', (Auth::guard('partner')->user()->id)) }}"><button type="submit" class="block px-4 py-2">Order History</button></a>
                     </li>
                     <li>
                         <a href="#" class="block px-4 py-2">
