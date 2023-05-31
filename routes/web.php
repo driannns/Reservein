@@ -83,6 +83,8 @@ Route::prefix('partner')->group(function () {
     
     Route::post('/login', [PartnerController::class, 'login'])->name('partnerLogin');
 
+    Route::get('/logout', [PartnerController::class, 'logout'])->name('partner.logout');
+
     Route::get('/register', [PartnerController::class, 'registerForm'])->name('partnerRegister-form');
     Route::post('/register', [PartnerController::class, 'register'])->name('partnerRegister');
     

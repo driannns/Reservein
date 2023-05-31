@@ -177,11 +177,7 @@
                                     </x-dropdown-link> -->
 
                                     <!-- Authentication -->
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-
-                                        <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                        this.closest('form').submit();"
+                                        <x-dropdown-link :href="route('partner.logout')"
                                             class="flex items-center gap-2">
                                             <div>
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -193,7 +189,6 @@
                                             </div>
                                             {{ __('Log Out') }}
                                         </x-dropdown-link>
-                                    </form>
                                 </x-slot>
                             </x-dropdown>
                         </div>

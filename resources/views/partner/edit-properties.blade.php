@@ -142,7 +142,7 @@
                             <x-input-label for="properties1" :value="__('Properties 1')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties1" class="block mt-1 w-full" type="text" name="properties1"
-                                value="{{ $properties->properties1 }}" placeholder="Speaker" required autofocus
+                                value="{{ $properties->properties1 }}" placeholder="Speaker" required
                                 autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
@@ -150,7 +150,7 @@
                             <x-input-label for="properties2" :value="__('Properties 2')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties2" class="block mt-1 w-full" type="text" name="properties2"
-                            value="{{ $properties->properties2 }}" placeholder="Speaker" required autofocus
+                            value="{{ $properties->properties2 }}" placeholder="Speaker" required
                                 autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
@@ -158,7 +158,7 @@
                             <x-input-label for="properties3" :value="__('Properties 3')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties3" class="block mt-1 w-full" type="text" name="properties3"
-                            value="{{ $properties->properties3 }}" placeholder="Speaker" required autofocus
+                            value="{{ $properties->properties3 }}" placeholder="Speaker" required
                                 autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
@@ -166,7 +166,7 @@
                             <x-input-label for="properties4" :value="__('Properties 4')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties4" class="block mt-1 w-full" type="text" name="properties4"
-                            value="{{ $properties->properties4 }}" placeholder="Speaker" required autofocus
+                            value="{{ $properties->properties4 }}" placeholder="Speaker" required
                                 autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
@@ -174,28 +174,28 @@
                             <x-input-label for="properties5" :value="__('Properties 5')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties5" class="block mt-1 w-full" type="text" name="properties5"
-                            value="{{ $properties->properties5 }}" placeholder="Speaker" autocomplete="properties" />
+                            value="{{ $properties->properties5 }}" placeholder="Speaker" autocomplete="properties" required />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
                         <div class="mt-4">
                             <x-input-label for="properties6" :value="__('Properties 6')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties6" class="block mt-1 w-full" type="text" name="properties6"
-                            value="{{ $properties->properties6 }}" placeholder="Speaker" autocomplete="properties" />
+                            value="{{ $properties->properties6 }}" placeholder="Speaker" autocomplete="properties" required />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
                         <div class="mt-4">
                             <x-input-label for="properties7" :value="__('Properties 7')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties7" class="block mt-1 w-full" type="text" name="properties7"
-                            value="{{ $properties->properties7 }}" placeholder="Speaker" autocomplete="properties" />
+                            value="{{ $properties->properties7 }}" placeholder="Speaker" autocomplete="properties" required />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
                         <div class="mt-4">
                             <x-input-label for="properties8" :value="__('Properties 8')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties8" class="block mt-1 w-full" type="text" name="properties8"
-                            value="{{ $properties->properties8 }}" placeholder="Speaker" autocomplete="properties" />
+                            value="{{ $properties->properties8 }}" placeholder="Speaker" autocomplete="properties" required />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
                     </div>
@@ -212,8 +212,10 @@
                         <button
                             class="block w-full mt-5 text-white bg-[#3C6A91] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                             type="submit">
-                            Add Additional
+                            Save & Add Additional
                         </button>
+                        <input  class="block w-full mt-10 text-white bg-[#3C6A91] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                        type="submit" value="Save" name="save">
                     </div>
                 </div>
                 <div class="w-7/12 flex flex-col items-center">

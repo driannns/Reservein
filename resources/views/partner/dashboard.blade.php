@@ -87,8 +87,14 @@
                 </div>
                 @endforeach
             </div>
-
         </div>
+        @if (Session::has('message'))
+        <div id="toast-bottom-left"
+            class="fixed flex items-center w-full max-w-xs p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow bottom-5 right-5"
+            role="alert">
+            <div class="text-sm font-normal">{{ Session::get('message') }}</div>
+        </div>
+        @endif
     </div>
     <script>
         /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */

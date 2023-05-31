@@ -139,15 +139,16 @@
                                     <path stroke-linecap="round" stroke-linejoin="round"
                                         d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
                                 </svg>
-                            @endfor
+                                @endfor
                         </div>
-                        </div>
-                        <p class="ml-16 mt-2 text-[#4B5563]">{{ $ratings->description }}</p>
-                        <hr class="border-white w-11/12 mx-auto my-9">
                     </div>
+                    <p class="ml-16 mt-2 text-[#4B5563]">{{ $ratings->description }}</p>
+                    <hr class="border-white w-11/12 mx-auto my-9">
+                </div>
                 @endforeach
                 <div class="">
-                    <button data-modal-target="medium-modal" data-modal-toggle="medium-modal" class="bg-white py-2 px-3 rounded-full" style="font-family:'Poppins', sans-serif;">View
+                    <button data-modal-target="medium-modal" data-modal-toggle="medium-modal"
+                        class="bg-white py-2 px-3 rounded-full" style="font-family:'Poppins', sans-serif;">View
                         More</button>
                 </div>
             </div>
@@ -197,28 +198,47 @@
         </div>
         <!-- Reserve -->
         <div class="w-4/12 h-fit p-5 shadow-lg ml-3 rounded-lg">
-                <div class="flex flex-col gap-5">
-                    <div class="flex justify-between">
-                        <h1 class="text-2xl font-bold">@currency($room->price)<span
-                                class="text-lg font-normal text-[#6b7280]">/hour</span></h1>
-                        <div class="flex items-center gap-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="#f97316" viewBox="0 0 24 24"
-                                stroke-width="1.5" stroke="#f97316" class="w-6 h-6">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                            </svg>
-                            <p>{{ $ratingMean }} <span class="text-[#6B7280]">({{ $totalRatings }})</span></p>
-                        </div>
+            <div class="flex flex-col gap-5">
+                <div class="flex justify-between">
+                    <h1 class="text-2xl font-bold">@currency($room->price)<span
+                            class="text-lg font-normal text-[#6b7280]">/hour</span></h1>
+                    <div class="flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="#f97316" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="#f97316" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                        </svg>
+                        <p>{{ $ratingMean }} <span class="text-[#6B7280]">({{ $totalRatings }})</span></p>
                     </div>
-                    <a href="#"><button
-                            class="w-full bg-[#3C6A91] hover:bg-[#081440] text-white p-2 rounded-full">
-                            Date Reserved
-                        </button></a>
-                    <a href="{{ route('properties.edit', $room->id) }}"><button
-                            class="w-full bg-[#3C6A91] hover:bg-[#081440] text-white p-2 rounded-full">
-                            Edit
-                        </button></a>
                 </div>
+                <a href="#"><button class="btn w-full  bg-[#3C6A91] hover:bg-[#081440] text-white p-2 rounded-full">
+                        Date Reserved
+                    </button></a>
+                <a href="{{ route('properties.edit', $room->id) }}"><button
+                        class="btn w-full bg-[#3C6A91] hover:bg-[#081440] text-white p-2 rounded-full">
+                        Edit
+                    </button></a>
+                <!-- The button to open modal -->
+                <label for="my-modal-4" class="btn bg-[#3C6A91] hover:bg-[#081440] text-white p-2 rounded-full">Delete Properties</label>
+
+                <!-- Put this part before </body> tag -->
+                <input type="checkbox" id="my-modal-4" class="modal-toggle" />
+                
+                <label for="my-modal-4" class="modal cursor-pointer">
+                    <label class="modal-box relative bg-white text-center" for="">
+                        <h3 class="text-lg font-bold text-">⚠ Delete Properties ⚠</h3>
+                        <p class="py-4">Are you sure you want to delete this property?</p>
+                        <div class="flex justify-center gap-5">
+                            <form action="{{ route('properties.destroy', $room->id) }}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button class="btn bg-red-600 hover:bg-red-800 text-white focus:outline-none focus:ring-red-300">Delete</button>
+                            </form>
+                            <label for="my-modal-4" class="btn bg-white hover:bg-gray-100 focus:outline-none focus:ring-red-300">Cancel</label>
+                        </div>
+                    </label>
+                </label>
+            </div>
         </div>
     </div>
     <!-- Rating Modal -->
@@ -246,34 +266,34 @@
                 </div>
                 <!-- Modal body -->
                 <div class="p-6 space-y-6 transition-all">
-                @foreach ($allRating as $ratings)
-                <div class="mt-7">
-                    <div class="flex justify-between">
-                        <div class="flex items-center">
-                            @if( $ratings->user->foto == null)
-                            <img src="/assets/svg/avatar.png" alt="" class="w-12 h-12 rounded-full">
-                            @else
-                            <img src="/foto/{{ $ratings->user->foto }}" alt="" class="w-12 h-12 rounded-full">
-                            @endif
-                            <div class="ml-4">
-                                <p class="font-semibold">{{ $ratings->user->name }}</p>
-                                <p class="text-[#6B7280]">May 20,2021</p>
+                    @foreach ($allRating as $ratings)
+                    <div class="mt-7">
+                        <div class="flex justify-between">
+                            <div class="flex items-center">
+                                @if( $ratings->user->foto == null)
+                                <img src="/assets/svg/avatar.png" alt="" class="w-12 h-12 rounded-full">
+                                @else
+                                <img src="/foto/{{ $ratings->user->foto }}" alt="" class="w-12 h-12 rounded-full">
+                                @endif
+                                <div class="ml-4">
+                                    <p class="font-semibold">{{ $ratings->user->name }}</p>
+                                    <p class="text-[#6B7280]">May 20,2021</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                @for($i = 1; $i <= ($ratings->star_rating); $i++)
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="#EAB308" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="#EAB308" class="w-4 h-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                                    </svg>
+                                    @endfor
                             </div>
                         </div>
-                        <div class="flex">
-                            @for($i = 1; $i <= ($ratings->star_rating); $i++)
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="#EAB308" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="#EAB308" class="w-4 h-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
-                                </svg>
-                            @endfor
-                        </div>
+                        <p class="ml-16 mt-2 text-[#4B5563]">{{ $ratings->description }}</p>
+                        <hr class="border-white w-11/12 mx-auto my-9">
                     </div>
-                    <p class="ml-16 mt-2 text-[#4B5563]">{{ $ratings->description }}</p>
-                    <hr class="border-white w-11/12 mx-auto my-9">
-                </div>
-                @endforeach
+                    @endforeach
                 </div>
             </div>
         </div>

@@ -71,6 +71,13 @@ class PartnerController extends Controller
         return redirect()->route('partnerLogin-form')->with('message', 'Partner Created Successfully');
     }
 
+    public function logout()
+    {
+        Auth::guard('partner')->logout();
+
+        return redirect()->route('partnerLogin-form')->with('message', 'Logout Successfully');
+    }
+
     public function orderHistory($id)
     {
         // $partnerId = $request->partner_id;

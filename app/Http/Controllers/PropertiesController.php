@@ -120,8 +120,6 @@ class PropertiesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $all = $request->all();
-        // dd($all);
         $validator = $request->validate([
             'foto1' => 'image|mimes:jpeg,png,jpg,gif,svg',
             'foto2' => 'image|mimes:jpeg,png,jpg,gif,svg',
@@ -219,7 +217,11 @@ class PropertiesController extends Controller
             ]);
             // dd($properties->id);
             session()->put('roomId', $properties->id);
-            return redirect()->route('additional.index')->with('message', 'Room has been updated.');
+            if($request->save){
+                return redirect()->route('partnerDashboard')->with('message', 'Room has been updated.');
+                }else{
+                return redirect()->route('additional.index')->with('message', 'Room has been updated.');
+            }
         //  } 
         //  catch (\Exception $e) {
         // //     // return redirect()->back()->withInput()->withErrors(['error' => $e->getMessage()]);
@@ -230,8 +232,16 @@ class PropertiesController extends Controller
         /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $room = Room::find($id);
+        $rating = Rating::where('room_id', $id)->get();
+        foreach ($rating as $ratings) {
+            $ratings->delete();
+        }
+        // $id->steps-  >delete();
+        $room->delete();
+
+        return redirect()->route('partnerDashboard')->with('message', 'Property has been deleted successfully');
     }
 }
