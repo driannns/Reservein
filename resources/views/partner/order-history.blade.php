@@ -74,10 +74,15 @@
                                 {{ date('d M Y', strtotime($order->checkinday)) }}
                             </th>
                             <td class="px-6 py-4">
-                                <p>{{ $order->checkinhour }} hours</p>
+                                <p>{{ $order->checkinhour }}</p>
                             </td>
                             <td class="px-6 py-4">
-                                {{ $order->duration }}
+                                {{ $order->duration }} 
+                                @if($order->duration >1)
+                                hours
+                                @else
+                                hour
+                                @endif
                             </td>
                             <td class="px-6 py-4">
                                 {{ $order->fullname }}

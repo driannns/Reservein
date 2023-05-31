@@ -95,26 +95,11 @@ class PartnerController extends Controller
 
     public function updateStatus(Request $request, $id)
     {
-        $room = Room::find($id);
+        $order = Order::find($id);
 
-        $room->update([
-            'status' => $request->status
-        ]);
-        $partnerId = $request->partner_id;
-        $room = Room::where('partner_id', $partnerId)->get();
-        $roomIds = $room->pluck('id');
-        $orders = [];
-
-        foreach($roomIds as $roomId){
-            $order = Order::where('room_id', $roomId)->get();
-            if($order->isNotEmpty()){
-                // dd($order->room_id);
-                $rooms = Room::where('id', $roomId)->get();
-                $roomName= $rooms->pluck('room_name');
-                $order[0]->room_id = $roomName;
-                $orders[] = $order[0];
-            }
-        }
-        return redirect()->back();
+            $order->update([
+                'status' => $request->status
+            ]);
+        return redirect()->route('partnerHistory', $id);
     }
 }
