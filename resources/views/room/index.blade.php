@@ -2,15 +2,23 @@
     <!-- Pitcure -->
     <div class="w-8/12 flex justify-between mx-auto">
         <div class="flex justify-end w-1/2 pr-1">
-            <div class="w-full">
-                <img class="w-full" src="/properties/{{ $room->foto1 }}" alt="">
+            <div class="w-full rounded-lg" style="background-image: url('/properties/{{ $room->foto1 }}'); background-size: cover; background-position: center">
+                <img class="invisible" src="/properties/foto1.png" alt="">
             </div>
         </div>
         <div class="w-1/2 grid grid-cols-2 place-items-center gap-1">
-            <img class="w-full" src="/properties/{{ $room->foto1 }}" alt="Photo of  $room->room_name  }}">
-            <img class="w-full" src="/properties/{{ $room->foto2 }}" alt="Photo of  $room->room_name  }}">
-            <img class="w-full" src="/properties/{{ $room->foto3 }}" alt="Photo of  $room->room_name  }}">
-            <img class="w-full" src="/properties/{{ $room->foto4 }}" alt="Photo of  $room->room_name  }}">
+            <div class="rounded-lg" style="background-image: url('/properties/{{ $room->foto1 }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                <img class="invisible" src="/properties/foto1.png" alt="Photo of  $room->room_name  }}">
+            </div>
+            <div class="rounded-lg" style="background-image: url('/properties/{{ $room->foto2 }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                <img class="invisible" src="/properties/foto1.png" alt="Photo of  $room->room_name  }}">
+            </div>
+            <div class="rounded-lg" style="background-image: url('/properties/{{ $room->foto3 }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                <img class="invisible" src="/properties/foto1.png" alt="Photo of  $room->room_name  }}">
+            </div>
+            <div class="rounded-lg" style="background-image: url('/properties/{{ $room->foto4 }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+                <img class="invisible" src="/properties/foto1.png" alt="Photo of  $room->room_name  }}">
+            </div>
         </div>
     </div>
 
