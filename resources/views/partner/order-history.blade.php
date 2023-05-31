@@ -74,7 +74,7 @@
                                 {{ date('d M Y', strtotime($order->checkinday)) }}
                             </th>
                             <td class="px-6 py-4">
-                                {{ $order->checkinhour }}
+                                <p>{{ $order->checkinhour }} hours</p>
                             </td>
                             <td class="px-6 py-4">
                                 {{ $order->duration }}
