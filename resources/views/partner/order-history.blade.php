@@ -1,5 +1,5 @@
 <x-partner-layout>
-    <div id="container" class="flex">
+    <div id="container" class="flex text-[#051036]">
         <div id="side-bar" class="w-2/12 bg-[#EAEAED] pt-10 pl-10">
             <div class="font-medium text-xl">
                 <a class="w-fit" href="">
@@ -27,7 +27,7 @@
                         <a href="#" class="block px-4 py-2">Notification</a>
                     </li>
                     <li>
-                    <form action="{{ route('partnerHistory') }}" method="post">
+                        <form action="{{ route('partnerHistory') }}" method="post">
                             @csrf
                             <input type="hidden" name="partner_id" value="{{ Auth::guard('partner')->user()->id }}">
                             <button type="submit" class="block px-4 py-2">Order History</button>
@@ -73,31 +73,71 @@
                     </thead>
                     <tbody>
                         @foreach($orders as $order)
-                                <tr class="bg-white border-b">
-                                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                    {{ date('d M Y', strtotime($order->checkinday)) }}
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        {{ $order->checkinhour }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                    {{ $order->duration }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                    {{ $order->fullname }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        @foreach ($order->room_id as $roomName)
-                                        {{ $roomName }}
-                                        @endforeach
-                                    </td>
-                                    <td class="px-6 py-4">
-                                    {{ $order->email }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                    {{ $order->status }}
-                                    </td>
-                                </tr>
+                        <tr class="bg-white border-b">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                {{ date('d M Y', strtotime($order->checkinday)) }}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{ $order->checkinhour }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $order->duration }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $order->fullname }}
+                            </td>
+                            <td class="px-6 py-4">
+                                @foreach ($order->room_id as $roomName)
+                                {{ $roomName }}
+                                @endforeach
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $order->email }}
+                            </td>
+                            <td class="px-6 py-4">
+                                @if($order->status == "Processing")
+                                <!-- The button to open modal -->
+                                <label for="my-modal-4{{ $order->id }}"
+                                    class="btn bg-white border-none text-[#DBDF00] hover:bg-[#DBDF00] hover:text-white">
+                                    {{ $order->status }}</label>
+                                <!-- Put this part before </body> tag -->
+                                <input type="checkbox" id="my-modal-4{{ $order->id }}" class="modal-toggle" />
+                                <label for="my-modal-4{{ $order->id }}" class="modal cursor-pointer">
+                                    <label class="modal-box relative bg-white" for="">
+                                        <h3 class="text-lg font-bold">Update Payment Status</h3>
+                                        <form action="{{ route('updateStatus', $order->id) }}" method="post">
+                                            @csrf
+                                            @method('patch')
+                                            <div
+                                                class="flex items-center justify-center p-6 space-x-2 border-t border-gray-200 rounded-b">
+                                                <input type="hidden" name="partner_id"
+                                                    value="{{ Auth::guard('partner')->user()->id }}">
+
+                                                <button type="submit" name="status" value="Success"
+                                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                                                    Accept Payment</button>
+                                                <button type="submit" name="status" value="Reject"
+                                                    class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 focus:z-10">
+                                                    Decline Payment</button>
+                                            </div>
+                                        </form>
+                                    </label>
+                                </label>
+                                @elseif($order->status == "Success")
+                                <!-- The button to open modal -->
+                                <label for="my-modal-4"
+                                    class="btn bg-white border-none text-[#178047] hover:bg-[#178047] hover:text-white">
+                                    {{ $order->status }}</label>
+                                @elseif($order->status == "Reject")
+                                <!-- The button to open modal -->
+                                <label for="my-modal-4"
+                                    class="btn bg-white border-none text-[#FF0000] hover:bg-[#FF0000] hover:text-white">
+                                    {{ $order->status }}</label>
+                                @endif
+
+                            </td>
+                        </tr>
+                        
                         @endforeach
                     </tbody>
                 </table>

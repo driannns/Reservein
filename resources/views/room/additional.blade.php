@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="mx-10 pb-10">
+    <div class="mx-10 pb-10 text-[#051036]">
         <!-- Starter -->
         <form action="{{route('totalAdditional', $room->id)}}" method="post">
             @csrf

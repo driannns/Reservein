@@ -81,6 +81,33 @@ class PartnerController extends Controller
         foreach($roomIds as $roomId){
             $order = Order::where('room_id', $roomId)->get();
             if($order->isNotEmpty()){
+                for($i = 0; $i < count($order); $i++){
+                    $rooms = Room::where('id', $roomId)->get();
+                    $roomName= $rooms->pluck('room_name');
+                    $order[$i]->room_id = $roomName;
+                    $orders[] = $order[$i];
+                }
+            }
+        }
+        return view('partner.order-history', ['orders' => $orders]);
+    }
+
+
+    public function updateStatus(Request $request, $id)
+    {
+        $room = Room::find($id);
+
+        $room->update([
+            'status' => $request->status
+        ]);
+        $partnerId = $request->partner_id;
+        $room = Room::where('partner_id', $partnerId)->get();
+        $roomIds = $room->pluck('id');
+        $orders = [];
+
+        foreach($roomIds as $roomId){
+            $order = Order::where('room_id', $roomId)->get();
+            if($order->isNotEmpty()){
                 // dd($order->room_id);
                 $rooms = Room::where('id', $roomId)->get();
                 $roomName= $rooms->pluck('room_name');
@@ -88,8 +115,6 @@ class PartnerController extends Controller
                 $orders[] = $order[0];
             }
         }
-        // $orderData = json_decode($orders);
-        // dd($orders);
         return view('partner.order-history', ['orders' => $orders]);
     }
 }

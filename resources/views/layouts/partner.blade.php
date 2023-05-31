@@ -36,8 +36,7 @@
 
                             <a href="/dashboard">
 
-                                <a href="/">
-    
+                                <a href="{{ route('partnerDashboard') }}">
                                     <img src="/assets/logo.png" alt="Logo og ReserveIn" />
                                 </a>
                         </div>

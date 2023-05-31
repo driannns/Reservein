@@ -20,7 +20,7 @@ class RoomController extends Controller
     {
         $rooms = Room::query();
         if ($request->has('location')){
-            $rooms->where('location', 'LIKE', '%' .  $request->location . '%')->get();
+            $rooms->where('city', 'LIKE', '%' .  $request->location . '%')->get();
         }
 
         if($request->has('roomType')){

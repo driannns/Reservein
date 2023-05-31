@@ -7,6 +7,9 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\AdditionalController;
+
+use App\Models\Room;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,7 +25,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $room = Room::paginate(8);
+    return view('welcome', compact('room'));
 });
 
 // ROLE
@@ -89,7 +93,9 @@ Route::prefix('partner')->group(function () {
     Route::resource('additional', AdditionalController::class)->middleware('partner');
 
     // Order History
+    // Route::get('orderhistory', [PartnerController::class, 'orderHistoryGet'])->name('partnerHistoryGet')->middleware('partner');
     Route::post('orderhistory', [PartnerController::class, 'orderHistory'])->name('partnerHistory')->middleware('partner');
+    Route::patch('/statusUpdate/{id}', [OrderController::class, 'updateStatus'])->name('updateStatus')->middleware('partner');
 });
 
 require __DIR__.'/auth.php';

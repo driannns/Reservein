@@ -28,14 +28,14 @@
         <main class="flex" style="height: 90vh">
             <div class="w-3/12 bg-[#6196B4] relative" style="height: 90vh;">
             <div class="w-10/12 mx-auto mt-20">
-                <h1 class="text-5xl text-white font-bold drop-shadow-lg">Effortless
-                    <br>Meeting
-                    <br>at Your 
-                    <br>Fingertips</h1>
+                <h1 class="text-5xl text-white font-bold drop-shadow-lg">Find the with Just a Click
+                    <br>Perfect
+                    <br>Space with
+                    <br>Just a Click</h1>
                 </div>
                 <img class="w-11/12 left-1/2 -translate-x-1/2 absolute bottom-0" src="/assets/login.png" alt="">
             </div>
-            <div class="w-9/12" style="background-image: url('/assets/register.png'); background-size: cover;">
+            <div class="w-9/12" style="background-image: url('/assets/register.png'); background-size: cover; background-color: rgba(255, 255, 255, 0.7)">
                 <div class="w-full" style="height: 90vh;">
                     {{ $slot }}
                 </div>

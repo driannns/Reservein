@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="p-10">
+    <div class="p-10 text-[#051036]">
         <div class="flex justify-between border bg-[#D9D9D9] items-center p-5">
             <h1 class="text-3xl text-[#686868]">Booking History</h1>
             <div class="flex items-center bg-white rounded-2xl px-2">

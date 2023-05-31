@@ -1,5 +1,5 @@
 <x-partner-layout>
-    <div id="container" class="flex">
+    <div id="container" class="flex text-[#051036]">
         <div id="side-bar" class="w-2/12 bg-[#EAEAED] pt-10 pl-10">
             <div class="font-medium text-xl">
                 <a class="w-fit" href="">

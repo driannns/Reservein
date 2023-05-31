@@ -30,7 +30,7 @@
                 </div>
                 <div class="hidden sm:flex sm:items-center sm:ml-2 ">
                     <!-- Dropdown menu -->
-                    <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                    <!-- <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                         <ul class="py-2 text-sm" aria-labelledby="dropdownDefaultButton">
                             <li>
                                 <x-dropdown-link :href="route('profile.edit')">
@@ -108,7 +108,7 @@
                                 </form>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
 
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">

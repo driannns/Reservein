@@ -15,7 +15,7 @@
     </div>
 
     <!-- Description -->
-    <div class="w-10/12 flex mx-auto mt-12 pb-14" style="font-family: 'Poppins', sans-serif;">
+    <div class="w-10/12 flex mx-auto mt-12 pb-14 text-[#051036]" style="font-family: 'Poppins', sans-serif;">
         <!-- Detail -->
         <div class="w-8/12">
             <div class="border border-gray-200 rounded-xl p-5" id="main-detail">

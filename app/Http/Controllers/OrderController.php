@@ -249,4 +249,16 @@ class OrderController extends Controller
 
         return redirect()->route('dashboard')->with('refundMessage',$refundMessage);
     }
+
+    public function updateStatus(Request $request, $id)
+    {
+        $order = Order::find($id);
+
+            $order->update([
+                'status' => $request->status
+            ]);
+
+
+        return redirect()->route('partnerHistory');
+    }
 }

@@ -7,12 +7,7 @@ window.Alpine = Alpine;
 Alpine.start();
 import { Carousel, initTE } from "tw-elements";
 initTE({ Carousel });
-import {
-    Carousel,
-    initTE,
-  } from "tw-elements";
-  
-  initTE({ Carousel });
+
 const parents = document.querySelectorAll("#card-rooms");
 const inputUser = document.querySelector("#inputFindRoom");
 

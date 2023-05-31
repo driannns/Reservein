@@ -1,6 +1,6 @@
 <x-app-layout>
     <!-- Search Bar -->
-    <div class="py-5">
+    <div class="py-5 text-[#051036]">
         <div class="w-full flex flex-col items-center bg-[#f5f5f5] gap-6 py-10">
             <div class="">
                 <h1 class="text-3xl font-extrabold" style="font-family: 'Jost', sans-serif;">Find Your Best Meeting Room
@@ -79,7 +79,7 @@
                     referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <!-- filter -->
-            <div class="w-full h-fit " id="filter">
+            <div class="w-full h-fit text-[#051036]" id="filter">
                 <h1 class="font-medium mb-5">Search by property name</h1>
                 <div class="flex items-center px-3 border-2 border-[#dddddd]">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -177,80 +177,48 @@
         </div>
 
         <!-- Room -->
-        <div class="w-8/12 ml-5">
+        <div class="w-8/12 ml-5 text-[#051036]">
             <!-- Room #1 -->
             @foreach($room as $rooms)
             <div class="w-full flex h-fit p-4" id="card-rooms">
                 <!-- Image -->
-                <div id="carouselExampleCaptions" class="relative w-3/12 mr-3" data-te-carousel-init
-                    data-te-carousel-slide>
-                    <!--Carousel indicators-->
-                    <div class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
-                        data-te-carousel-indicators>
-                        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="0"
-                            data-te-carousel-active
-                            class="box-content w-2 h-2 rounded-full flex-initial cursor-pointer bg-white bg-clip-padding mr-1 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-                            aria-current="true" aria-label="Slide 1">
-                        </button>
-                        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="1"
-                            class="box-content w-2 h-2 rounded-full flex-initial cursor-pointer bg-white bg-clip-padding mr-1 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-te-target="#carouselExampleCaptions" data-te-slide-to="2"
-                            class="box-content w-2 h-2 rounded-full flex-initial cursor-pointer bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
-                            aria-label="Slide 3"></button>
-                    </div>
-
-                    <!--Carousel items-->
-                    <div class="relative w-full h-full overflow-hidden after:clear-both after:block after:content-['']"
-                        style="height: 30vh;">
-                        <!--First item-->
-                        <div class="relative h-full float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                            style="height: 30vh;" data-te-carousel-active data-te-carousel-item
-                            style="backface-visibility: hidden">
-                            <img src="/assets/poto1.png" class="block object-cover" alt="..." />
+                <div class="carousel w-3/12 mr-5" style="height: 30vh;">
+                            <div id="slide1{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
+                                <img src="/properties/{{ $rooms->foto1 }}" class="w-full"  style="height:30vh;" />
+                                <div
+                                    class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                    <a href="#slide4{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
+                                    <a href="#slide2{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
+                                </div>
+                            </div>
+                            <div id="slide2{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
+                                <img src="/properties/{{ $rooms->foto2 }}" class="w-full"  style="height:30vh;"/>
+                                <div
+                                    class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                    <a href="#slide1{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
+                                    <a href="#slide3{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
+                                </div>
+                            </div>
+                            <div id="slide3{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
+                                <img src="/properties/{{ $rooms->foto3 }}" class="w-full" style="height:30vh;" />
+                                <div
+                                    class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                    <a href="#slide2{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
+                                    <a href="#slide4{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
+                                </div>
+                            </div>
+                            <div id="slide4{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
+                                <img src="/properties/{{ $rooms->foto4 }}" class="w-full"  style="height:30vh;"/>
+                                <div
+                                    class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                    <a href="#slide3{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
+                                    <a href="#slide1{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
+                                </div>
+                            </div>
                         </div>
-                        <!--Second item-->
-                        <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                            data-te-carousel-item style="backface-visibility: hidden">
-                            <img src="/assets/poto2.png" class="block object-cover" alt="..." />
-                        </div>
-                        <!--Third item-->
-                        <div class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
-                            data-te-carousel-item style="backface-visibility: hidden">
-                            <img src="/assets/poto3.png" class="block object-cover" alt="..." />
-                        </div>
-                    </div>
-
-                    <!--Carousel controls - prev item-->
-                    <button
-                        class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
-                        type="button" data-te-target="#carouselExampleCaptions" data-te-slide="prev">
-                        <span class="inline-block h-8 w-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="h-6 w-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                            </svg>
-                        </span>
-                        <span
-                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Previous</span>
-                    </button>
-                    <!--Carousel controls - next item-->
-                    <button
-                        class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
-                        type="button" data-te-target="#carouselExampleCaptions" data-te-slide="next">
-                        <span class="inline-block h-8 w-8">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="h-6 w-6">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                            </svg>
-                        </span>
-                        <span
-                            class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Next</span>
-                    </button>
-                </div>
 
                 <!-- Description -->
-                <div class="w-6/12" id="description">
+                <div class="w-6/12 flex flex-col justify-center" id="description">
                     <!-- Room name -->
                     <div>
                         <h4 class="font-bold" id="title">

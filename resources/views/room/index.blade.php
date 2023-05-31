@@ -3,19 +3,19 @@
     <div class="w-8/12 flex justify-between mx-auto">
         <div class="flex justify-end w-1/2 pr-1">
             <div class="w-full">
-                <img class="w-full" src="/assets/poto1.png" alt="">
+                <img class="w-full" src="/properties/{{ $room->foto1 }}" alt="">
             </div>
         </div>
         <div class="w-1/2 grid grid-cols-2 place-items-center gap-1">
-            <img class="w-full" src="/assets/poto1.png" alt="Photo of {{ $room->room_name }}">
-            <img class="w-full" src="/assets/poto2.png" alt="Photo of {{ $room->room_name }}">
-            <img class="w-full" src="/assets/poto3.png" alt="Photo of {{ $room->room_name }}">
-            <img class="w-full" src="/assets/poto4.png" alt="Photo of {{ $room->room_name }}">
+            <img class="w-full" src="/properties/{{ $room->foto1 }}" alt="Photo of  $room->room_name  }}">
+            <img class="w-full" src="/properties/{{ $room->foto2 }}" alt="Photo of  $room->room_name  }}">
+            <img class="w-full" src="/properties/{{ $room->foto3 }}" alt="Photo of  $room->room_name  }}">
+            <img class="w-full" src="/properties/{{ $room->foto4 }}" alt="Photo of  $room->room_name  }}">
         </div>
     </div>
 
     <!-- Description -->
-    <div class="w-10/12 flex mx-auto mt-12 pb-14" style="font-family: 'Poppins', sans-serif;">
+    <div class="w-10/12 flex mx-auto mt-12 pb-14 text-[#051036]" style="font-family: 'Poppins', sans-serif;">
         <!-- Detail -->
         <div class="w-8/12">
             <div class="border border-gray-200 rounded-xl p-5" id="main-detail">

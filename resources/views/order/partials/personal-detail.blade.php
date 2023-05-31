@@ -4,19 +4,19 @@
             @csrf
             <h1 class="font-semibold">Let us know who you are</h1>
             <input class="w-full bg-transparent border-[#dddddd] p-4 text-sm" type="text" name="fullname"
-                autocomplete="name" placeholder="Full Name" value="{{ old('my-input', session('order.fullname')) }}">
+                autocomplete="name" placeholder="Full Name" value="{{ old('my-input', session('order.fullname')) }}" required>
             <div class="flex w-full gap-3">
                 <div class="w-full">
                     <input class="w-full bg-transparent p-4 text-sm border-[#dddddd]" type="text" name="email"
-                        placeholder="Email" value="{{ old('my-input', session('order.email')) }}">
+                        placeholder="Email" value="{{ old('my-input', session('order.email')) }}" required>
                 </div>
                 <div class="w-full">
                     <input class="w-full bg-transparent p-4 text-sm border-[#dddddd]" type="tel" name="phonenumber"
-                        placeholder="Phone Number" value="{{ old('my-input', session('order.phonenumber')) }}" >
+                        placeholder="Phone Number" value="{{ old('my-input', session('order.phonenumber')) }}" required>
                 </div>
             </div>
             <textarea class="w-full bg-transparent p-4 text-sm border-[#dddddd]" name="specialrequest"
-                id="specialrequest" rows="6" cols="40" style="resize:none" placeholder="Special Requests">{{ old('my-input', session('order.specialrequest')) }}</textarea>
+                id="specialrequest" rows="6" cols="40" style="resize:none" placeholder="Special Requests" required>{{ old('my-input', session('order.specialrequest')) }}</textarea>
             <p class="text-[#697488] text-sm">By proceeding with this reservation, I agree to ReserveIn Terms of
                 Use and Privacy Policy.</p>
             <div class="flex gap-4 mt-3">
