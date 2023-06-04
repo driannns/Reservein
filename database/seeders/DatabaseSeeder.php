@@ -24,7 +24,6 @@ class DatabaseSeeder extends Seeder
                 'zipcode' => '17530',
                 'room_type' => 'U Shape',
                 'room_area' => '10 x 7 m²',
-                'extra' => '1 extra-large double bed',
                 'person' => '5-10 Person',
                 'room_description' => 'Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides accommodation, an outdoor swimming pool, a bar, a shared lounge, a garden and barbecue facilities. Complimentary WiFi is provided.
 
@@ -41,7 +40,7 @@ class DatabaseSeeder extends Seeder
                 'foto1' => 'foto1.png',
                 'foto2' => 'foto2.png',
                 'foto3' => 'foto3.png',
-                'foto4' => 'foto3.png',
+                'foto4' => 'foto4.png',
                 'price' => 499000,
             ],
             [
@@ -54,7 +53,6 @@ class DatabaseSeeder extends Seeder
                 'zipcode' => '17530',
                 'room_type' => 'U Shape',
                 'room_area' => '10 x 9 m²',
-                'extra' => '1 extra-large double bed',
                 'person' => '10-20 Person',
                 'room_description' => 'Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides accommodation, an outdoor swimming pool, a bar, a shared lounge, a garden and barbecue facilities. Complimentary WiFi is provided.
 
@@ -68,10 +66,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => '',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => 'foto1.png',
-                'foto2' => 'foto2.png',
-                'foto3' => 'foto3.png',
-                'foto4' => 'foto3.png',
+                'foto1' => 'foto1 - Copy.png',
+                'foto2' => 'foto2 - Copy.png',
+                'foto3' => 'foto3 - Copy.png',
+                'foto4' => 'foto4 - Copy.png',
                 'price' => 599000,
             ],
             [
@@ -84,7 +82,6 @@ class DatabaseSeeder extends Seeder
                 'zipcode' => '17530',
                 'room_type' => 'U Shape',
                 'room_area' => '10 x 10 m²',
-                'extra' => '1 extra-large double bed',
                 'person' => '20-30 Person',
                 'room_description' => 'Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides accommodation, an outdoor swimming pool, a bar, a shared lounge, a garden and barbecue facilities. Complimentary WiFi is provided.
 
@@ -98,10 +95,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => 'foto1.png',
-                'foto2' => 'foto2.png',
-                'foto3' => 'foto3.png',
-                'foto4' => 'foto3.png',
+                'foto1' => 'foto1 - Copy (2).png',
+                'foto2' => 'foto2 - Copy (2).png',
+                'foto3' => 'foto3 - Copy (2).png',
+                'foto4' => 'foto4 - Copy (2).png',
                 'price' => 799000,
             ],
             [
@@ -114,7 +111,6 @@ class DatabaseSeeder extends Seeder
                 'zipcode' => '17530',
                 'room_type' => 'Openspace',
                 'room_area' => '10 x 10 m²',
-                'extra' => '1 extra-large double bed',
                 'person' => '20-30 Person',
                 'room_description' => 'Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides accommodation, an outdoor swimming pool, a bar, a shared lounge, a garden and barbecue facilities. Complimentary WiFi is provided.
 
@@ -128,10 +124,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => 'foto1.png',
-                'foto2' => 'foto2.png',
-                'foto3' => 'foto3.png',
-                'foto4' => 'foto3.png',
+                'foto1' => 'foto1 - Copy (3).png',
+                'foto2' => 'foto2 - Copy (3).png',
+                'foto3' => 'foto3 - Copy (3).png',
+                'foto4' => 'foto4 - Copy (3).png',
                 'price' => 399000,
             ],
             [
@@ -144,7 +140,6 @@ class DatabaseSeeder extends Seeder
                 'zipcode' => '17530',
                 'room_type' => 'Indoor',
                 'room_area' => '10 x 13 m²',
-                'extra' => '1 extra-large double bed',
                 'person' => '15-20 Person',
                 'room_description' => 'Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides accommodation, an outdoor swimming pool, a bar, a shared lounge, a garden and barbecue facilities. Complimentary WiFi is provided.
 
@@ -158,10 +153,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => 'foto1.png',
-                'foto2' => 'foto2.png',
-                'foto3' => 'foto3.png',
-                'foto4' => 'foto3.png',
+                'foto1' => 'foto1 - Copy (4).png',
+                'foto2' => 'foto2 - Copy (4).png',
+                'foto3' => 'foto3 - Copy (4).png',
+                'foto4' => 'foto4 - Copy (4).png',
                 'price' => 459000,
             ],
             [
@@ -174,7 +169,6 @@ class DatabaseSeeder extends Seeder
                 'zipcode' => '17530',
                 'room_type' => 'Openspace',
                 'room_area' => '10 x 13 m²',
-                'extra' => '1 extra-large double bed',
                 'person' => '15-20 Person',
                 'room_description' => 'Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides accommodation, an outdoor swimming pool, a bar, a shared lounge, a garden and barbecue facilities. Complimentary WiFi is provided.
 
@@ -188,10 +182,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => 'foto1.png',
-                'foto2' => 'foto2.png',
-                'foto3' => 'foto3.png',
-                'foto4' => 'foto3.png',
+                'foto1' => 'foto1 - Copy (5).png',
+                'foto2' => 'foto2 - Copy (5).png',
+                'foto3' => 'foto3 - Copy (5).png',
+                'foto4' => 'foto4 - Copy (5).png',
                 'price' => 459000,
             ],
             [
@@ -204,7 +198,6 @@ class DatabaseSeeder extends Seeder
                 'zipcode' => '17530',
                 'room_type' => 'Lounge',
                 'room_area' => '10 x 13 m²',
-                'extra' => '1 extra-large double bed',
                 'person' => '15-20 Person',
                 'room_description' => 'Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides accommodation, an outdoor swimming pool, a bar, a shared lounge, a garden and barbecue facilities. Complimentary WiFi is provided.
 
@@ -218,10 +211,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => 'foto1.png',
-                'foto2' => 'foto2.png',
-                'foto3' => 'foto3.png',
-                'foto4' => 'foto3.png',
+                'foto1' => 'foto1 - Copy (6).png',
+                'foto2' => 'foto2 - Copy (6).png',
+                'foto3' => 'foto3 - Copy (6).png',
+                'foto4' => 'foto4 - Copy (6).png',
                 'price' => 459000,
             ],
             [
@@ -234,7 +227,6 @@ class DatabaseSeeder extends Seeder
                 'zipcode' => '17530',
                 'room_type' => 'Indoor',
                 'room_area' => '10 x 13 m²',
-                'extra' => '1 extra-large double bed',
                 'person' => '15-20 Person',
                 'room_description' => 'Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides accommodation, an outdoor swimming pool, a bar, a shared lounge, a garden and barbecue facilities. Complimentary WiFi is provided.
 
@@ -248,10 +240,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => 'foto1.png',
-                'foto2' => 'foto2.png',
-                'foto3' => 'foto3.png',
-                'foto4' => 'foto3.png',
+                'foto1' => 'foto1 - Copy (7).png',
+                'foto2' => 'foto2 - Copy (7).png',
+                'foto3' => 'foto3 - Copy (7).png',
+                'foto4' => 'foto4 - Copy (7).png',
                 'price' => 459000,
             ],
             [
@@ -264,7 +256,6 @@ class DatabaseSeeder extends Seeder
                 'zipcode' => '17530',
                 'room_type' => 'Lounge',
                 'room_area' => '10 x 13 m²',
-                'extra' => '1 extra-large double bed',
                 'person' => '15-20 Person',
                 'room_description' => 'Providing lake views, The Symphony 9 Tam Coc in Ninh Binh provides accommodation, an outdoor swimming pool, a bar, a shared lounge, a garden and barbecue facilities. Complimentary WiFi is provided.
 
@@ -278,10 +269,10 @@ class DatabaseSeeder extends Seeder
                 'properties7' => 'Wifi Included',
                 'properties8' => '',
                 'special_note' => '',
-                'foto1' => 'foto1.png',
-                'foto2' => 'foto2.png',
-                'foto3' => 'foto3.png',
-                'foto4' => 'foto3.png',
+                'foto1' => 'foto1 - Copy (8).png',
+                'foto2' => 'foto2 - Copy (8).png',
+                'foto3' => 'foto3 - Copy (8).png',
+                'foto4' => 'foto4 - Copy (8).png',
                 'price' => 459000,
             ],
         ];

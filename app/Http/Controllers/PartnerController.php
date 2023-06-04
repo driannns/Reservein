@@ -96,6 +96,7 @@ class PartnerController extends Controller
                 }
             }
         }
+        // dd($orders);
         return view('partner.order-history', ['orders' => $orders]);
     }
 

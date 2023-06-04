@@ -17,7 +17,7 @@ class Partner
     public function handle(Request $request, Closure $next): Response
     {
         if(!Auth::guard('partner')->check()){
-            return redirect()->back()->with('error', 'Login First!');
+            return redirect()->route('partnerLogin-form')->with('error', 'Login First!');
         }
         return $next($request);
     }

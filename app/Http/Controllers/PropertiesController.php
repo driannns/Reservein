@@ -42,10 +42,10 @@ class PropertiesController extends Controller
         $name3 = 'PROPERTIES3_' . date('Ymdhis') . '.' . $file3->getClientOriginalExtension();
         $name4 = 'PROPERTIES4_' . date('Ymdhis') . '.' . $file4->getClientOriginalExtension();
 
-        $file1->move('properties/', $name1);
-        $file2->move('properties/', $name2);
-        $file3->move('properties/', $name3);
-        $file4->move('properties/', $name4);
+        $file1->move('room/', $name1);
+        $file2->move('room/', $name2);
+        $file3->move('room/', $name3);
+        $file4->move('room/', $name4);
         
         $properties = Room::create([
             "partner_id" => $request->partner_id,
@@ -57,7 +57,6 @@ class PropertiesController extends Controller
             "zipcode" => $request->zipcode,
             "room_type" => $request->type,
             "room_area" => $request->room_area,
-            "extra" => $request->room_area,
             "person" => $request->person,
             "room_description" => $request->room_description,
             "properties1" => $request->properties1,
@@ -133,7 +132,6 @@ class PropertiesController extends Controller
             "zipcode" => 'required',
             "type" => 'required',
             "room_area" => 'required',
-            "extra" => 'required',
             "person" => 'required',
             "room_description" => 'required',
             "properties1" => 'required',
@@ -153,44 +151,42 @@ class PropertiesController extends Controller
 
             if($request->hasfile('foto1') || $request->hasfile('foto2') || $request->hasfile('foto3') || $request->hasfile('foto4'))
             {
-
                 $fotocolumn1 = $properties->foto1;
                 $fotocolumn2 = $properties->foto2;
                 $fotocolumn3 = $properties->foto3;
                 $fotocolumn4 = $properties->foto4;
-                $path1 = 'properties/' . $fotocolumn1;
-                $path2 = 'properties/' . $fotocolumn2;
-                $path3 = 'properties/' . $fotocolumn3;
-                $path4 = 'properties/' . $fotocolumn4;
-            if(File::exists($path1)){
-                File::delete($path1);
-                File::delete($path2);
-                File::delete($path3);
-                File::delete($path4);
+                $path1 = 'room/' . $fotocolumn1;
+                $path2 = 'room/' . $fotocolumn2;
+                $path3 = 'room/' . $fotocolumn3;
+                $path4 = 'room/' . $fotocolumn4;
+                if(File::exists($path1)){
+                    File::delete($path1);
+                    File::delete($path2);
+                    File::delete($path3);
+                    File::delete($path4);
+                }
+                $file1 = $request->file('foto1');
+                $file2 = $request->file('foto2');
+                $file3 = $request->file('foto3');
+                $file4 = $request->file('foto4');
+                $name1 = 'PROPERTIES1_' . date('Ymdhis') . '.' . $file1->getClientOriginalExtension();
+                $name2 = 'PROPERTIES2_' . date('Ymdhis') . '.' . $file2->getClientOriginalExtension();
+                $name3 = 'PROPERTIES3_' . date('Ymdhis') . '.' . $file3->getClientOriginalExtension();
+                $name4 = 'PROPERTIES4_' . date('Ymdhis') . '.' . $file4->getClientOriginalExtension();
+                
+                $file1->move('room/', $name1);
+                $file2->move('room/', $name2);
+                $file3->move('room/', $name3);
+                $file4->move('room/', $name4);
+
+                $properties->update([
+                    "foto1" => $name1,
+                    "foto2" => $name2,
+                    "foto3" => $name3,
+                    "foto4" => $name4,
+                ]); 
             }
-            $file1 = $request->file('foto1');
-            $file2 = $request->file('foto2');
-            $file3 = $request->file('foto3');
-            $file4 = $request->file('foto4');
-            $name1 = 'PROPERTIES1_' . date('Ymdhis') . '.' . $file1->getClientOriginalExtension();
-            $name2 = 'PROPERTIES2_' . date('Ymdhis') . '.' . $file2->getClientOriginalExtension();
-            $name3 = 'PROPERTIES3_' . date('Ymdhis') . '.' . $file3->getClientOriginalExtension();
-            $name4 = 'PROPERTIES4_' . date('Ymdhis') . '.' . $file4->getClientOriginalExtension();
-            // dd($name4);
-            
-            $file1->move('properties/', $name1);
-            $file2->move('properties/', $name2);
-            $file3->move('properties/', $name3);
-            $file4->move('properties/', $name4);
-            // dd($name4);
-            $properties->update([
-                "foto1" => $name1,
-                "foto2" => $name2,
-                "foto3" => $name3,
-                "foto4" => $name4,
-            ]);
-            
-        }
+
             $properties->update([
                 "partner_id" => $request->partner_id,
                 "room_name" => $request->name,
@@ -201,7 +197,6 @@ class PropertiesController extends Controller
                 "zipcode" => $request->zipcode,
                 "room_type" => $request->type,
                 "room_area" => $request->room_area,
-                "extra" => $request->room_area,
                 "person" => $request->person,
                 "room_description" => $request->room_description,
                 "properties1" => $request->properties1,

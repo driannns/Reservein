@@ -100,7 +100,7 @@
             <div class="mt-3">
                 <x-input-label for="nomor" :value="__('Phone Number')" class="text-black" required/>
                 <x-text-input id="nomor" name="nomor" type="text" class="mt-1 block w-full"
-                    :value="old('nomor', $user->nomor)" autofocus autocomplete="nomor" />
+                    :value="old('nomor', $user->nomor)" autofocus autocomplete="phonenumber" />
                 <x-input-error class="mt-2" :messages="$errors->get('nomor')" />
             </div>
 

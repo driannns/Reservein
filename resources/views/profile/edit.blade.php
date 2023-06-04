@@ -1,4 +1,8 @@
 <x-app-layout>
+<style>
+        ::-webkit-calendar-picker-indicator {
+    filter: invert(1);}
+</style>
     <x-slot name="header">
         <h2 class="Poppins text-center font-bold text-2xl text-gray-800 leading-tight"
             style="font-family:'Poppins', sans-serif;">

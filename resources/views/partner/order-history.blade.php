@@ -27,7 +27,8 @@
                         <a href="#" class="block px-4 py-2">Notification</a>
                     </li>
                     <li>
-                    <a href="{{ route('partnerHistory', (Auth::guard('partner')->user()->id)) }}"><button type="submit" class="block px-4 py-2">Order History</button></a>
+                        <a href="{{ route('partnerHistory', (Auth::guard('partner')->user()->id)) }}"><button
+                                type="submit" class="block px-4 py-2">Order History</button></a>
                     </li>
                     <li>
                         <a href="#" class="block px-4 py-2">
@@ -63,6 +64,12 @@
                                 Email
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Total
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Additional
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Payment
                             </th>
                         </tr>
@@ -77,7 +84,7 @@
                                 <p>{{ $order->checkinhour }}</p>
                             </td>
                             <td class="px-6 py-4">
-                                {{ $order->duration }} 
+                                {{ $order->duration }}
                                 @if($order->duration >1)
                                 hours
                                 @else
@@ -94,6 +101,113 @@
                             </td>
                             <td class="px-6 py-4">
                                 {{ $order->email }}
+                            </td>
+                            <td class="px-6 py-4">
+                                @currency($order->totalprice)
+                            </td>
+                            <td class="px-6 py-4">
+                                <label for="my-modal-{{ $order->id }}"
+                                    class="btn normal-case border-none bg-[#3C6A91] hover:bg-[#081440] text-white rounded-full">
+                                    Additional Order</label>
+
+                                <!-- Put this part before </body> tag -->
+                                <input type="checkbox" id="my-modal-{{ $order->id }}" class="modal-toggle" />
+
+                                <label for="my-modal-{{ $order->id }}" class="modal cursor-pointer">
+                                    <label class="modal-box w-11/12 max-w-5xl relative bg-white text-center" for="">
+                                        <h3 class="text-lg font-bold text-">Additional
+                                            Order</h3>
+                                        <div class="">
+                                            <table class="w-full text-sm text-left text-gray-500 rounded-2xl">
+                                                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                                    <tr>
+                                                        <th scope="col" class="px-6 py-3">
+                                                            No
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3">
+                                                            Menu
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3">
+                                                            Pcs
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3">
+                                                            Price
+                                                        </th>
+                                                        <th scope="col" class="px-6 py-3">
+                                                            Total
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @php
+                                                    $totalQuantity = 0;
+                                                    $totalPrice = 0;
+                                                    $number = 1;
+                                                    @endphp
+                                                    @foreach($order->additional as $value)
+                                                    <tr class="bg-white border-b">
+                                                        <th scope="row"
+                                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                            {{ $number++ }}
+                                                        </th>
+                                                        <td class="px-6 py-4">
+                                                            {{ $value['additional_name'] }}
+                                                        </td>
+                                                        <td class="px-6 py-4">
+                                                            {{ $value['quantity'] }}
+                                                        </td>
+                                                        <td class="px-6 py-4">
+                                                            @currency($value['price'])
+                                                        </td>
+                                                        <td class="px-6 py-4">
+                                                            @currency($value['total'])
+                                                        </td>
+                                                    </tr>
+                                                    @php
+                                                    $totalQuantity += $value['quantity'];
+                                                    $totalPrice += $value['total'];
+                                                    $totalTaxServices = $totalPrice * 0.1;
+                                                    $total = $totalPrice + $totalTaxServices;
+                                                    @endphp
+                                                    @endforeach
+                                                    <tr class="bg-white">
+                                                        <th rowspan="2" colspan="4" scope="row"
+                                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                            Tax & Services (10%)
+                                                        </th>
+                                                        <td class="px-6 py-4">
+                                                            @currency($totalPrice)
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-white border-b">
+                                                        <td class="px-6 py-4">
+                                                            @currency($totalTaxServices)
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-white">
+                                                        <th colspan="4" scope="row"
+                                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                            Total
+                                                        </th>
+                                                        <td class="px-6 py-4">
+                                                            <input name="totalQuantity" type="hidden"
+                                                                value="{{$totalQuantity}}">
+                                                            <p>@currency($total)</p>
+                                                            <input name="totalPrice"
+                                                                class="border-0 focus:border-transparent focus:ring-0"
+                                                                placeholder type="hidden" value="{{ $total }}" readonly>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="bg-white">
+                                                        <th colspan="4" scope="row"
+                                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                        </th>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </label>
+                                </label>
                             </td>
                             <td class="px-6 py-4">
                                 @if($order->status == "Processing")
@@ -138,7 +252,7 @@
 
                             </td>
                         </tr>
-                        
+
                         @endforeach
                     </tbody>
                 </table>

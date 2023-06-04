@@ -54,7 +54,7 @@
                     </div>
                     <div class="mt-4">
                         <label for="type" class="block mb-2 font-medium text-sm">Type</label>
-                        <select id="type" name="type"
+                        <select id="type" name="type" required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option disabled>Type of Properties</option>
                             <option value="U Shape" {{ $properties->type == 'U Shape' ? 'selected' : ''}}>U Shape</option>
@@ -110,18 +110,9 @@
                         <x-input-error :messages="$errors->get('room_area')" />
                     </div>
                     <div class="mt-4">
-                        <x-input-label for="extra" :value="__('Extra')" style="font-weight:700; color: #3C6A91;" />
-                        <x-input-label for="extra" :value="__('Example: 1 extra-large double bed')"
-                            style="font-weight:700; color: #3C6A91;" />
-                        <x-text-input id="extra" class="block mt-1 w-full" type="text" name="extra"
-                        value="{{ $properties->extra }}" placeholder="1 extra-large double bed" required autofocus
-                            autocomplete="extra" />
-                        <x-input-error :messages="$errors->get('extra')" />
-                    </div>
-                    <div class="mt-4">
                         <label for="person" class="block mb-2 font-medium text-sm text-[#3C6A91]">For how many
                             people</label>
-                        <select id="person" name="person"
+                        <select id="person" name="person" required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option disabled>For how many people</option>
                             <option value="5-10 people" {{ $properties->person == '5-10 people' ? 'selected' : ''}}>5-10 people</option>
@@ -134,7 +125,7 @@
                             Description</label>
                         <textarea id="room_description" rows="4" name="room_description"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Write your thoughts here...">{{ $properties->room_description }}</textarea>
+                            placeholder="Write your thoughts here..." required>{{ $properties->room_description }}</textarea>
                     </div>
 
                     <div class="grid grid-cols-2 gap-5">
@@ -205,7 +196,7 @@
                             Note</label>
                         <textarea id="special_note" rows="4" name="special_note"
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-                            placeholder="Write your thoughts here...">{{ $properties->special_note }}</textarea>
+                            placeholder="Write your thoughts here..." required>{{ $properties->special_note }}</textarea>
                     </div>
 
                     <div class="w-full">
@@ -218,29 +209,32 @@
                         type="submit" value="Save" name="save">
                     </div>
                 </div>
+
+                <!-- Photo Input -->
                 <div class="w-7/12 flex flex-col items-center">
                     <div class="w-fit flex flex-col gap-4 items-center">
-
+                        <!-- Page Line 1 -->
                         <div class="w-fit h-fit flex justify-center">
 
                             <div>
-                                <img class="w-[432px] h-80 rounded-lg" src="/properties/{{ $properties->foto1 }}" id="output"
+                                <img class="w-[372px] rounded-lg" src="/room/{{ $properties->foto1 }}" id="output"
                                     alt="Photo of Profile">
                             </div>
 
                         </div>
+                        <!-- Page Line 2 -->
                         <div class="flex gap-4">
-
+                            
                             <div>
-                                <img class="w-44 h-40 rounded-lg" src="/properties/{{ $properties->foto2 }}" id="output1"
+                                <img class="w-44 h-40 rounded-lg" src="/room/{{ $properties->foto2 }}" id="output1"
                                     alt="Photo of Profile">
                             </div>
                             <div>
-                                <img class="w-44 h-40 rounded-lg" src="/properties/{{ $properties->foto3 }}" id="output2"
+                                <img class="w-44 h-40 rounded-lg" src="/room/{{ $properties->foto3 }}" id="output2"
                                     alt="Photo of Profile">
                             </div>
                             <div>
-                                <img class="w-44 h-40 rounded-lg" src="/properties/{{ $properties->foto4 }}" id="output3"
+                                <img class="w-44 h-40 rounded-lg" src="/room/{{ $properties->foto4 }}" id="output3"
                                     alt="Photo of Profile">
                             </div>
 
@@ -249,25 +243,25 @@
                     </div>
                     <div class="w-9/12 mb-2">
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Foto 1</label>
-                        <input
+                        <input required
                             class="block w-full text-sm text-[#3C6A91] border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
                             type="file" accept="image/*" name="foto1" id="file" onchange="loadFile(event)" value="{{ $properties->foto1 }}">
                     </div>
                     <div class="w-9/12 mb-2">
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Foto 2</label>
-                        <input
+                        <input required
                             class="block w-full text-sm text-[#3C6A91] border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
                             type="file" accept="image/*" name="foto2" id="file" onchange="loadFile1(event)">
                     </div>
                     <div class="w-9/12 mb-2">
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Foto 3</label>
-                        <input
+                        <input required
                             class="block w-full text-sm text-[#3C6A91] border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
                             type="file" accept="image/*" name="foto3" id="file" onchange="loadFile2(event)">
                     </div>
                     <div class="w-9/12">
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Foto 4</label>
-                        <input
+                        <input required
                             class="block w-full text-sm text-[#3C6A91] border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
                             type="file" accept="image/*" name="foto4" id="file" onchange="loadFile3(event)">
                     </div>

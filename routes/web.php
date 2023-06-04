@@ -9,6 +9,7 @@ use App\Http\Controllers\PropertiesController;
 use App\Http\Controllers\AdditionalController;
 
 use App\Models\Room;
+use App\Models\Rating;
 
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +26,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $room = Room::paginate(8);
+    $room = Room::withCount('rating')->paginate(8);
+    foreach ($room as $rooms){
+        $totalposts = $rooms->rating_count;
+    }
+    $room->each(function ($rooms) {
+        $averageRating = Rating::where('room_id', $rooms->id)->average('star_rating');
+        $rooms->average_rating = $averageRating;
+    });
     return view('welcome', compact('room'));
 });
 

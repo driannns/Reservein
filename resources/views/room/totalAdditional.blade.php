@@ -8,10 +8,10 @@
                         No
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Pcs
+                        Menu
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Menu
+                        Pcs
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Price

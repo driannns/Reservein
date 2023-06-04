@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('zipcode');
             $table->string('room_type');
             $table->string('room_area');
-            $table->string('extra');
             $table->string('person');
             $table->text('room_description');
             $table->string('properties1');

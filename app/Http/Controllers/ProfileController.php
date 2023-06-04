@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\AdditionalOrder;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -87,8 +88,10 @@ class ProfileController extends Controller
         $order = Order::where('user_id', $userId)->get();
         foreach ($order as $orders) {
             $room = $orders->room->room_name;
+            $additional = $orders->additional;
         }
-        return view('profile.history', compact('order'));
+        // $additional = AdditionalOrder::where('order_id', $order->id)->get();
+        return view('profile.history', compact('order', 'additional'));
     }
 
     public function avatar(Request $request)

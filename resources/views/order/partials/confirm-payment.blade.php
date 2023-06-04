@@ -54,7 +54,7 @@
         <h1 class="text-xl font-bold mb-4">Your booking details</h1>
         <div class="flex w-full">
             <div class="w-2/6 mt-1 grid place-items-center">
-                <img class="w-full" src="/assets/poto1.png" alt="Photo">
+                <img class="w-full" src="/room/{{ $room->foto1 }}" alt="Photo">
             </div>
             <div class="w-4/6 h-full ml-3 flex flex-col justify-between">
                 <div class="flex">

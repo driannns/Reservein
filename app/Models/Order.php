@@ -20,4 +20,9 @@ class Order extends Model
     {
         return $this->belongsTo(Room::class);
     }
+
+    public function additional()
+    {
+        return $this->hasMany(AdditionalOrder::class);
+    }
 }

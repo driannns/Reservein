@@ -110,15 +110,6 @@
                         <x-input-error :messages="$errors->get('room_area')" />
                     </div>
                     <div class="mt-4">
-                        <x-input-label for="extra" :value="__('Extra')" style="font-weight:700; color: #3C6A91;" />
-                        <x-input-label for="extra" :value="__('Example: 1 extra-large double bed')"
-                            style="font-weight:700; color: #3C6A91;" />
-                        <x-text-input id="extra" class="block mt-1 w-full" type="text" name="extra"
-                            :value="old('extra')" placeholder="1 extra-large double bed" required autofocus
-                            autocomplete="extra" />
-                        <x-input-error :messages="$errors->get('extra')" />
-                    </div>
-                    <div class="mt-4">
                         <label for="person" class="block mb-2 font-medium text-sm text-[#3C6A91]">For how many
                             people</label>
                         <select id="person" name="person"
@@ -250,25 +241,25 @@
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Foto 1</label>
                         <input
                             class="block w-full text-sm text-[#3C6A91] border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                            type="file" accept="image/*" name="foto1" id="file" onchange="loadFile(event)">
+                            type="file" accept="image/*" name="foto1" id="file" onchange="loadFile(event)" required>
                     </div>
                     <div class="w-9/12 mb-2">
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Foto 2</label>
                         <input
                             class="block w-full text-sm text-[#3C6A91] border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                            type="file" accept="image/*" name="foto2" id="file" onchange="loadFile1(event)">
+                            type="file" accept="image/*" name="foto2" id="file" onchange="loadFile1(event)" required>
                     </div>
                     <div class="w-9/12 mb-2">
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Foto 3</label>
                         <input
                             class="block w-full text-sm text-[#3C6A91] border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                            type="file" accept="image/*" name="foto3" id="file" onchange="loadFile2(event)">
+                            type="file" accept="image/*" name="foto3" id="file" onchange="loadFile2(event)" required>
                     </div>
                     <div class="w-9/12">
                         <label class="block mb-2 text-sm font-medium text-gray-900" for="file_input">Foto 4</label>
                         <input
                             class="block w-full text-sm text-[#3C6A91] border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
-                            type="file" accept="image/*" name="foto4" id="file" onchange="loadFile3(event)">
+                            type="file" accept="image/*" name="foto4" id="file" onchange="loadFile3(event)" required>
                     </div>
 
                 </div>

@@ -1,4 +1,8 @@
 <x-app-layout>
+<style>
+        ::-webkit-calendar-picker-indicator {
+    filter: invert(1);}
+</style>
     <!-- Search Bar -->
     <div class="py-5 text-[#051036]">
         <div class="w-full flex flex-col items-center bg-[#f5f5f5] gap-6 py-10">
@@ -184,7 +188,7 @@
                 <!-- Image -->
                 <div class="carousel w-3/12 mr-5" style="height: 30vh;">
                             <div id="slide1{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
-                                <img src="/properties/{{ $rooms->foto1 }}" class="w-full"  style="height:30vh;" />
+                                <img src="/room/{{ $rooms->foto1 }}" class="w-full"  style="height:30vh;" />
                                 <div
                                     class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                                     <a href="#slide4{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
@@ -192,7 +196,7 @@
                                 </div>
                             </div>
                             <div id="slide2{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
-                                <img src="/properties/{{ $rooms->foto2 }}" class="w-full"  style="height:30vh;"/>
+                                <img src="/room/{{ $rooms->foto2 }}" class="w-full"  style="height:30vh;"/>
                                 <div
                                     class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                                     <a href="#slide1{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
@@ -200,7 +204,7 @@
                                 </div>
                             </div>
                             <div id="slide3{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
-                                <img src="/properties/{{ $rooms->foto3 }}" class="w-full" style="height:30vh;" />
+                                <img src="/room/{{ $rooms->foto3 }}" class="w-full" style="height:30vh;" />
                                 <div
                                     class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                                     <a href="#slide2{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
@@ -208,7 +212,7 @@
                                 </div>
                             </div>
                             <div id="slide4{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
-                                <img src="/properties/{{ $rooms->foto4 }}" class="w-full"  style="height:30vh;"/>
+                                <img src="/room/{{ $rooms->foto4 }}" class="w-full"  style="height:30vh;"/>
                                 <div
                                     class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
                                     <a href="#slide3{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>

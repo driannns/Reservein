@@ -3,7 +3,7 @@
         <h1 class="font-bold text-3xl">Your booking details {{ $receipt->id}}</h1>
         <div class="flex w-full mt-10">
             <div class="grid place-items-center" style="width: 15vw;">
-                <img class="w-full" src="/assets/poto1.png" alt="Photo">
+                <img class="w-full" src="/room/{{ $room->foto1 }}" alt="Photo">
             </div>
             <div class="w-4/6 h-full ml-3 flex flex-col justify-between">
                 <h1 class="mt-3 font-semibold text-2xl">{{ $room->room_name }},<br> {{ $room->location }}</h1>
