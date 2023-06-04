@@ -213,7 +213,7 @@
                 <!-- Photo Input -->
                 <div class="w-7/12 flex flex-col items-center">
                     <div class="w-fit flex flex-col gap-4 items-center">
-                        <!-- Page Line 1 -->
+                        <!-- Photo Line 1 -->
                         <div class="w-fit h-fit flex justify-center">
 
                             <div>
@@ -222,7 +222,7 @@
                             </div>
 
                         </div>
-                        <!-- Page Line 2 -->
+                        <!-- Photo Line 2 -->
                         <div class="flex gap-4">
                             
                             <div>

@@ -50,7 +50,7 @@
                 <div class="max-w-sm bg-[#E6E8E9] border border-gray-200 shadow mt-5">
                     <div class="relative"
                         style="background-image: url('/room/{{ $rooms->foto1 }}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
-                        <img class="invisible" src="/room/foto1.png" alt="" />
+                        <img class="invisible" src="/assets/foto1.png" alt="" />
                         <a href="{{ route('properties.edit', $rooms->id) }}">
                             <button
                             class="absolute top-5 left-5 bg-[#3C6A91] text-white rounded-md py-1 px-3 font-medium">Edit</button>

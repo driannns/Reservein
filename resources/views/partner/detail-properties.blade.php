@@ -3,21 +3,21 @@
     <div class="w-8/12 flex justify-between mx-auto">
         <div class="flex justify-end w-1/2 pr-1">
             <div class="w-full rounded-lg" style="background-image: url('/room/{{ $room->foto1 }}'); background-size: cover; background-position: center">
-                <img class="invisible" src="/room/foto1.png" alt="">
+                <img class="invisible" src="/assets/foto1.png" alt="">
             </div>
         </div>
         <div class="w-1/2 grid grid-cols-2 place-items-center gap-1">
             <div class="rounded-lg" style="background-image: url('/room/{{ $room->foto1 }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                <img class="invisible" src="/room/foto1.png" alt="Photo of  $room->room_name  }}">
+                <img class="invisible" src="/assets/foto1.png" alt="Photo of  $room->room_name  }}">
             </div>
             <div class="rounded-lg" style="background-image: url('/room/{{ $room->foto2 }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                <img class="invisible" src="/room/foto1.png" alt="Photo of  $room->room_name  }}">
+                <img class="invisible" src="/assets/foto1.png" alt="Photo of  $room->room_name  }}">
             </div>
             <div class="rounded-lg" style="background-image: url('/room/{{ $room->foto3 }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                <img class="invisible" src="/room/foto1.png" alt="Photo of  $room->room_name  }}">
+                <img class="invisible" src="/assets/foto1.png" alt="Photo of  $room->room_name  }}">
             </div>
             <div class="rounded-lg" style="background-image: url('/room/{{ $room->foto4 }}'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-                <img class="invisible" src="/room/foto1.png" alt="Photo of  $room->room_name  }}">
+                <img class="invisible" src="/assets/foto1.png" alt="Photo of  $room->room_name  }}">
             </div>
         </div>
     </div>
