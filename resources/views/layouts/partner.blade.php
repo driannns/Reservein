@@ -56,46 +56,6 @@
                                     d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
                             </svg>
                         </div>
-
-                        <!-- <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-                            <ul class="py-2 text-sm text-gray-700" aria-labelledby="dropdownDefaultButton">
-                                <li class="px-4 py-2">
-                                    <div class="flex items-center gap-2 w-full">
-                                        @if(Auth::guard('partner')->user()->foto == null)
-                                        <img class="w-9 h-9 rounded-full" src="/assets/svg/avatar.png"
-                                            alt="Photo of Profile">
-                                        @else
-                                        <img class="w-9 h-9 rounded-full" src="/foto/{{ Auth::user()->foto }}"
-                                            alt="Photo of Profile">
-                                        @endif
-                                        <div class="w-full overflow-hidden">
-                                            <p class="font-bold w-fit">
-                                                {{ Auth::guard('partner')->user()->username }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <form method="POST" action="{{ route('logout') }}">
-                                        @csrf
-
-                                        <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                        this.closest('form').submit();"
-                                            class="flex items-center gap-2">
-                                            <div>
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                                    stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                                        d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                                                </svg>
-
-                                            </div>
-                                            {{ __('Log Out') }}
-                                        </x-dropdown-link>
-                                    </form>
-                                </li>
-                            </ul>
-                        </div> -->
                         <div class="hidden sm:flex sm:items-center sm:ml-2 ">
                             <x-dropdown align="right" width="48">
                                 <x-slot name="trigger">

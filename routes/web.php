@@ -106,6 +106,12 @@ Route::prefix('partner')->group(function () {
     // Route::get('orderhistory', [PartnerController::class, 'orderHistoryGet'])->name('partnerHistoryGet')->middleware('partner');
     Route::get('orderhistory/{id}', [PartnerController::class, 'orderHistory'])->name('partnerHistory')->middleware('partner');
     Route::patch('/statusUpdate/{id}', [PartnerController::class, 'updateStatus'])->name('updateStatus')->middleware('partner');
+
+    // Chart
+    Route::get('adminchart', [PartnerController::class, 'dashboardChart'])->name('dashboardChart')->middleware('partner');
+    
+    // Notification
+    Route::get('notification', [PartnerController::class, 'notification'])->name('notification')->middleware('partner');
 });
 
 require __DIR__.'/auth.php';

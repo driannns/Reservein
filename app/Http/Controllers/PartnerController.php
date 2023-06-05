@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Carbon\Carbon;
 
 use Illuminate\Http\Request;
 use App\Models\Room;
@@ -109,5 +110,43 @@ class PartnerController extends Controller
                 'status' => $request->status
             ]);
         return redirect()->route('partnerHistory', $id);
+    }
+
+    public function notification()
+    {
+        return view('partner.notification');
+    }
+
+    public function dashboardChart()
+    {
+        $selectedMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        $months = [
+            'January' => 0, 
+            'February' => 0, 
+            'March' => 0, 
+            'April' => 0, 
+            'May' => 0, 
+            'June' => 0, 
+            'July' => 0, 
+            'August' => 0, 
+            'September' => 0, 
+            'October' => 0, 
+            'November' => 0, 
+            'December' => 0
+        ];
+        foreach($selectedMonths as $value){
+            $order = Order::pluck('checkinday')->toArray(); 
+            if(!empty($order)){
+                foreach($order as $data){
+                    $date = Carbon::parse($data);
+                    $month = $date->format('F');
+                    if($month === $value){
+                        $months[$value] += 1;
+                    }
+                }
+            }
+        }
+        // dd($months);
+        return view('partner.admin-chart', compact('months'));
     }
 }

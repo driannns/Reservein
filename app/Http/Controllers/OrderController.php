@@ -144,6 +144,7 @@ class OrderController extends Controller
         $totalrating = $room->rating_count;
         $orderValue = session()->get('order');
         $values = session()->get('values');
+        // dd($orderValue);
         $orderPayment = [
             'room_id' => $room->id,
             'user_id' => $orderValue['user_id'],
@@ -214,15 +215,18 @@ class OrderController extends Controller
             'totalprice' => $orderPayment['totalprice'],
             'status' => 'Processing'
         ]);
-        foreach($cart as $carts){
-            AdditionalOrder::create([
-                "order_id" => $orderReceipt->id,
-                "additional_name" => $carts['name'],
-                "quantity" => $carts['quantity'],
-                "price" => $carts['price'],
-                "total" => $carts['total'],
-            ]);
+        if(!empty($cart)){
+
+            foreach($cart as $carts){
+                AdditionalOrder::create([
+                    "order_id" => $orderReceipt->id,
+                    "additional_name" => $carts['name'],
+                    "quantity" => $carts['quantity'],
+                    "price" => $carts['price'],
+                    "total" => $carts['total'],
+                ]);
         }
+            }
 
         $paymentReceipt = Payment::create([
             'paymentmethod' => $paymentInfo['paymentmethod'],
@@ -251,6 +255,7 @@ class OrderController extends Controller
         session()->forget('paymentInfo');
         session()->forget('order');
         session()->forget('values');
+        session()->forget('cart');
         return view('order.receipt', compact('paymentMethod', 'room', 'receipt', 'totalrating'));
     }
 

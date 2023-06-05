@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Room;
+use App\Models\Partner;
 use App\Models\Rating;
 use Illuminate\Http\Request;
 
@@ -38,13 +39,15 @@ class RoomController extends Controller
         $allRating = Rating::where('room_id', $id)->get();
         $jumlahRating = 0;
         $jumlahRating =+ $allRating->sum('star_rating');
+        $partner = Partner::find($room->partner_id);
+        $partnerName = $partner->username;
         if(count($allRating) > 0){
             $ratingMean = $jumlahRating / count($allRating);
         }else{
             $ratingMean = 0;
         }
         $totalRatings = $room->rating_count;
-        return view('room.index', compact('room', 'totalRatings', 'rating', 'allRating','ratingMean'));
+        return view('room.index', compact('room', 'totalRatings', 'rating', 'allRating','ratingMean', 'partnerName'));
     }
 
     public function session(Request $request, $id)

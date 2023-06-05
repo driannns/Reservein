@@ -24,13 +24,13 @@
                         <a href="{{ route('partnerDashboard') }}" class="block px-4 py-2">Properties</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2">Notification</a>
+                        <a href="{{ route('notification') }}" class="block px-4 py-2">Notification</a>
                     </li>
                     <li>
                             <a href="{{ route('partnerHistory', (Auth::guard('partner')->user()->id)) }}"><button type="submit" class="block px-4 py-2">Order History</button></a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2">
+                        <a href="{{ route('dashboardChart') }}" class="block px-4 py-2">
                             <img src="file:///C:/Users/asus/Downloads/Fill%201.svg" alt=""> Dashboard Chart</a>
                     </li>
                 </ul>

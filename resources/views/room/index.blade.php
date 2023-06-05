@@ -69,8 +69,8 @@
                     </div>
                 </div>
                 <div class="flex items-center gap-2 w-6/12 mt-4">
-                    <img src="/assets/poto1.png" alt="" class="w-1/12 rounded-full">
-                    <p class="text-[#6B7280]">by {{ $room->company }}</p>
+                    <img src="/assets/partner.jpg" alt="" class="w-8 h-8 rounded-full">
+                    <p class="text-[#6B7280]">by {{ $partnerName }}</p>
                 </div>
                 <div class="flex gap-8 ml-10 mt-6 text-[#374151]">
                     <div>{{ $room->person }}</div>
