@@ -91,7 +91,11 @@ class ProfileController extends Controller
             $additional = $orders->additional;
         }
         // $additional = AdditionalOrder::where('order_id', $order->id)->get();
-        return view('profile.history', compact('order', 'additional'));
+        if(count($order) == 0){
+            return view('profile.history', compact('order'));
+        } else {
+            return view('profile.history', compact('order', 'additional'));
+        }
     }
 
     public function avatar(Request $request)
