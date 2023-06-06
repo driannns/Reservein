@@ -6,6 +6,7 @@ use App\Models\Notification;
 use App\Models\Room;
 use App\Models\Rating;
 use App\Models\Partner;
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\File;
@@ -241,8 +242,16 @@ class PropertiesController extends Controller
     {
         $room = Room::find($id);
         $rating = Rating::where('room_id', $id)->get();
-        foreach ($rating as $ratings) {
-            $ratings->delete();
+        if(!empty($rating)) {
+            foreach ($rating as $ratings) {
+                $ratings->delete();
+            }
+        }
+        $order = Order::where('room_id', $id)->get();
+        if(!empty($order)) {
+            foreach($order as $orders) {
+                $orders->delete();
+            }
         }
         // $id->steps-  >delete();
         $room->delete();
