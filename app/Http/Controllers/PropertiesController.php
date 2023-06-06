@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\Rating;
 use App\Models\Partner;
 use App\Models\Order;
+use App\Models\AdditionalOrder;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\File;
@@ -250,10 +251,16 @@ class PropertiesController extends Controller
         $order = Order::where('room_id', $id)->get();
         if(!empty($order)) {
             foreach($order as $orders) {
+                $additionalOrder = AdditionalOrder::where('order_id', $orders->id)->get();
+                if(!empty($additionalOrder)) {
+                    foreach($additionalOrder as $additionalOrders){
+                        $additionalOrders->delete();
+                    }
+                }
                 $orders->delete();
+
             }
         }
-        // $id->steps-  >delete();
         $room->delete();
 
         return redirect()->route('partnerDashboard')->with('message', 'Property has been deleted successfully');
