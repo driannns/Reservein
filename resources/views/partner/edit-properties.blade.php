@@ -57,10 +57,10 @@
                         <select id="type" name="type" required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option disabled>Type of Properties</option>
-                            <option value="U Shape" {{ $properties->type == 'U Shape' ? 'selected' : ''}}>U Shape</option>
-                            <option value="Openspace" {{ $properties->type == 'Openspace' ? 'selected' : ''}}>Openspace</option>
-                            <option value="Indoor" {{ $properties->type == 'Indoor' ? 'selected' : ''}}>Indoor</option>
-                            <option value="Lounge" {{ $properties->type == 'Lounge' ? 'selected' : ''}}>Lounge</option>
+                            <option value="U Shape" {{ $properties->room_type == 'U Shape' ? 'selected' : ''}}>U Shape</option>
+                            <option value="Openspace" {{ $properties->room_type == 'Openspace' ? 'selected' : ''}}>Openspace</option>
+                            <option value="Indoor" {{ $properties->room_type == 'Indoor' ? 'selected' : ''}}>Indoor</option>
+                            <option value="Lounge" {{ $properties->room_type == 'Lounge' ? 'selected' : ''}}>Lounge</option>
                         </select>
                     </div>
                     <div class="mt-4">
