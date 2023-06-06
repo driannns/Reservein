@@ -179,7 +179,7 @@
                                 <div class="mx-auto w-fit font-bold py-2 px-3 rounded-full text-white 
                                 @if($orders->status == "Processing")
                                     bg-[#2DCAED]
-                                @elseif($orders->status == "Rejected")
+                                @elseif($orders->status == "Reject")
                                     bg-[#E02424]
                                 @elseif($orders->status == "Success")
                                     bg-[#057A55]
