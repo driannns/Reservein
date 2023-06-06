@@ -242,7 +242,7 @@
                                 @method('delete')
                                 <button class="btn bg-red-600 hover:bg-red-800 text-white focus:outline-none focus:ring-red-300">Delete</button>
                             </form>
-                            <label for="my-modal-4" class="btn bg-white hover:bg-gray-100 focus:outline-none focus:ring-red-300">Cancel</label>
+                            <label for="my-modal-4" class="btn bg-white hover:bg-gray-100 focus:outline-none focus:ring-red-300 text-black">Cancel</label>
                         </div>
                     </label>
                 </label>
