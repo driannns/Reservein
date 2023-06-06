@@ -5,6 +5,8 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Room;
+use App\Models\Additional;
+use App\Models\Rating;
 use App\Models\User;
 class DatabaseSeeder extends Seeder
 {
@@ -277,8 +279,124 @@ class DatabaseSeeder extends Seeder
             ],
         ];
 
+        $additionalSeeder = [
+            [
+                'room_id' => 1,
+                'type' => 'Starter',
+                'name' => 'Fried Fries',
+                'description' => 'Kentang Goreng dengan Bumbu khas',
+                'price' => 30000,
+                'foto' => 'frenchfries.png'
+            ],
+            [
+                'room_id' => 1,
+                'type' => 'Starter',
+                'name' => 'Fried Fries',
+                'description' => 'Kentang Goreng dengan Bumbu khas',
+                'price' => 30000,
+                'foto' => 'frenchfries.png'
+            ],
+            [
+                'room_id' => 1,
+                'type' => 'Starter',
+                'name' => 'Fried Fries',
+                'description' => 'Kentang Goreng dengan Bumbu khas',
+                'price' => 30000,
+                'foto' => 'frenchfries.png'
+            ],
+            [
+                'room_id' => 1,
+                'type' => 'Main Course',
+                'name' => 'Steak and Fries',
+                'description' => 'Steak daging sapi dengan kentang disiram bumbu spesial',
+                'price' => 75000,
+                'foto' => 'steak.png'
+            ],
+            [
+                'room_id' => 1,
+                'type' => 'Main Course',
+                'name' => 'Steak and Fries',
+                'description' => 'Steak daging sapi dengan kentang disiram bumbu spesial',
+                'price' => 75000,
+                'foto' => 'steak.png'
+            ],
+            [
+                'room_id' => 1,
+                'type' => 'Main Course',
+                'name' => 'Steak and Fries',
+                'description' => 'Steak daging sapi dengan kentang disiram bumbu spesial',
+                'price' => 75000,
+                'foto' => 'steak.png'
+            ],
+            [
+                'room_id' => 1,
+                'type' => 'Deserts & Drinks',
+                'name' => 'Mango Pudding',
+                'description' => 'Puding rasa mangga dengan irisan mangga asli',
+                'price' => 16000,
+                'foto' => 'manggo.png'
+            ],
+            [
+                'room_id' => 1,
+                'type' => 'Deserts & Drinks',
+                'name' => 'Coffe Latte',
+                'description' => 'Kopi dengan biji pilihan',
+                'price' => 22000,
+                'foto' => 'coffee.png'
+            ],
+            [
+                'room_id' => 1,
+                'type' => 'Deserts & Drinks',
+                'name' => 'Coffe Latte',
+                'description' => 'Kopi dengan biji pilihan',
+                'price' => 22000,
+                'foto' => 'coffee.png'
+            ],
+        ];
+
+        $ratingSeeder = [
+            [
+                'description' => 'This is Crazyy, feels like so comfy',
+                'room_id' => 1,
+                'star_rating' => 4,
+                'user_id' => 1,
+            ],
+            [
+                'description' => 'Thisfeels like so comfy',
+                'room_id' => 1,
+                'star_rating' => 5,
+                'user_id' => 1,
+            ],
+            [
+                'description' => 'This is Crazyyy',
+                'room_id' => 1,
+                'star_rating' => 3,
+                'user_id' => 1,
+            ],
+            [
+                'description' => 'This is Crazyyyyy, feels like so comfy',
+                'room_id' => 2,
+                'star_rating' => 5,
+                'user_id' => 1,
+            ],
+            [
+                'description' => 'This is too goood, feels like so comfy',
+                'room_id' => 3,
+                'star_rating' => 5,
+                'user_id' => 1,
+            ],
+            [
+                'description' => 'This is too goooood, feels like so comfy',
+                'room_id' => 3,
+                'star_rating' => 5,
+                'user_id' => 1,
+            ],
+        ];
+
         Room::insert($roomseeder);
+        Additional::insert($additionalSeeder);
+        Rating::insert($ratingSeeder);
         \App\Models\User::factory(2)->create();
-        \App\Models\Partner::factory(2)->create();
+        \App\Models\Partner::factory(1)->create();
     }
 }

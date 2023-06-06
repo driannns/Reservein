@@ -1,7 +1,7 @@
 <x-partner-layout>
     <div id="container" class="flex text-[#051036]">
 
-        <div id="side-bar" class="w-2/12 bg-[#EAEAED] pt-10 pl-10">
+        <div id="side-bar" class="w-2/12 bg-[#EAEAED] pt-10 pl-10 min-h-screen">
             <div class="font-medium text-xl">
                 <a class="w-fit" href="">
                     <p class="w-fit">
@@ -28,8 +28,8 @@
                         <a href="{{ route('notification') }}" class="block px-4 py-2">Notification</a>
                     </li>
                     <li>
-                        <a href="{{ route('partnerHistory', (Auth::guard('partner')->user()->id)) }}"><button
-                                type="submit" class="block px-4 py-2">Order History</button></a>
+                        <a href="{{ route('partnerHistory')}}"><button type="submit" class="block px-4 py-2">Order
+                                History</button></a>
                     </li>
                     <li>
                         <a href="{{ route('dashboardChart') }}" class="block px-4 py-2">
@@ -40,7 +40,36 @@
         </div>
 
         <div id="content" class="w-10/12 pt-10 px-10">
-            
+            @foreach($notification as $data)
+            <div class="card w-[480px] bg-white shadow-xl mb-3">
+                <div class="card-body flex-row gap-4 items-center justify-between">
+                    <div class="w-2/12">
+                    @if (!empty($data->user_id))
+                        @if(empty($data->foto))
+                        <div class="w-10 h-10 rounded-full mx-auto"
+                            style="background-image: url('/assets/svg/avatar.png'); background-repeat: no-repeat; background-size: cover; background-position: center">
+                        </div>
+                        @else
+                        <div class="w-10 h-10 rounded-full mx-auto"
+                            style="background-image: url('/foto/{{ $data->foto }}); background-repeat: no-repeat; background-size: cover; background-position: center">
+                        </div>
+                        @endif
+                    @else
+                        <div class="w-10 h-10 rounded-full mx-auto"
+                            style="background-image: url('/assets/notification.png'); background-repeat: no-repeat; background-size: cover; background-position: center">
+                        </div>
+                    @endif
+                    </div>
+                    <div class="w-8/12">
+                        <h2 class="card-title">{{ $data->title }}</h2>
+                        <p>{{ $data->description }}</p>
+                    </div>
+                    <div class="w-2/12 text-center">
+                        <p>{{ date('d F', strtotime($data->created_at)) }}</p>
+                    </div>
+                </div>
+            </div>
+            @endforeach
         </div>
     </div>
 </x-partner-layout>

@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignId('user_id')->nullable();
+            $table->string('foto')->nullable();
             $table->string('title');
             $table->string('description');
             $table->timestamps();

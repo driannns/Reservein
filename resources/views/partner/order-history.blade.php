@@ -24,14 +24,14 @@
                         <a href="{{ route('partnerDashboard') }}" class="block px-4 py-2">Properties</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2">Notification</a>
+                        <a href="{{ route('notification') }}" class="block px-4 py-2">Notification</a>
                     </li>
                     <li>
-                        <a href="{{ route('partnerHistory', (Auth::guard('partner')->user()->id)) }}"><button
-                                type="submit" class="block px-4 py-2">Order History</button></a>
+                        <a href="{{ route('partnerHistory')}}"><button type="submit" class="block px-4 py-2">Order
+                                History</button></a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2">
+                        <a href="{{ route('dashboardChart') }}" class="block px-4 py-2">
                             <img src="file:///C:/Users/asus/Downloads/Fill%201.svg" alt=""> Dashboard Chart</a>
                     </li>
                 </ul>
@@ -106,6 +106,7 @@
                                 @currency($order->totalprice)
                             </td>
                             <td class="px-6 py-4">
+                                @if(count($order->additional) > 0)
                                 <label for="my-modal-{{ $order->id }}"
                                     class="btn normal-case border-none bg-[#3C6A91] hover:bg-[#081440] text-white rounded-full">
                                     Additional Order</label>
@@ -208,6 +209,9 @@
                                         </div>
                                     </label>
                                 </label>
+                                @else
+                                0 Additional Order
+                                @endif
                             </td>
                             <td class="px-6 py-4">
                                 @if($order->status == "Processing")

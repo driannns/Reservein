@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\Additional;
+use App\Models\Room;
+
 use Illuminate\Http\Request;
 
 class AdditionalController extends Controller
@@ -30,37 +33,30 @@ class AdditionalController extends Controller
     public function store(Request $request)
     {  
         $roomId = session()->get('roomId');
-        // $all = $request->all();
-        // dd($roomId);
         $foto = $request->foto;
+
         $name = 'ADDITIONAL_' . date('Ymdhis') . '.' . $foto->getClientOriginalName();
-            $foto->move('additional/', $name);
-            Additional::create([
-                "room_id" => $roomId,
-                "type" => $request->type,
-                "name" => $request->name,
-                "description" => $request->description,
-                "price" => $request->price,
-                "foto" => $name
-            ]);
+        $foto->move('additional/', $name);
+        $additional = Additional::create([
+            "room_id" => $roomId,
+            "type" => $request->type,
+            "name" => $request->name,
+            "description" => $request->description,
+            "price" => $request->price,
+            "foto" => $name
+        ]);
+
+        $roomName = Room::find($additional->room_id); 
+
+        Notification::create([
+            "title" => "Additional Uploaded",
+            "description" => "Your additional for $roomName->room_name has successfully been Uploaded"
+        ]);
+
         if($request->done){
             return redirect()->route('partnerDashboard');
         }
         return redirect()->route('additional.index')->with('message', 'Additional has been added');
-
-        // for ($i = 1; $i <= 3; $i++) {
-        // $file = $request->input(`foto`);
-        // $name = 'PROPERTIES_' . date('Ymdhis') . '.' . $file->getClientOriginalExtension();
-        // $file->move('additional/', $name);
-        //     $additional = Additional::create([
-        //         "room_id" => $properties->id,
-        //         "name" => $request->input(`name`),
-        //         "type" => $request->input(`type`),
-        //         "description" => $request->input(`description`),
-        //         "price" => $request->input(`price`),
-        //         "foto" => $name,
-        //     ]);
-        // // }
     }
 
     /**

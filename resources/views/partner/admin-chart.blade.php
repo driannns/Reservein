@@ -50,7 +50,7 @@
     <div id="container" class="flex text-[#051036]">
 
 
-        <div id="side-bar" class="w-2/12 bg-[#EAEAED] pt-10 pl-10">
+    <div id="side-bar" class="w-2/12 bg-[#EAEAED] pt-10 pl-10">
             <div class="font-medium text-xl">
                 <a class="w-fit" href="">
                     <p class="w-fit">
@@ -74,11 +74,11 @@
                         <a href="{{ route('partnerDashboard') }}" class="block px-4 py-2">Properties</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2">Notification</a>
+                        <a href="{{ route('notification') }}" class="block px-4 py-2">Notification</a>
                     </li>
                     <li>
-                        <a href="{{ route('partnerHistory', (Auth::guard('partner')->user()->id)) }}"><button
-                                type="submit" class="block px-4 py-2">Order History</button></a>
+                        <a href="{{ route('partnerHistory')}}"><button type="submit" class="block px-4 py-2">Order
+                                History</button></a>
                     </li>
                     <li>
                         <a href="{{ route('dashboardChart') }}" class="block px-4 py-2">
@@ -217,9 +217,9 @@
     <script>
         var chartOne = document.getElementById('chartOne');
         var sites = {{ Js::from($months) }};
-        console.log(sites);
+        // console.log(sites);
         var dataValues = Object.values(sites);
-        console.log(dataValues);
+        // console.log(dataValues);
         var myChart = new Chart(chartOne, {
             type: 'bar',
             data: {

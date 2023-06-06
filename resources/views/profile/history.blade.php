@@ -65,6 +65,7 @@
                                 {{ \Carbon\Carbon::parse($orders->created_at)->format('j F Y') }}
                             </td>
                             <td class="text-center px-6 py-4">
+                                @if(count($orders->additional) > 0)
                                 <label for="my-modal-{{ $orders->id }}"
                                     class="btn normal-case border-none bg-[#3C6A91] hover:bg-[#081440] text-white rounded-full">
                                     Additional Order</label>
@@ -167,13 +168,23 @@
                                         </div>
                                     </label>
                                 </label>
-
+                                @else
+                                0 Additional Order
+                                @endif
                             </td>
                             <td class="text-center px-6 py-4">
                                 @currency($orders->totalprice)
                             </td>
                             <td class="px-6 py-4">
-                                <div class="mx-auto w-fit font-bold py-2 px-3 rounded-full text-white bg-[#2DCAED]">
+                                <div class="mx-auto w-fit font-bold py-2 px-3 rounded-full text-white 
+                                @if($orders->status == "Processing")
+                                    bg-[#2DCAED]
+                                @elseif($orders->status == "Rejected")
+                                    bg-[#E02424]
+                                @elseif($orders->status == "Success")
+                                    bg-[#057A55]
+                                @endif
+                                    ">
                                     {{ $orders->status }}
                                 </div>
                             </td>

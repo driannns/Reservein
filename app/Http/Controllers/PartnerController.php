@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 
 use Illuminate\Http\Request;
+
 use App\Models\Room;
 use App\Models\Partner;
 use App\Models\Order;
+use App\Models\Notification;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Auth;
@@ -79,10 +82,9 @@ class PartnerController extends Controller
         return redirect()->route('partnerLogin-form')->with('message', 'Logout Successfully');
     }
 
-    public function orderHistory($id)
+    public function orderHistory()
     {
-        // $partnerId = $request->partner_id;
-        $room = Room::where('partner_id', $id)->get();
+        $room = Room::where('partner_id', auth('partner')->user()->id)->get();
         $roomIds = $room->pluck('id');
         $orders = [];
 
@@ -97,7 +99,6 @@ class PartnerController extends Controller
                 }
             }
         }
-        // dd($orders);
         return view('partner.order-history', ['orders' => $orders]);
     }
 
@@ -114,7 +115,8 @@ class PartnerController extends Controller
 
     public function notification()
     {
-        return view('partner.notification');
+        $notification = Notification::all();
+        return view('partner.notification', compact('notification'));
     }
 
     public function dashboardChart()
@@ -134,10 +136,19 @@ class PartnerController extends Controller
             'November' => 0, 
             'December' => 0
         ];
+        $orders = [];
+        $room = Room::where('partner_id', auth('partner')->user()->id)->get();
+        if(!empty($room)){
+            foreach($room as $rooms){
+                $location = Room::where('partner_id', auth('partner')->user()->id)->pluck('city')->toArray(); 
+                $selectedLocation = Room::where('partner_id', auth('partner')->user()->id)->pluck('city')->toArray(); 
+                $order = Order::where('room_id', $rooms->id)->pluck('checkinday')->toArray(); 
+                $orders = array_merge($orders, $order);
+            }
+        }
         foreach($selectedMonths as $value){
-            $order = Order::pluck('checkinday')->toArray(); 
-            if(!empty($order)){
-                foreach($order as $data){
+            if(!empty($orders)){
+                foreach($orders as $data){
                     $date = Carbon::parse($data);
                     $month = $date->format('F');
                     if($month === $value){
@@ -146,7 +157,8 @@ class PartnerController extends Controller
                 }
             }
         }
-        // dd($months);
+        
+
         return view('partner.admin-chart', compact('months'));
     }
 }

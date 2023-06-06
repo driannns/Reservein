@@ -7,6 +7,7 @@ use App\Models\Payment;
 use App\Models\Order;
 use App\Models\Additional;
 use App\Models\AdditionalOrder;
+use App\Models\Notification;
 
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
@@ -22,6 +23,7 @@ class OrderController extends Controller
         $room = Room::find($id);
         $values = session()->get('values');
         $hargaRuangan = session()->get('values.duration') * $room->price;
+        // dd(session()->get('cart'));
         return view('order.index', compact('room', 'values', 'hargaRuangan', 'totalrating'));
     }
 
@@ -225,8 +227,15 @@ class OrderController extends Controller
                     "price" => $carts['price'],
                     "total" => $carts['total'],
                 ]);
-        }
             }
+        }
+        $roomName = Room::find($orderReceipt->room_id);
+        Notification::create([
+            'user_id' => auth()->user()->id,
+            'foto' => auth()->user()->foto,
+            'title' => auth()->user()->name,
+            'description' => "I booked your properties $roomName->room_name in $roomName->subdistrict",
+        ]);
 
         $paymentReceipt = Payment::create([
             'paymentmethod' => $paymentInfo['paymentmethod'],

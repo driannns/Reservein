@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\Room;
 use App\Models\Rating;
 use App\Models\Partner;
@@ -73,6 +74,11 @@ class PropertiesController extends Controller
             "foto3" => $name3,
             "foto4" => $name4,
             "price" => $request->price,
+        ]);
+
+        Notification::create([
+            "title" => "Properties Uploaded",
+            "description" => "Your properties $properties->room_name has successfully been uploaded"
         ]);
         // dd($properties->id);
         session()->put('roomId', $properties->id);
@@ -210,7 +216,11 @@ class PropertiesController extends Controller
                 "special_note" => $request->special_note,
                 "price" => $request->price,
             ]);
-            // dd($properties->id);
+
+            Notification::create([
+                "title" => "Properties Updated",
+                "description" => "Your properties $properties->room_name has successfully been Updated"
+            ]);
             session()->put('roomId', $properties->id);
             if($request->save){
                 return redirect()->route('partnerDashboard')->with('message', 'Room has been updated.');

@@ -48,12 +48,12 @@
                     <div class="mt-4">
                         <x-input-label for="name" :value="__('Name')" style="font-weight:700; color: #3C6A91;" />
                         <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
-                            placeholder="Full Name" required autofocus autocomplete="name" />
+                            placeholder="Full Name" required autofocus autocomplete="roomname" />
                         <x-input-error :messages="$errors->get('name')" />
                     </div>
                     <div class="mt-4">
                         <label for="type" class="block mb-2 font-medium text-sm">Type</label>
-                        <select id="type" name="type"
+                        <select id="type" name="type" required
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
                             <option selected disabled>Type of Properties</option>
                             <option value="U Shape">U Shape</option>
@@ -67,25 +67,25 @@
                         <x-input-label for="kecamatan" :value="__('Address')"
                             style="font-weight:700; color: #3C6A91;" />
                         <x-text-input id="address1" class="block mt-1 w-full" type="text" name="address1"
-                            :value="old('address1')" placeholder="Addres line 1" required autofocus
+                            :value="old('address1')" placeholder="Addres line 1" required
                             autocomplete="address1" />
                         <x-input-error :messages="$errors->get('address1')" />
                     </div>
                     <div class="mt-4">
                         <x-text-input id="address2" class="block mt-1 w-full" type="text" name="address2"
-                            :value="old('address2')" placeholder="Addres line 2" required autofocus
+                            :value="old('address2')" placeholder="Addres line 2" required
                             autocomplete="address2" />
                         <x-input-error :messages="$errors->get('address2')" />
                     </div>
                     <div class="mt-4">
                         <x-text-input id="subdistrict" class="block mt-1 w-full" type="text" name="subdistrict"
-                            :value="old('subdistrict')" placeholder="Buah Batu" required autofocus
+                            :value="old('subdistrict')" placeholder="Buah Batu" required
                             autocomplete="subdistrict" />
                         <x-input-error :messages="$errors->get('subdistrict')" />
                     </div>
                     <div class="mt-4">
                         <x-text-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')"
-                            placeholder="Bandung" required autofocus autocomplete="city" />
+                            placeholder="Bandung" required autocomplete="city" />
                         <x-input-error :messages="$errors->get('city')" />
                     </div>
                     <div class="mt-4">
@@ -130,10 +130,10 @@
 
                     <div class="grid grid-cols-2 gap-5">
                         <div class="mt-4">
-                            <x-input-label for="properties1" :value="__('Properties 1')"
+                            <x-input-label for="    es1" :value="__('Properties 1')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties1" class="block mt-1 w-full" type="text" name="properties1"
-                                :value="old('properties')" placeholder="Speaker" required autofocus
+                                :value="old('properties')" placeholder="Speaker" required
                                 autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
@@ -141,7 +141,7 @@
                             <x-input-label for="properties2" :value="__('Properties 2')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties2" class="block mt-1 w-full" type="text" name="properties2"
-                                :value="old('properties')" placeholder="Speaker" required autofocus
+                                :value="old('properties')" placeholder="Speaker" required
                                 autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
@@ -149,7 +149,7 @@
                             <x-input-label for="properties3" :value="__('Properties 3')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties3" class="block mt-1 w-full" type="text" name="properties3"
-                                :value="old('properties')" placeholder="Speaker" required autofocus
+                                :value="old('properties')" placeholder="Speaker" required
                                 autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
@@ -157,7 +157,7 @@
                             <x-input-label for="properties4" :value="__('Properties 4')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties4" class="block mt-1 w-full" type="text" name="properties4"
-                                :value="old('properties')" placeholder="Speaker" required autofocus
+                                :value="old('properties')" placeholder="Speaker" required
                                 autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
@@ -165,28 +165,28 @@
                             <x-input-label for="properties5" :value="__('Properties 5')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties5" class="block mt-1 w-full" type="text" name="properties5"
-                                :value="old('properties')" placeholder="Speaker" autocomplete="properties" />
+                                :value="old('properties')" placeholder="Speaker" required autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
                         <div class="mt-4">
                             <x-input-label for="properties6" :value="__('Properties 6')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties6" class="block mt-1 w-full" type="text" name="properties6"
-                                :value="old('properties')" placeholder="Speaker" autocomplete="properties" />
+                                :value="old('properties')" placeholder="Speaker" required autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
                         <div class="mt-4">
                             <x-input-label for="properties7" :value="__('Properties 7')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties7" class="block mt-1 w-full" type="text" name="properties7"
-                                :value="old('properties')" placeholder="Speaker" autocomplete="properties" />
+                                :value="old('properties')" placeholder="Speaker" required autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
                         <div class="mt-4">
                             <x-input-label for="properties8" :value="__('Properties 8')"
                                 style="font-weight:700; color: #3C6A91;" />
                             <x-text-input id="properties8" class="block mt-1 w-full" type="text" name="properties8"
-                                :value="old('properties')" placeholder="Speaker" autocomplete="properties" />
+                                :value="old('properties')" placeholder="Speaker" required autocomplete="properties" />
                             <x-input-error :messages="$errors->get('properties')" />
                         </div>
                     </div>
@@ -194,7 +194,7 @@
                     <div class="mt-4">
                         <label for="special_note" class="block mb-2 text-sm font-medium text-[#3C6A91]">Special
                             Note</label>
-                        <textarea id="special_note" rows="4" name="special_note"
+                        <textarea id="special_note" rows="4" name="special_note" required
                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
                             placeholder="Write your thoughts here..."></textarea>
                     </div>

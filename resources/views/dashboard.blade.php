@@ -1,8 +1,10 @@
 <x-app-layout>
-<style>
+    <style>
         ::-webkit-calendar-picker-indicator {
-    filter: invert(1);}
-</style>
+            filter: invert(1);
+        }
+
+    </style>
     <!-- Search Bar -->
     <div class="py-5 text-[#051036]">
         <div class="w-full flex flex-col items-center bg-[#f5f5f5] gap-6 py-10">
@@ -186,40 +188,48 @@
             @foreach($room as $rooms)
             <div class="w-full flex h-fit p-4" id="card-rooms">
                 <!-- Image -->
-                <div class="carousel w-3/12 mr-5" style="height: 30vh;">
-                            <div id="slide1{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
-                                <img src="/room/{{ $rooms->foto1 }}" class="w-full"  style="height:30vh;" />
-                                <div
-                                    class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                                    <a href="#slide4{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
-                                    <a href="#slide2{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
-                                </div>
-                            </div>
-                            <div id="slide2{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
-                                <img src="/room/{{ $rooms->foto2 }}" class="w-full"  style="height:30vh;"/>
-                                <div
-                                    class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                                    <a href="#slide1{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
-                                    <a href="#slide3{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
-                                </div>
-                            </div>
-                            <div id="slide3{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
-                                <img src="/room/{{ $rooms->foto3 }}" class="w-full" style="height:30vh;" />
-                                <div
-                                    class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                                    <a href="#slide2{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
-                                    <a href="#slide4{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
-                                </div>
-                            </div>
-                            <div id="slide4{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
-                                <img src="/room/{{ $rooms->foto4 }}" class="w-full"  style="height:30vh;"/>
-                                <div
-                                    class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                                    <a href="#slide3{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
-                                    <a href="#slide1{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
-                                </div>
-                            </div>
+                <div class="carousel w-3/12 mr-5 rounded-lg" style="height: 30vh;">
+                    <div id="slide1{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
+                        <div class="rounded-xl"
+                            style="background-image: url('/room/{{ $rooms->foto1 }}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+                            <img src="/assets/foto1.png" class="invisible w-full" style="height:30vh;" />
                         </div>
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide4{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
+                            <a href="#slide2{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide2{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
+                        <div class="rounded-xl"
+                            style="background-image: url('/room/{{ $rooms->foto2 }}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+                            <img src="/assets/foto1.png" class="invisible w-full" style="height:30vh;" />
+                        </div>
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide1{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
+                            <a href="#slide3{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide3{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
+                        <div class="rounded-xl"
+                            style="background-image: url('/room/{{ $rooms->foto3 }}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+                            <img src="/assets/foto1.png" class="invisible w-full" style="height:30vh;" />
+                        </div>
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide2{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
+                            <a href="#slide4{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
+                        </div>
+                    </div>
+                    <div id="slide4{{ $rooms->id }}" class="carousel-item relative w-full rounded-lg">
+                        <div class="rounded-xl"
+                            style="background-image: url('/room/{{ $rooms->foto4 }}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+                            <img src="/assets/foto1.png" class="invisible w-full" style="height:30vh;" />
+                        </div>
+                        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                            <a href="#slide3{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❮</a>
+                            <a href="#slide1{{ $rooms->id }}" class="btn btn-circle bg-transparent border-none ">❯</a>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Description -->
                 <div class="w-6/12 flex flex-col justify-center" id="description">
@@ -278,22 +288,22 @@
     </div>
     @if(Session::has('refundMessage'))
     <div id="toast-undo"
-                class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow absolute right-4 bottom-4"
-                role="alert">
-                <div class="text-sm font-normal text-gray-500"> {{ Session::get('refundMessage') }}</div>
-                <div class="flex items-center ml-auto space-x-2">
-                    <button type="button"
-                        class="bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8"
-                        data-dismiss-target="#toast-undo" aria-label="Close">
-                        <span class="sr-only">Close</span>
-                        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+        class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow absolute right-4 bottom-4"
+        role="alert">
+        <div class="text-sm font-normal text-gray-500"> {{ Session::get('refundMessage') }}</div>
+        <div class="flex items-center ml-auto space-x-2">
+            <button type="button"
+                class="bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8"
+                data-dismiss-target="#toast-undo" aria-label="Close">
+                <span class="sr-only">Close</span>
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
     @endif
 </x-app-layout>

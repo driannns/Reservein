@@ -28,7 +28,10 @@ class RoomController extends Controller
             $rooms->where('room_type', 'LIKE', '%' . $request->roomType . '%')->get();
         }
         
-        $room = $rooms->paginate(5);
+        $room = $rooms->withCount('rating')->paginate(5);
+        foreach ($room as $rooms){
+            $totalposts = $rooms->rating_count;
+        }
         return view('dashboard', compact('room'));
     }
 
