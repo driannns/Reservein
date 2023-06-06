@@ -63,6 +63,9 @@
                     <div class="w-8/12">
                         <h2 class="card-title">{{ $data->title }}</h2>
                         <p>{{ $data->description }}</p>
+                        @if(!empty($data->user_id))
+                            <a class="text-sm text-[#787DFF]"href="{{ route('partnerHistory') }}">Check order here</a>
+                        @endif
                     </div>
                     <div class="w-2/12 text-center">
                         <p>{{ date('d F', strtotime($data->created_at)) }}</p>
