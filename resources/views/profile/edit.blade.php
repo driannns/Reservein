@@ -6,7 +6,7 @@
     <x-slot name="header">
         <h2 class="Poppins text-center font-bold text-2xl text-gray-800 leading-tight"
             style="font-family:'Poppins', sans-serif;">
-            Reversein.CO
+            Reversein
         </h2>
         <p class="PTserif text-xl text-center text-[#051036]" style="font-family: 'PT Serif', serif;">Effortless Meeting At Your Finger
             Tips</p>
